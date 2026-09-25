@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>個人店のためのホームページ制作 | 小田裕貴</title>
+<meta name="description" content="公式サイトを持たない個人店向けに、実際のホームページを制作費1万円＋月額5,000円で制作しています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Shippori+Mincho:wght@600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f4ef;
+    --paper:#ffffff;
+    --ink:#242220;
+    --ink-soft:#615c53;
+    --accent:#2f6f5e;
+    --accent-text:#1f4a3e;
+    --line:#e2ddd0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{overflow-x:hidden;overscroll-behavior-x:none;max-width:100vw;}
+  body{
+    width:100%;max-width:100vw;background:var(--bg);color:var(--ink);
+    font-family:'Zen Kaku Gothic New',sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,.mincho{font-family:'Shippori Mincho',serif;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  img,.ph{display:block;}
+
+  .ph{
+    position:relative;background:linear-gradient(135deg,#d9e5df,#2f6f5e 60%,#173c31);
+    display:flex;align-items:flex-end;overflow:hidden;color:#fff;border-radius:6px;
+  }
+  .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.35),transparent 55%);}
+  .ph span{position:relative;z-index:1;padding:14px 16px;font-size:.76rem;letter-spacing:.04em;}
+
+  header.top{padding:22px 24px;border-bottom:1px solid var(--line);}
+  .top-inner{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  .brand{font-family:'Shippori Mincho',serif;font-weight:800;font-size:1.2rem;}
+  .brand small{display:block;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;color:var(--ink-soft);font-weight:500;letter-spacing:.06em;margin-top:2px;}
+  nav a{font-size:.86rem;font-weight:500;color:var(--ink-soft);margin-left:20px;}
+  nav a:hover{color:var(--accent-text);}
+
+  .hero{padding:76px 0 64px;text-align:center;}
+  .hero .eyebrow{font-size:.78rem;letter-spacing:.2em;color:var(--accent-text);font-weight:700;margin-bottom:18px;}
+  .hero h1{font-size:clamp(2rem,5.2vw,3.2rem);line-height:1.5;max-width:20ch;margin:0 auto 22px;}
+  .hero h1 em{font-style:normal;color:var(--accent-text);}
+  .hero p{max-width:46ch;margin:0 auto 30px;color:var(--ink-soft);font-size:1rem;}
+  .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;padding:14px 26px;border-radius:3px;font-weight:700;font-size:.88rem;transition:transform .25s,background .25s,box-shadow .25s;}
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 22px -10px rgba(31,74,62,.55);}
+  .btn-primary:hover{transform:translateY(-3px);background:var(--accent-text);}
+  .btn-ghost{border:1.5px solid var(--ink);color:var(--ink);}
+  .btn-ghost:hover{transform:translateY(-3px);background:var(--ink);color:var(--bg);}
+
+  .about{padding:60px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper);}
+  .about .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:start;}
+  .about h2{font-size:clamp(1.4rem,2.6vw,1.8rem);}
+  .about-body p{color:var(--ink-soft);margin-bottom:14px;font-size:.96rem;}
+
+  .works{padding:76px 0;}
+  .sec-head{text-align:center;margin-bottom:44px;}
+  .sec-head .eyebrow{font-size:.78rem;letter-spacing:.2em;color:var(--accent-text);font-weight:700;margin-bottom:10px;}
+  .sec-head h2{font-size:clamp(1.5rem,2.8vw,2rem);}
+  .sec-head p{color:var(--ink-soft);font-size:.92rem;margin-top:10px;max-width:44ch;margin-left:auto;margin-right:auto;}
+  .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .work-card{background:var(--paper);border:1px solid var(--line);border-radius:8px;overflow:hidden;transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s;}
+  .work-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px -18px rgba(36,34,32,.3);}
+  .work-card .ph{aspect-ratio:16/11;border-radius:0;}
+  .work-card-body{padding:18px 18px 22px;}
+  .work-card-body .cat{font-size:.72rem;font-weight:700;color:var(--accent-text);letter-spacing:.04em;margin-bottom:6px;}
+  .work-card-body h3{font-size:1.05rem;margin-bottom:8px;}
+  .work-card-body p{font-size:.84rem;color:var(--ink-soft);margin-bottom:14px;}
+  .work-link{font-size:.82rem;font-weight:700;color:var(--accent-text);display:inline-flex;align-items:center;gap:6px;}
+  .work-link:hover{text-decoration:underline;}
+
+  .process{padding:76px 0;background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:20px;}
+  .step{padding:0 4px;}
+  .step .n{font-family:'Shippori Mincho',serif;font-size:2rem;font-weight:800;color:var(--accent);margin-bottom:10px;}
+  .step h3{font-size:1rem;margin-bottom:8px;}
+  .step p{font-size:.86rem;color:var(--ink-soft);}
+
+  .pricing{padding:76px 0;}
+  .price-card{
+    max-width:560px;margin:0 auto;background:var(--paper);border:1px solid var(--line);
+    border-radius:12px;padding:clamp(28px,4vw,44px);text-align:center;
+  }
+  .price-card h3{font-size:1.15rem;margin-bottom:6px;}
+  .price-row{display:flex;justify-content:center;gap:36px;margin:26px 0;flex-wrap:wrap;}
+  .price-item .amount{font-family:'Shippori Mincho',serif;font-size:2.1rem;font-weight:800;color:var(--accent-text);}
+  .price-item .label{font-size:.8rem;color:var(--ink-soft);margin-top:4px;}
+  .price-note{font-size:.84rem;color:var(--ink-soft);margin-top:10px;}
+
+  .contact{padding:0 0 90px;}
+  .contact-panel{
+    border-radius:20px;background:linear-gradient(150deg,#173c31,#2f6f5e 70%);
+    color:#f2f6f2;padding:clamp(40px,6vw,64px);text-align:center;
+  }
+  .contact-panel h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:14px;}
+  .contact-panel p{color:#d8e6de;max-width:44ch;margin:0 auto 28px;font-size:.94rem;}
+  .contact-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .btn-light{background:#fff;color:var(--accent-text);}
+  .btn-light:hover{transform:translateY(-3px);box-shadow:0 12px 24px -10px rgba(0,0,0,.35);}
+  .btn-outline-light{border:1.5px solid #fff;color:#fff;}
+  .btn-outline-light:hover{transform:translateY(-3px);background:#fff;color:var(--accent-text);}
+
+  footer{padding:26px 24px;text-align:center;font-size:.74rem;color:var(--ink-soft);border-top:1px solid var(--line);}
+
+  @media (max-width:860px){
+    .about .wrap{grid-template-columns:1fr;gap:24px;}
+    .work-grid{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr;gap:24px;}
+    .price-row{gap:20px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">小田裕貴<small>WEB ENGINEER / 個人店様向けサイト制作</small></div>
+    <nav>
+      <a href="#works">制作サンプル</a>
+      <a href="#pricing">料金</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">WEBSITE FOR INDEPENDENT SHOPS</div>
+    <h1>個人店のための、<br><em>ちゃんとしたホームページ</em>を。</h1>
+    <p>公式サイトを持たない飲食店・雑貨店・サロンなど、個人経営のお店に向けて、フリーランスのWebエンジニアがホームページを制作しています。制作費1万円＋月額5,000円というシンプルな料金で、SNSだけでは届けきれないお店の魅力を形にします。</p>
+    <div class="hero-cta">
+      <a href="#works" class="btn btn-primary">制作サンプルを見る</a>
+      <a href="#contact" class="btn btn-ghost">相談してみる</a>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <h2 class="mincho">なぜ、<br>個人店に特化しているか。</h2>
+    <div class="about-body">
+      <p>Instagramだけで集客している個人店は多くありますが、検索に出てこない・お店の世界観を伝えきれない・予約導線が分かりにくいといった課題を抱えていることが少なくありません。</p>
+      <p>大きな制作会社に頼むには予算のハードルが高く、かといって自分でホームページを作る時間もない——そんなお店に向けて、必要十分な機能に絞ったシンプルなホームページを、続けやすい料金で提供しています。</p>
+      <p>普段はPHP/Laravelを中心にフリーランスのシステムエンジニアとして活動しており、Web制作は個人店向けに特化したサービスとして別途行っています。</p>
+    </div>
+  </div>
+</section>
+
+<section class="works" id="works">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">WORKS</div>
+      <h2 class="mincho">制作サンプル</h2>
+      <p>ご依頼をいただく前に、スキルを示すために自主的に制作したサンプルサイトです。実際にご依頼いただいた場合は、お店の写真や情報に差し替えて仕上げます。</p>
+    </div>
+    <div class="work-grid">
+      <div class="work-card">
+        <div class="ph"><span>雑貨店サンプル</span></div>
+        <div class="work-card-body">
+          <div class="cat">雑貨店・セレクトショップ</div>
+          <h3>雑貨・セレクトショップ様向け</h3>
+          <p>作家ものの陶器・ガラスを扱うセレクトショップを想定したサンプルです。</p>
+          <a class="work-link" href="./miuchi-zakkaten/" target="_blank" rel="noopener">サンプルを見る →</a>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="ph"><span>ベーカリーサンプル</span></div>
+        <div class="work-card-body">
+          <div class="cat">ベーカリー</div>
+          <h3>ベーカリー様向け</h3>
+          <p>自家製酵母のパン専門店を想定したサンプルです。</p>
+          <a class="work-link" href="./akikki/" target="_blank" rel="noopener">サンプルを見る →</a>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="ph"><span>飲食店サンプル</span></div>
+        <div class="work-card-body">
+          <div class="cat">飲食店</div>
+          <h3>飲食店様向け</h3>
+          <p>こだわり食材を使った専門店を想定したサンプルです。</p>
+          <a class="work-link" href="./onigiri-kometaku/" target="_blank" rel="noopener">サンプルを見る →</a>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:24px;font-size:.8rem;color:var(--ink-soft);">※ サンプルはパスワード付き非公開ページです。閲覧用パスワードは個別にお伝えします。</p>
+  </div>
+</section>
+
+<section class="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">PROCESS</div>
+      <h2 class="mincho">制作の流れ</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="n">01</div>
+        <h3>ヒアリング</h3>
+        <p>お店の雰囲気・メニューやサービス内容・お問い合わせ方法など、必要な情報を確認します。</p>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <h3>制作・確認</h3>
+        <p>デザインを起こし、実際の写真や情報を反映。公開前に内容をご確認いただきます。</p>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <h3>公開・運用</h3>
+        <p>公開後は月額の中でホスティング・簡単な更新対応まで含めてサポートします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">PRICING</div>
+      <h2 class="mincho">料金</h2>
+    </div>
+    <div class="price-card">
+      <h3 class="mincho">シンプルプラン</h3>
+      <div class="price-row">
+        <div class="price-item">
+          <div class="amount">¥10,000</div>
+          <div class="label">初期制作費（一括）</div>
+        </div>
+        <div class="price-item">
+          <div class="amount">¥5,000</div>
+          <div class="label">月額運用・維持費</div>
+        </div>
+      </div>
+      <p class="price-note">ホスティング・簡単な情報更新を含みます。ご予約フォームは含まれません（別途ご相談可）。お支払いはStripeによるオンライン決済に対応しています。</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-panel">
+      <h2 class="mincho">まずは気軽にご相談ください。</h2>
+      <p>「うちのお店でもできる？」というご相談だけでも歓迎です。まずはお気軽にご連絡ください。</p>
+      <div class="contact-btns">
+        <a href="https://www.instagram.com/oda.yuuki.work/" target="_blank" rel="noopener" class="btn btn-light">Instagramで相談する</a>
+        <a href="mailto:yuuki.oda.work@gmail.com" class="btn btn-outline-light">メールで相談する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 小田裕貴 — 個人店様向けホームページ制作</footer>
+
+</body>
+</html>
