@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>サンプルベーカリー | 制作サンプル</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf3e6;
+    --bg2:#f1e4cc;
+    --ink:#3a2f22;
+    --ink-soft:#6b5c47;
+    --wheat:#c98a2c;
+    --wheat-text:#8a5c16;
+    --brick:#a8462f;
+    --brick-text:#7c3220;
+    --line:#e3d3ad;
+    --paper:#fffbf3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{
+    overflow-x:hidden;
+    overscroll-behavior-x:none;
+    max-width:100vw;
+  }
+  body{
+    width:100%;
+    max-width:100vw;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Zen Kaku Gothic New',sans-serif;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.mincho{font-family:'Shippori Mincho',serif;}
+  img,.ph{display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+
+  /* placeholder image boxes */
+  .ph{
+    position:relative;
+    background:linear-gradient(135deg,#e8c98a 0%,#c98a2c 55%,#8a5c16 100%);
+    display:flex;align-items:flex-end;justify-content:flex-start;
+    color:#fff;
+    overflow:hidden;
+  }
+  .ph::after{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(0deg,rgba(0,0,0,.35),transparent 55%);
+  }
+  .ph span{
+    position:relative;z-index:1;
+    padding:14px 18px;
+    font-size:.78rem;
+    letter-spacing:.06em;
+  }
+  .ph.b{background:linear-gradient(135deg,#d8b06c,#a8462f);}
+  .ph.c{background:linear-gradient(135deg,#f0dfb8,#c98a2c 60%,#6b4a1a);}
+
+  /* ===== top bar : plain inline text nav, no blur/fixed ===== */
+  header.top{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .top-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 24px;
+    max-width:1120px;margin:0 auto;
+    gap:16px;flex-wrap:wrap;
+  }
+  .logo{
+    font-family:'Shippori Mincho',serif;
+    font-size:1.5rem;font-weight:700;
+    letter-spacing:.08em;
+  }
+  .logo small{
+    display:block;font-family:'Zen Kaku Gothic New',sans-serif;
+    font-size:.62rem;font-weight:500;color:var(--ink-soft);
+    letter-spacing:.18em;margin-top:2px;
+  }
+  nav.textnav{display:flex;gap:22px;font-size:.86rem;font-weight:500;flex-wrap:wrap;}
+  nav.textnav a{
+    position:relative;padding-bottom:3px;color:var(--ink-soft);
+    transition:color .25s;
+  }
+  nav.textnav a:hover{color:var(--brick-text);}
+  nav.textnav a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:2px;
+    background:var(--wheat);transition:width .3s ease;
+  }
+  nav.textnav a:hover::after{width:100%;}
+
+  /* ===== hero : diagonal clip-path split ===== */
+  .hero{
+    position:relative;
+    display:grid;grid-template-columns:1.05fr .95fr;
+    min-height:78vh;
+  }
+  .hero-text{
+    display:flex;flex-direction:column;justify-content:center;
+    padding:56px clamp(24px,5vw,72px);
+    background:var(--bg);
+    position:relative;z-index:2;
+  }
+  .eyebrow{
+    font-size:.76rem;letter-spacing:.22em;color:var(--brick-text);
+    font-weight:700;margin-bottom:18px;
+  }
+  .hero-text h1{
+    font-size:clamp(2.4rem,6vw,4.1rem);
+    line-height:1.25;color:var(--ink);
+    margin-bottom:22px;
+  }
+  .hero-text h1 em{
+    font-style:normal;color:var(--wheat-text);
+  }
+  .hero-text p{
+    max-width:38ch;color:var(--ink-soft);font-size:1rem;margin-bottom:30px;
+  }
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 26px;border-radius:2px;
+    font-size:.88rem;font-weight:700;letter-spacing:.03em;
+    transition:transform .25s cubic-bezier(.2,.7,.3,1),background .25s,box-shadow .25s;
+  }
+  .btn-primary{background:var(--brick);color:#fff;box-shadow:0 8px 20px -8px rgba(124,50,32,.6);}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 26px -10px rgba(124,50,32,.7);}
+  .btn-ghost{border:1.5px solid var(--ink);color:var(--ink);}
+  .btn-ghost:hover{transform:translateY(-3px);background:var(--ink);color:var(--bg);}
+
+  .hero-imgwrap{
+    position:relative;
+    clip-path:polygon(18% 0,100% 0,100% 100%,0% 100%);
+  }
+  .hero-imgwrap .ph{width:100%;height:100%;min-height:420px;}
+
+  /* ===== intro strip ===== */
+  .intro{
+    padding:70px 0;border-bottom:1px solid var(--line);
+  }
+  .intro .wrap{
+    display:grid;grid-template-columns:.9fr 1.6fr;gap:48px;align-items:start;
+  }
+  .intro h2{
+    font-size:clamp(1.6rem,3vw,2.1rem);color:var(--ink);
+  }
+  .intro-body p{color:var(--ink-soft);margin-bottom:16px;font-size:.98rem;}
+  .intro-body p:last-child{margin-bottom:0;}
+  .tag-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;}
+  .tag{
+    font-size:.74rem;font-weight:700;letter-spacing:.04em;
+    padding:7px 14px;border-radius:99px;
+    background:var(--bg2);color:var(--wheat-text);
+    border:1px solid var(--line);
+  }
+
+  /* ===== filmstrip gallery : horizontal scroll-snap ===== */
+  .filmstrip-section{padding:70px 0;background:var(--paper);border-bottom:1px solid var(--line);}
+  .filmstrip-section .wrap > .sec-head{margin-bottom:28px;}
+  .sec-head .eyebrow{margin-bottom:8px;}
+  .sec-head h2{font-size:clamp(1.5rem,2.8vw,2rem);}
+  .filmstrip{
+    display:flex;gap:16px;overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding:4px 24px 18px;
+    margin:0 -24px;
+    -webkit-overflow-scrolling:touch;
+  }
+  .filmstrip::-webkit-scrollbar{height:6px;}
+  .filmstrip::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px;}
+  .film-item{
+    flex:0 0 auto;width:min(72vw,300px);
+    scroll-snap-align:start;
+  }
+  .film-item .ph{
+    width:100%;aspect-ratio:4/5;border-radius:3px;
+    transition:transform .35s cubic-bezier(.2,.7,.3,1);
+  }
+  .film-item:hover .ph{transform:scale(1.02);}
+  .film-cap{margin-top:10px;font-size:.86rem;font-weight:700;}
+  .film-cap span{display:block;font-weight:500;color:var(--ink-soft);font-size:.78rem;margin-top:2px;}
+
+  /* ===== menu : accordion / tabbed ===== */
+  .menu-section{padding:76px 0;}
+  .tabs{display:flex;gap:10px;margin-bottom:8px;flex-wrap:wrap;}
+  .tab-btn{
+    padding:10px 20px;border-radius:2px;font-size:.86rem;font-weight:700;
+    border:1.5px solid var(--line);background:var(--paper);color:var(--ink-soft);
+    cursor:pointer;transition:all .25s;
+  }
+  .tab-btn.active{background:var(--ink);color:var(--bg);border-color:var(--ink);}
+  .accordion{border-top:1px solid var(--line);margin-top:18px;}
+  .acc-item{border-bottom:1px solid var(--line);}
+  .acc-head{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:22px 4px;cursor:pointer;gap:20px;
+  }
+  .acc-head h3{font-size:1.08rem;font-weight:700;color:var(--ink);}
+  .acc-head .price{
+    font-weight:700;color:var(--wheat-text);white-space:nowrap;font-size:.98rem;
+  }
+  .acc-head .plus{
+    font-size:1.3rem;color:var(--ink-soft);transition:transform .3s;flex-shrink:0;
+  }
+  .acc-item.open .plus{transform:rotate(45deg);}
+  .acc-body{
+    max-height:0;overflow:hidden;transition:max-height .35s ease;
+  }
+  .acc-item.open .acc-body{max-height:160px;}
+  .acc-body p{padding:0 4px 22px;color:var(--ink-soft);font-size:.92rem;max-width:60ch;}
+  .menu-panel{display:none;}
+  .menu-panel.active{display:block;}
+
+  /* ===== story / pull section ===== */
+  .story{
+    padding:76px 0;background:var(--bg2);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .story-quote{
+    font-family:'Shippori Mincho',serif;
+    font-size:clamp(1.3rem,2.6vw,1.8rem);
+    line-height:1.85;color:var(--ink);
+    position:relative;padding-left:26px;
+    border-left:3px solid var(--brick);
+  }
+  .story-sub{margin-top:22px;color:var(--ink-soft);font-size:.9rem;}
+  .story .ph{aspect-ratio:1/1;border-radius:3px;}
+
+  /* ===== access ===== */
+  .access{padding:76px 0;}
+  .access .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+  .info-list{border-top:1px solid var(--line);}
+  .info-row{
+    display:grid;grid-template-columns:96px 1fr;gap:16px;
+    padding:18px 0;border-bottom:1px solid var(--line);font-size:.92rem;
+  }
+  .info-row dt{color:var(--ink-soft);font-weight:700;letter-spacing:.03em;}
+  .info-row dd{color:var(--ink);}
+  .note{
+    margin-top:18px;font-size:.82rem;color:var(--brick-text);
+    background:#fbeee6;border:1px solid #f0d3c4;padding:12px 14px;border-radius:2px;
+  }
+  .access .ph{width:100%;height:100%;min-height:280px;border-radius:3px;}
+
+  /* ===== contact : rounded gradient panel ===== */
+  .contact{padding:0 0 90px;}
+  .contact-panel{
+    border-radius:28px;
+    background:linear-gradient(155deg,#3a2f22 0%,#5c4326 55%,#8a5c16 100%);
+    color:#fdf6ea;
+    padding:clamp(40px,6vw,72px);
+    text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .contact-panel::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 80% 10%,rgba(255,255,255,.12),transparent 55%);
+  }
+  .contact-panel h2{
+    font-size:clamp(1.7rem,3.4vw,2.5rem);margin-bottom:14px;position:relative;
+  }
+  .contact-panel p{
+    color:#e6d9c0;max-width:46ch;margin:0 auto 30px;font-size:.96rem;position:relative;
+  }
+  .contact-btns{
+    display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;
+  }
+  .btn-light{background:#fdf6ea;color:var(--ink);}
+  .btn-light:hover{transform:translateY(-3px);box-shadow:0 12px 24px -10px rgba(0,0,0,.4);}
+  .btn-outline-light{border:1.5px solid #fdf6ea;color:#fdf6ea;}
+  .btn-outline-light:hover{transform:translateY(-3px);background:#fdf6ea;color:var(--ink);}
+  .disclaimer{
+    margin-top:26px;font-size:.74rem;color:#cbb992;position:relative;
+  }
+
+  footer{
+    padding:26px 24px;text-align:center;font-size:.74rem;color:var(--ink-soft);
+    border-top:1px solid var(--line);
+  }
+
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr;min-height:auto;}
+    .hero-imgwrap{clip-path:none;order:-1;}
+    .hero-imgwrap .ph{min-height:260px;}
+    .hero-text{padding:40px 24px;}
+    .intro .wrap{grid-template-columns:1fr;gap:20px;}
+    .story .wrap{grid-template-columns:1fr;gap:32px;}
+    .story .ph{aspect-ratio:16/10;}
+    .access .wrap{grid-template-columns:1fr;gap:28px;}
+    nav.textnav{gap:14px;font-size:.8rem;width:100%;justify-content:flex-start;}
+  }
+  @media (max-width:520px){
+    .film-item{width:78vw;}
+  }
+
+  /* ===== password gate ===== */
+  #gate{
+    position:fixed;inset:0;z-index:9999;
+    background:linear-gradient(155deg,#3a2f22,#6b4a1a);
+    display:flex;align-items:center;justify-content:center;
+    padding:24px;
+  }
+  #gate .box{
+    background:#fdf6ea;border-radius:6px;
+    padding:clamp(28px,5vw,48px);max-width:380px;width:100%;
+    text-align:center;
+  }
+  #gate h2{font-family:'Shippori Mincho',serif;font-size:1.4rem;color:var(--ink);margin-bottom:8px;}
+  #gate p{font-size:.84rem;color:var(--ink-soft);margin-bottom:22px;}
+  #gate input{
+    width:100%;padding:13px 14px;font-size:16px;
+    border:1.5px solid var(--line);border-radius:3px;margin-bottom:12px;
+    font-family:inherit;
+  }
+  #gate button{
+    width:100%;padding:13px;border:none;border-radius:3px;
+    background:var(--brick);color:#fff;font-weight:700;font-size:.94rem;
+    cursor:pointer;transition:background .25s;
+  }
+  #gate button:hover{background:var(--brick-text);}
+  #gate .err{color:var(--brick-text);font-size:.8rem;margin-top:10px;min-height:1.2em;}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="logo">サンプルベーカリー<small>SELF-YEAST BAGEL / SAMPLE</small></div>
+    <nav class="textnav">
+      <a href="#about">お店について</a>
+      <a href="#gallery">ベーグル</a>
+      <a href="#menu">メニュー</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="eyebrow">MATSUMOTO CITY / HIDDEN ALLEY BAGEL</div>
+    <h1>路地裏でひっそり焼く、<br><em>自家製酵母</em>のベーグル。</h1>
+    <p>とある街の路地の奥という想定のサンプルです。厳選した小麦の風味を活かした、噛むほどに味わい深い自家製酵母ベーグル専門店という設定です。</p>
+    <div class="hero-cta">
+      <a href="#menu" class="btn btn-primary">メニューを見る</a>
+      <a href="#access" class="btn btn-ghost">営業日・アクセス</a>
+    </div>
+  </div>
+  <div class="hero-imgwrap">
+    <div class="ph"><span>Placeholder — 店頭の様子</span></div>
+  </div>
+</section>
+
+<section class="intro" id="about">
+  <div class="wrap">
+    <h2 class="mincho">こだわりの、<br>ベーグルづくり。</h2>
+    <div class="intro-body">
+      <p>店主は素材と向き合うパン作りを追求し、修行を経て小さな店を構えたという想定です。小さな厨房から一つひとつ丁寧にベーグルを焼いている、というサンプルストーリーです。</p>
+      <p>使用するのは厳選した小麦粉と、時間をかけて起こした自家製酵母、という設定です。イースト任せの製法とは違う、じっくりとした発酵が生むもっちりとした食感と滋味深い香りが特徴です。</p>
+      <div class="tag-row">
+        <span class="tag">自家製酵母</span>
+        <span class="tag">北海道産小麦</span>
+        <span class="tag">隠れ家・路地裏</span>
+        <span class="tag">完全数量限定</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="filmstrip-section" id="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">GALLERY</div>
+      <h2 class="mincho">焼き上がりの表情</h2>
+    </div>
+    <div class="filmstrip">
+      <div class="film-item">
+        <div class="ph"><span>プレーンベーグル</span></div>
+        <div class="film-cap">プレーン<span>毎朝焼き上がる定番</span></div>
+      </div>
+      <div class="film-item">
+        <div class="ph b"><span>店内の様子</span></div>
+        <div class="film-cap">二坪の厨房<span>目の前で仕上げる焼き場</span></div>
+      </div>
+      <div class="film-item">
+        <div class="ph c"><span>季節のベーグル</span></div>
+        <div class="film-cap">季節限定<span>旬の素材を練り込んで</span></div>
+      </div>
+      <div class="film-item">
+        <div class="ph"><span>路地の外観</span></div>
+        <div class="film-cap">路地裏の外観<span>路地裏の静かな一角</span></div>
+      </div>
+      <div class="film-item">
+        <div class="ph b"><span>断面カット</span></div>
+        <div class="film-cap">もっちり断面<span>自家製酵母ならではの食感</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu-section" id="menu">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">MENU</div>
+      <h2 class="mincho">ベーグル一覧</h2>
+    </div>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="regular">定番</button>
+      <button class="tab-btn" data-tab="season">季節限定</button>
+    </div>
+
+    <div class="menu-panel active" data-panel="regular">
+      <div class="accordion">
+        <div class="acc-item open">
+          <div class="acc-head">
+            <h3>プレーン</h3>
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span class="price">¥280</span><span class="plus">+</span>
+            </div>
+          </div>
+          <div class="acc-body"><p>小麦の風味をまっすぐ楽しめる定番。そのままでもトーストでも。</p></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head">
+            <h3>全粒粉</h3>
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span class="price">¥300</span><span class="plus">+</span>
+            </div>
+          </div>
+          <div class="acc-body"><p>香ばしい全粒粉をブレンド。噛みごたえと素朴な甘みが特徴。</p></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head">
+            <h3>クリームチーズ</h3>
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span class="price">¥330</span><span class="plus">+</span>
+            </div>
+          </div>
+          <div class="acc-body"><p>生地に練り込んだクリームチーズがほのかな酸味とコクを添える一本。</p></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head">
+            <h3>ごま</h3>
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span class="price">¥280</span><span class="plus">+</span>
+            </div>
+          </div>
+          <div class="acc-body"><p>香ばしい黒ごまと白ごまをたっぷりまぶした、風味豊かな一本。</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-panel" data-panel="season">
+      <div class="accordion">
+        <div class="acc-item open">
+          <div class="acc-head">
+            <h3>季節の果実ベーグル</h3>
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span class="price">¥350〜</span><span class="plus">+</span>
+            </div>
+          </div>
+          <div class="acc-body"><p>その時期の旬の果実やナッツを練り込んだ限定品。入荷状況により内容が変わります。</p></div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-head">
+            <h3>信州味噌くるみ</h3>
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span class="price">¥340</span><span class="plus">+</span>
+            </div>
+          </div>
+          <div class="acc-body"><p>地元の味噌とくるみを合わせた、季節限定の一本。</p></div>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top:26px;font-size:.84rem;color:var(--ink-soft);">※ 焼き上げ数に限りがあり、売り切れ次第終了となります。すべてお会計は現金のみとなります。</p>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap">
+    <div>
+      <div class="ph b"><span>店主のパン作りの様子</span></div>
+    </div>
+    <div>
+      <p class="story-quote mincho">「イーストに頼らず、酵母がゆっくり育つ時間を待つ。<br>それが、うちのベーグルの味になる。」</p>
+      <p class="story-sub">— 素材と向き合うところから始まったパン作りを、小さな路地裏で続けている、というサンプルストーリーです。</p>
+    </div>
+  </div>
+</section>
+
+<section class="access" id="access">
+  <div class="wrap">
+    <div>
+      <div class="sec-head">
+        <div class="eyebrow">ACCESS</div>
+        <h2 class="mincho">営業日・アクセス</h2>
+      </div>
+      <dl class="info-list">
+        <div class="info-row"><dt>住所</dt><dd>○○県○○市○-○-○</dd></div>
+        <div class="info-row"><dt>営業日</dt><dd>火・木・土曜日</dd></div>
+        <div class="info-row"><dt>営業時間</dt><dd>12:00〜18:00（売り切れ次第終了）</dd></div>
+        <div class="info-row"><dt>お支払い</dt><dd>現金のみ</dd></div>
+        <div class="info-row"><dt>アクセス</dt><dd>最寄り駅より徒歩圏内の路地奥</dd></div>
+      </dl>
+      <p class="note">※ 完全数量限定のため、確実に手に入れたい方はInstagramで焼き上げ状況をご確認のうえお越しください。</p>
+    </div>
+    <div>
+      <div class="ph c"><span>Placeholder — 地図/外観</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-panel">
+      <h2 class="mincho">焼きたてのベーグルを、<br>路地の奥から。</h2>
+      <p>営業日や焼き上がり状況は、Instagramで随時更新しています。ぜひフォローしてチェックしてみてください。</p>
+      <div class="contact-btns">
+        <a href="tel:0000000000" class="btn btn-light">電話で問い合わせる</a>
+        <a href="#" target="_blank" rel="noopener" class="btn btn-outline-light">Instagramを見る</a>
+      </div>
+      <p class="disclaimer">※ このサイトは制作サンプルです。ご予約フォームは含まれておりません。掲載写真はすべてイメージのプレースホルダーです。</p>
+    </div>
+  </div>
+</section>
+
+<footer>© サンプルベーカリー — this is a portfolio demo mockup, not a real business's website.</footer>
+
+<div id="gate">
+  <div class="box">
+    <h2 class="mincho">サンプルベーカリー</h2>
+    <p>このサイトはプレビュー版です。パスワードを入力してください。</p>
+    <input type="password" id="gate-input" placeholder="パスワード" autocomplete="off">
+    <button id="gate-btn">見る</button>
+    <div class="err" id="gate-err"></div>
+  </div>
+</div>
+
+<script>
+  // ---- password gate ----
+  var SITE_PASSWORD = "demo2026"; // 店舗ごとに変更可能
+  (function(){
+    var gate = document.getElementById('gate');
+    var input = document.getElementById('gate-input');
+    var btn = document.getElementById('gate-btn');
+    var err = document.getElementById('gate-err');
+    var already = sessionStorage.getItem('demo_unlocked') === '1';
+
+    if(already){
+      gate.style.display = 'none';
+    } else {
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function tryUnlock(){
+      if(input.value === SITE_PASSWORD){
+        sessionStorage.setItem('demo_unlocked','1');
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0,0);
+        gate.style.display = 'none';
+      } else {
+        err.textContent = 'パスワードが違います。';
+      }
+    }
+    btn.addEventListener('click', tryUnlock);
+    input.addEventListener('keydown', function(e){
+      if(e.key === 'Enter') tryUnlock();
+    });
+  })();
+
+  // ---- menu tabs ----
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.menu-panel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector('.menu-panel[data-panel="'+btn.dataset.tab+'"]').classList.add('active');
+    });
+  });
+
+  // ---- accordion ----
+  document.querySelectorAll('.acc-head').forEach(function(head){
+    head.addEventListener('click', function(){
+      head.parentElement.classList.toggle('open');
+    });
+  });
+</script>
+
+</body>
+</html>

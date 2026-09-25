@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>サンプル飲食店 | 制作サンプル</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f2e9;
+    --paper:#fffdf8;
+    --ink:#2c2620;
+    --ink-soft:#6a5f4f;
+    --rice:#e8dcc0;
+    --nori:#2f3b2c;
+    --ume:#b23a2f;
+    --ume-text:#8a2b22;
+    --gold:#af8a2f;
+    --gold-text:#856a20;
+    --line:#e3d8bd;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{overflow-x:hidden;overscroll-behavior-x:none;max-width:100vw;}
+  body{
+    width:100%;max-width:100vw;
+    background:var(--bg);color:var(--ink);
+    font-family:'Noto Sans JP',sans-serif;
+    line-height:1.8;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.mincho{font-family:'Zen Old Mincho',serif;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
+
+  .ph{
+    position:relative;background:linear-gradient(160deg,#efe6cf 0%,#cbb877 45%,#6a5622 100%);
+    display:flex;align-items:flex-end;overflow:hidden;color:#fff;
+  }
+  .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.4),transparent 50%);}
+  .ph span{position:relative;z-index:1;padding:14px 18px;font-size:.78rem;letter-spacing:.05em;}
+  .ph.ume{background:linear-gradient(160deg,#e8cfc4,#b23a2f 55%,#5c1a12);}
+  .ph.nori{background:linear-gradient(160deg,#cdd6c6,#5c6b54 55%,#1f2919);}
+
+  /* ===== bottom-anchored mobile-first nav bar (fixed to bottom, unlike prior top navs) ===== */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brandmark{display:flex;align-items:center;gap:10px;}
+  .brandmark .dot{
+    width:34px;height:34px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,#fff 0 8%, var(--nori) 9% 100%);
+    flex-shrink:0;
+  }
+  .brandmark span{font-family:'Zen Old Mincho',serif;font-weight:900;font-size:1.15rem;letter-spacing:.04em;}
+  .cta-mini{
+    font-size:.8rem;font-weight:700;padding:10px 18px;border-radius:99px;
+    background:var(--ume);color:#fff;transition:background .25s,transform .25s;
+  }
+  .cta-mini:hover{background:var(--ume-text);transform:translateY(-2px);}
+
+  /* ===== hero : centered text, large photo strip below (distinct from split/diagonal heroes used before) ===== */
+  .hero{padding:64px 0 0;text-align:center;}
+  .hero .eyebrow{
+    font-size:.78rem;letter-spacing:.22em;color:var(--ume-text);font-weight:700;margin-bottom:20px;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem,6vw,3.8rem);line-height:1.4;color:var(--ink);
+    margin:0 auto 22px;max-width:16ch;
+  }
+  .hero h1 em{font-style:normal;color:var(--ume-text);}
+  .hero p{max-width:44ch;margin:0 auto 34px;color:var(--ink-soft);font-size:1rem;}
+  .hero-strip{
+    display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:14px;
+    padding:0 24px 0;max-width:1140px;margin:0 auto;
+  }
+  .hero-strip .ph{aspect-ratio:4/3;border-radius:4px;}
+  .hero-strip .ph:first-child{aspect-ratio:16/10;}
+
+  /* ===== about ===== */
+  .about{padding:80px 0;}
+  .about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .about-img .ph{aspect-ratio:1/1;border-radius:4px;}
+  .about h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:20px;}
+  .about p{color:var(--ink-soft);margin-bottom:16px;font-size:.98rem;}
+  .tagrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;}
+  .tag{
+    font-size:.74rem;font-weight:700;padding:7px 14px;border-radius:99px;
+    background:var(--rice);color:var(--gold-text);border:1px solid var(--line);
+  }
+
+  /* ===== menu : vertical numbered editorial list (distinct from tab/accordion used before) ===== */
+  .menu{padding:80px 0;background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .sec-head{text-align:center;margin-bottom:48px;}
+  .sec-head .eyebrow{font-size:.78rem;letter-spacing:.22em;color:var(--ume-text);font-weight:700;margin-bottom:10px;}
+  .sec-head h2{font-size:clamp(1.6rem,3vw,2.2rem);}
+  .menu-list{max-width:760px;margin:0 auto;border-top:1px solid var(--line);}
+  .menu-row{
+    display:grid;grid-template-columns:52px 1fr auto;gap:18px;align-items:baseline;
+    padding:24px 4px;border-bottom:1px solid var(--line);
+  }
+  .menu-row .num{
+    font-family:'Zen Old Mincho',serif;font-size:1.3rem;font-weight:900;color:var(--gold-text);
+  }
+  .menu-row h3{font-size:1.08rem;font-weight:700;margin-bottom:4px;}
+  .menu-row p{font-size:.86rem;color:var(--ink-soft);}
+  .menu-row .price{font-weight:700;color:var(--ume-text);white-space:nowrap;font-size:.98rem;}
+
+  /* ===== gallery : asymmetric bento grid (distinct from filmstrip/masonry used before) ===== */
+  .gallery{padding:80px 0;}
+  .bento{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-auto-rows:140px;
+    gap:14px;
+  }
+  .bento .ph{border-radius:4px;height:100%;}
+  .bento .b1{grid-column:1/3;grid-row:1/3;}
+  .bento .b2{grid-column:3/5;grid-row:1/2;}
+  .bento .b3{grid-column:3/4;grid-row:2/4;}
+  .bento .b4{grid-column:4/5;grid-row:2/3;}
+  .bento .b5{grid-column:1/2;grid-row:3/4;}
+  .bento .b6{grid-column:2/4;grid-row:3/4;}
+  .bento .b7{grid-column:4/5;grid-row:3/4;}
+
+  /* ===== story pull-band, full width color ===== */
+  .story-band{
+    padding:70px 0;background:var(--nori);color:#f2ece0;text-align:center;
+  }
+  .story-band blockquote{
+    font-family:'Zen Old Mincho',serif;font-size:clamp(1.3rem,2.8vw,1.9rem);
+    max-width:30ch;margin:0 auto 18px;line-height:1.9;
+  }
+  .story-band cite{font-style:normal;font-size:.84rem;color:#c9c1ab;}
+
+  /* ===== access ===== */
+  .access{padding:80px 0;}
+  .access .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+  .info-list{border-top:1px solid var(--line);}
+  .info-row{
+    display:grid;grid-template-columns:96px 1fr;gap:16px;
+    padding:18px 0;border-bottom:1px solid var(--line);font-size:.92rem;
+  }
+  .info-row dt{font-weight:700;color:var(--ink-soft);}
+  .info-row dd{color:var(--ink);}
+  .note{
+    margin-top:18px;font-size:.82rem;color:var(--ume-text);
+    background:#f9ece9;border:1px solid #eccfc7;padding:12px 14px;border-radius:4px;
+  }
+  .access .ph{width:100%;height:100%;min-height:280px;border-radius:4px;}
+
+  /* ===== contact : split with rounded card left / plain text right ===== */
+  .contact{padding:0 0 90px;}
+  .contact-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    border-radius:20px;overflow:hidden;
+    box-shadow:0 20px 50px -25px rgba(44,38,32,.35);
+  }
+  .contact-left{
+    background:var(--ume);color:#fff;padding:clamp(36px,5vw,56px);
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .contact-left h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:14px;}
+  .contact-left p{color:#ffe3dd;font-size:.92rem;margin-bottom:26px;max-width:34ch;}
+  .contact-btns{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;padding:13px 22px;border-radius:99px;
+    font-size:.86rem;font-weight:700;transition:transform .25s,background .25s,box-shadow .25s;
+  }
+  .btn-light{background:#fff;color:var(--ume-text);}
+  .btn-light:hover{transform:translateY(-3px);box-shadow:0 12px 22px -10px rgba(0,0,0,.35);}
+  .btn-outline{border:1.5px solid #fff;color:#fff;}
+  .btn-outline:hover{transform:translateY(-3px);background:#fff;color:var(--ume-text);}
+  .contact-right{
+    background:var(--paper);padding:clamp(36px,5vw,56px);
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .contact-right h3{font-size:1.05rem;margin-bottom:14px;color:var(--ink);}
+  .contact-right p{font-size:.88rem;color:var(--ink-soft);margin-bottom:10px;}
+  .disclaimer{margin-top:8px;font-size:.76rem;color:var(--ink-soft);}
+
+  footer{
+    padding:26px 24px;text-align:center;font-size:.74rem;color:var(--ink-soft);
+    border-top:1px solid var(--line);
+  }
+
+  @media (max-width:860px){
+    .about .wrap{grid-template-columns:1fr;gap:30px;}
+    .hero-strip{grid-template-columns:1fr 1fr;}
+    .hero-strip .ph:first-child{grid-column:1/3;}
+    .bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px;}
+    .bento .b1{grid-column:1/3;grid-row:1/2;}
+    .bento .b2{grid-column:1/2;grid-row:2/3;}
+    .bento .b3{grid-column:2/3;grid-row:2/4;}
+    .bento .b4{grid-column:1/2;grid-row:3/4;}
+    .bento .b5{grid-column:1/2;grid-row:4/5;}
+    .bento .b6{grid-column:2/3;grid-row:4/5;}
+    .bento .b7{grid-column:1/3;grid-row:5/6;}
+    .access .wrap{grid-template-columns:1fr;gap:28px;}
+    .contact-grid{grid-template-columns:1fr;border-radius:16px;}
+  }
+
+  /* ===== password gate ===== */
+  #gate{
+    position:fixed;inset:0;z-index:9999;
+    background:linear-gradient(160deg,#2c2620,#5c1a12);
+    display:flex;align-items:center;justify-content:center;padding:24px;
+  }
+  #gate .box{
+    background:var(--paper);border-radius:10px;
+    padding:clamp(28px,5vw,48px);max-width:380px;width:100%;text-align:center;
+  }
+  #gate h2{font-family:'Zen Old Mincho',serif;font-size:1.4rem;color:var(--ink);margin-bottom:8px;}
+  #gate p{font-size:.84rem;color:var(--ink-soft);margin-bottom:22px;}
+  #gate input{
+    width:100%;padding:13px 14px;font-size:16px;
+    border:1.5px solid var(--line);border-radius:6px;margin-bottom:12px;font-family:inherit;
+  }
+  #gate button{
+    width:100%;padding:13px;border:none;border-radius:6px;
+    background:var(--ume);color:#fff;font-weight:700;font-size:.94rem;cursor:pointer;transition:background .25s;
+  }
+  #gate button:hover{background:var(--ume-text);}
+  #gate .err{color:var(--ume-text);font-size:.8rem;margin-top:10px;min-height:1.2em;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brandmark"><div class="dot"></div><span>サンプル飲食店</span></div>
+  <a href="#contact" class="cta-mini">お問い合わせ</a>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">KURASHIKI BIKAN / ONIGIRI</div>
+    <h1>お米から選んだ、<br><em>こだわりのおにぎり</em>。</h1>
+    <p>観光地の路地奥という想定のサンプルです。素材の甘みと香りを大切に、一つひとつ手で握っているという設定のおにぎり専門店です。</p>
+  </div>
+  <div class="hero-strip">
+    <div class="ph"><span>店頭の様子</span></div>
+    <div class="ph ume"><span>梅おにぎり</span></div>
+    <div class="ph nori"><span>海苔巻きおにぎり</span></div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <div class="about-img">
+      <div class="ph"><span>米を選ぶ様子</span></div>
+    </div>
+    <div>
+      <h2 class="mincho">路地の奥に、<br>小さな一軒。</h2>
+      <p>観光の喧騒から少し外れた静かな路地に店を構えている、という想定です。店内はカウンターのみの小さな造りで、目の前で一つひとつ丁寧に握る様子を見ることができる、というサンプルストーリーです。</p>
+      <p>使用するお米は産地・品種にこだわって選定。塩加減や握り方も、お米の個性に合わせて微調整しています。観光の合間に立ち寄る方はもちろん、地元の方の食事使いにも選ばれています。</p>
+      <div class="tagrow">
+        <span class="tag">こだわり米</span>
+        <span class="tag">路地奥・隠れ家</span>
+        <span class="tag">一つひとつ手握り</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">MENU</div>
+      <h2 class="mincho">おにぎりメニュー</h2>
+    </div>
+    <div class="menu-list">
+      <div class="menu-row">
+        <div class="num">01</div>
+        <div><h3>紅鮭</h3><p>脂ののった紅鮭をほぐして。定番の一番人気。</p></div>
+        <div class="price">¥250</div>
+      </div>
+      <div class="menu-row">
+        <div class="num">02</div>
+        <div><h3>梅</h3><p>酸味のきいた梅干しをまるごと一粒。</p></div>
+        <div class="price">¥220</div>
+      </div>
+      <div class="menu-row">
+        <div class="num">03</div>
+        <div><h3>明太子</h3><p>ぴりっとした辛みとお米の甘みのバランスが好評。</p></div>
+        <div class="price">¥270</div>
+      </div>
+      <div class="menu-row">
+        <div class="num">04</div>
+        <div><h3>昆布</h3><p>じっくり炊いた佃煮昆布を、ほろりとほどけるお米で。</p></div>
+        <div class="price">¥240</div>
+      </div>
+      <div class="menu-row">
+        <div class="num">05</div>
+        <div><h3>季節の具材おにぎり</h3><p>仕入れによって内容が変わる、その時期だけの限定品。</p></div>
+        <div class="price">¥280〜</div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:26px;font-size:.84rem;color:var(--ink-soft);">※ 仕入れ状況により内容が変更・売り切れになる場合があります。</p>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">GALLERY</div>
+      <h2 class="mincho">店内・商品の様子</h2>
+    </div>
+    <div class="bento">
+      <div class="ph b1"><span>店内カウンター</span></div>
+      <div class="ph ume b2"><span>紅鮭おにぎり</span></div>
+      <div class="ph b3"><span>手握りの様子</span></div>
+      <div class="ph nori b4"><span>昆布おにぎり</span></div>
+      <div class="ph b5"><span>米俵</span></div>
+      <div class="ph ume b6"><span>季節限定おにぎり</span></div>
+      <div class="ph b7"><span>路地の外観</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="story-band">
+  <div class="wrap">
+    <blockquote class="mincho">「お米が主役だから、握り方も塩加減も、お米に合わせて変える。」</blockquote>
+    <cite>— 店主</cite>
+  </div>
+</section>
+
+<section class="access" id="access">
+  <div class="wrap">
+    <div>
+      <div class="sec-head" style="text-align:left;">
+        <div class="eyebrow">ACCESS</div>
+        <h2 class="mincho">営業案内</h2>
+      </div>
+      <dl class="info-list">
+        <div class="info-row"><dt>エリア</dt><dd>○○県○○市</dd></div>
+        <div class="info-row"><dt>立地</dt><dd>観光地奥の静かな路地</dd></div>
+        <div class="info-row"><dt>座席</dt><dd>カウンターのみ・少人数制</dd></div>
+        <div class="info-row"><dt>ご連絡</dt><dd>Instagram DMにて</dd></div>
+      </dl>
+      <p class="note">※ 詳しい住所・営業時間は現在整理中です。最新情報はInstagramでご確認ください。</p>
+    </div>
+    <div>
+      <div class="ph"><span>Placeholder — 地図/外観</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <h2 class="mincho">気になったら、<br>Instagramでチェック。</h2>
+        <p>営業状況やその日のおすすめは、Instagramで随時更新しています。</p>
+        <div class="contact-btns">
+          <a href="#" target="_blank" rel="noopener" class="btn btn-light">Instagramを見る</a>
+        </div>
+      </div>
+      <div class="contact-right">
+        <h3 class="mincho">ご来店・お問い合わせについて</h3>
+        <p>現在、お電話でのご案内は行っておりません。ご連絡はInstagramのDMからお願いしております。</p>
+        <p>ご予約フォームは含まれておりません。</p>
+        <p class="disclaimer">※ このサイトは制作サンプルです。掲載写真・情報はすべてイメージのプレースホルダーです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© サンプル飲食店 — this is a portfolio demo mockup, not a real business's website.</footer>
+
+<div id="gate">
+  <div class="box">
+    <h2 class="mincho">サンプル飲食店</h2>
+    <p>このサイトはプレビュー版です。パスワードを入力してください。</p>
+    <input type="password" id="gate-input" placeholder="パスワード" autocomplete="off">
+    <button id="gate-btn">見る</button>
+    <div class="err" id="gate-err"></div>
+  </div>
+</div>
+
+<script>
+  var SITE_PASSWORD = "demo2026"; // 店舗ごとに変更可能
+  (function(){
+    var gate = document.getElementById('gate');
+    var input = document.getElementById('gate-input');
+    var btn = document.getElementById('gate-btn');
+    var err = document.getElementById('gate-err');
+    var already = sessionStorage.getItem('demo_unlocked') === '1';
+
+    if(already){
+      gate.style.display = 'none';
+    } else {
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function tryUnlock(){
+      if(input.value === SITE_PASSWORD){
+        sessionStorage.setItem('demo_unlocked','1');
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0,0);
+        gate.style.display = 'none';
+      } else {
+        err.textContent = 'パスワードが違います。';
+      }
+    }
+    btn.addEventListener('click', tryUnlock);
+    input.addEventListener('keydown', function(e){
+      if(e.key === 'Enter') tryUnlock();
+    });
+  })();
+</script>
+
+</body>
+</html>
