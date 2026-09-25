@@ -372,49 +372,5 @@
 
 <footer>© サンプル飲食店 — this is a portfolio demo mockup, not a real business's website.</footer>
 
-<div id="gate">
-  <div class="box">
-    <h2 class="mincho">サンプル飲食店</h2>
-    <p>このサイトはプレビュー版です。パスワードを入力してください。</p>
-    <input type="password" id="gate-input" placeholder="パスワード" autocomplete="off">
-    <button id="gate-btn">見る</button>
-    <div class="err" id="gate-err"></div>
-  </div>
-</div>
-
-<script>
-  var SITE_PASSWORD = "demo2026"; // 店舗ごとに変更可能
-  (function(){
-    var gate = document.getElementById('gate');
-    var input = document.getElementById('gate-input');
-    var btn = document.getElementById('gate-btn');
-    var err = document.getElementById('gate-err');
-    var already = sessionStorage.getItem('demo_unlocked') === '1';
-
-    if(already){
-      gate.style.display = 'none';
-    } else {
-      document.documentElement.style.overflow = 'hidden';
-      document.body.style.overflow = 'hidden';
-    }
-
-    function tryUnlock(){
-      if(input.value === SITE_PASSWORD){
-        sessionStorage.setItem('demo_unlocked','1');
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-        window.scrollTo(0,0);
-        gate.style.display = 'none';
-      } else {
-        err.textContent = 'パスワードが違います。';
-      }
-    }
-    btn.addEventListener('click', tryUnlock);
-    input.addEventListener('keydown', function(e){
-      if(e.key === 'Enter') tryUnlock();
-    });
-  })();
-</script>
-
 </body>
 </html>
