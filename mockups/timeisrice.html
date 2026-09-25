@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>TIMEisRICE 旅する玄米食堂 | 北九州市小倉南区・徳力</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f7f1e4;
+    --cream-2:#efe6d2;
+    --ink:#2e2c22;
+    --ink-soft:#5a5646;
+    --sage:#6f7c5c;
+    --sage-text:#4c5640;
+    --navy:#33465a;
+    --clay:#c17a4a;
+    --clay-text:#8a4d28;
+    --line:#e0d6bd;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{ overflow-x:hidden; overscroll-behavior-x:none; width:100%; }
+  body{
+    max-width:100vw;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Noto Sans JP', sans-serif;
+    line-height:1.85;
+  }
+  h1,h2,h3,.round{ font-family:'Zen Maru Gothic', sans-serif; }
+  a{ color:inherit; text-decoration:none; }
+  .wrap{ max-width:1160px; margin:0 auto; padding:0 clamp(20px,5vw,60px); }
+  section{ padding:clamp(60px,9vw,110px) 0; }
+
+  /* ---- floating pill nav, centered ---- */
+  header{
+    position:fixed; top:18px; left:50%; transform:translateX(-50%);
+    z-index:50;
+    background:rgba(247,241,228,.85);
+    backdrop-filter:blur(8px);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:10px 10px 10px 20px;
+    display:flex; align-items:center; gap:18px;
+    box-shadow:0 6px 24px rgba(46,44,34,.08);
+    max-width:92vw;
+  }
+  header .brand{ font-family:'Zen Maru Gothic',sans-serif; font-weight:700; font-size:14px; white-space:nowrap; }
+  header a.cta{
+    background:var(--sage-text); color:#fbf7ec;
+    padding:9px 18px; border-radius:999px; font-size:12.5px; letter-spacing:.03em;
+    white-space:nowrap;
+    transition:transform .3s cubic-bezier(.22,1,.36,1), background .3s ease;
+  }
+  header a.cta:hover{ transform:translateY(-2px); background:var(--sage-text); }
+
+  /* ---- hero: two-column text + photo grid ---- */
+  .hero{
+    padding-top:clamp(110px,16vh,150px);
+    padding-bottom:60px;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,4vw,54px); align-items:center;
+  }
+  .badge{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--navy); color:#e8ecef;
+    font-size:12px; letter-spacing:.1em; padding:7px 16px; border-radius:999px;
+    margin-bottom:22px;
+  }
+  .badge::before{ content:"●"; color:#9fd0a8; font-size:8px; }
+  .hero-text h1{
+    font-size:clamp(30px,4.6vw,50px); line-height:1.4; font-weight:900;
+    color:var(--ink);
+  }
+  .hero-text h1 em{ font-style:normal; color:var(--sage-text); }
+  .hero-text p{ margin-top:20px; color:var(--ink-soft); max-width:38ch; }
+  .hero-photos{
+    display:grid; grid-template-columns:1.3fr 1fr; grid-template-rows:1fr 1fr; gap:10px; height:420px;
+  }
+  .ph{ position:relative; overflow:hidden; background:linear-gradient(155deg,var(--sage),#3d4a33 130%); }
+  .ph.b{ grid-row:span 2; background:linear-gradient(155deg,var(--clay),#8a4d28 130%); }
+  .ph.c{ background:linear-gradient(155deg,#d9c9a3,var(--sage) 130%); }
+  .ph span{
+    position:absolute; left:10px; bottom:10px; font-size:11px; color:#fbf7ecdd;
+    background:rgba(46,44,34,.62); padding:4px 8px;
+  }
+
+  /* ---- about: overlapping text on photo with solid backing ---- */
+  .about{ background:var(--cream-2); }
+  .about-photo{
+    position:relative;
+    aspect-ratio:16/8;
+    background:linear-gradient(120deg,#556247,#33465a 100%);
+    display:flex; align-items:flex-end;
+  }
+  .about-backing{
+    background:var(--ink); color:#fbf7ec;
+    padding:clamp(20px,3vw,32px) clamp(22px,4vw,40px);
+    margin:0 0 clamp(20px,4vw,40px) clamp(20px,4vw,40px);
+    max-width:560px;
+  }
+  .about-backing .tag{ font-size:12px; letter-spacing:.2em; color:#c9d6c2; margin-bottom:10px; }
+  .about-backing h2{ font-size:clamp(22px,3vw,30px); line-height:1.5; }
+  .about-copy{ max-width:680px; margin:36px auto 0; color:var(--ink-soft); text-align:left; }
+  .about-copy p{ margin-bottom:14px; }
+
+  /* ---- menu: organic blob cards ---- */
+  .menu h2{ font-size:clamp(26px,3.6vw,38px); margin-bottom:6px; }
+  .menu .tag{ font-size:12px; letter-spacing:.2em; color:var(--sage-text); font-weight:700; margin-bottom:14px; display:block; }
+  .menu-groups{ margin-top:34px; display:flex; flex-direction:column; gap:44px; }
+  .group-label{ font-family:'Zen Maru Gothic',sans-serif; font-weight:700; font-size:16px; color:var(--navy); margin-bottom:18px; }
+  .blob-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  .blob{
+    background:#fff; border:1px solid var(--line);
+    padding:26px 22px;
+    border-radius:42% 58% 61% 39% / 45% 41% 59% 55%;
+    transition:transform .4s cubic-bezier(.22,1,.36,1), border-radius .4s ease;
+    text-align:center;
+  }
+  .blob:hover{ transform:translateY(-6px) scale(1.02); border-radius:52% 48% 41% 59% / 55% 61% 39% 45%; }
+  .blob h4{ font-size:15.5px; margin-bottom:8px; }
+  .blob .price{ font-weight:700; color:var(--clay-text); font-size:14px; }
+  .blob p.d{ font-size:12.5px; color:var(--ink-soft); margin-top:6px; }
+
+  /* ---- gallery: scattered polaroid collage (mobile => static grid) ---- */
+  .gallery{ background:var(--cream-2); }
+  .collage{
+    position:relative; height:520px; max-width:820px; margin:40px auto 0;
+  }
+  .polaroid{
+    position:absolute; width:190px; background:#fff; padding:10px 10px 34px;
+    box-shadow:0 14px 30px rgba(46,44,34,.18);
+    transition:transform .35s cubic-bezier(.22,1,.36,1);
+  }
+  .polaroid .ph2{ aspect-ratio:1/1; background:linear-gradient(150deg,var(--sage),var(--navy) 130%); }
+  .polaroid p{ font-size:11.5px; text-align:center; margin-top:8px; color:var(--ink-soft); font-family:'Zen Maru Gothic',sans-serif; }
+  .polaroid:hover{ transform:translateY(-6px) rotate(0deg) !important; }
+  .p1{ left:2%; top:6%; transform:rotate(-6deg); }
+  .p2{ left:30%; top:0%; transform:rotate(4deg); z-index:2; }
+  .p3{ left:58%; top:10%; transform:rotate(-3deg); }
+  .p4{ left:14%; top:52%; transform:rotate(3deg); }
+  .p5{ left:44%; top:46%; transform:rotate(-5deg); z-index:2; }
+  .p6{ left:70%; top:50%; transform:rotate(6deg); }
+  .p2 .ph2{ background:linear-gradient(150deg,var(--clay),#7a4225 130%); }
+  .p4 .ph2{ background:linear-gradient(150deg,#d9c9a3,var(--sage) 130%); }
+  .p6 .ph2{ background:linear-gradient(150deg,var(--navy),#1c2733 130%); }
+
+  /* ---- access ---- */
+  .access-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,4vw,56px); }
+  .info-list div{ display:flex; gap:14px; padding:12px 0; border-bottom:1px solid var(--line); font-size:14.5px; }
+  .info-list b{ width:96px; flex-shrink:0; color:var(--ink-soft); font-weight:500; }
+  .note-box{
+    background:#fff; border:1px solid var(--line); border-left:4px solid var(--clay);
+    padding:18px 20px; font-size:13.5px; color:var(--ink-soft); margin-top:18px;
+  }
+
+  /* ---- contact: ticket-stub card ---- */
+  .contact{ background:var(--navy); color:#eef1ea; }
+  .contact .tag{ color:#a9c7a5; font-size:12px; letter-spacing:.2em; font-weight:700; margin-bottom:14px; display:block; }
+  .ticket{
+    max-width:640px; margin:34px auto 0;
+    background:#fbf7ec; color:var(--ink);
+    display:grid; grid-template-columns:1fr auto;
+    position:relative;
+  }
+  .ticket::before{
+    content:""; position:absolute; left:72%; top:0; bottom:0; width:0;
+    border-left:2px dashed var(--line);
+  }
+  .ticket-main{ padding:clamp(24px,4vw,36px); }
+  .ticket-main h3{ font-family:'Zen Maru Gothic',sans-serif; font-size:clamp(19px,2.4vw,24px); margin-bottom:10px; }
+  .ticket-main p{ color:var(--ink-soft); font-size:14px; margin-bottom:22px; }
+  .ticket-btns{ display:flex; flex-direction:column; gap:10px; }
+  .cbtn{
+    display:flex; align-items:center; justify-content:center;
+    padding:13px 18px; border-radius:4px; font-size:14px;
+    background:var(--sage-text); color:#fbf7ec;
+    transition:transform .3s cubic-bezier(.22,1,.36,1), background .3s ease;
+  }
+  .cbtn:hover{ transform:translateY(-2px); background:#3a422f; }
+  .ticket-side{
+    writing-mode:vertical-rl; display:flex; align-items:center; justify-content:center;
+    padding:18px 14px; font-size:12px; letter-spacing:.2em; color:var(--ink-soft);
+  }
+
+  footer{ padding:32px 0 48px; text-align:center; font-size:12px; color:var(--ink-soft); }
+
+  @media (max-width:860px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-photos{ height:320px; order:-1; }
+    .blob-grid{ grid-template-columns:1fr 1fr; }
+    .access-grid{ grid-template-columns:1fr; }
+    .ticket{ grid-template-columns:1fr; }
+    .ticket::before{ display:none; }
+    .ticket-side{ writing-mode:horizontal-tb; padding:10px 14px; border-top:1px dashed var(--line); }
+    /* collage collapses to static flow on mobile — no absolute positioning */
+    .collage{ height:auto; display:grid; grid-template-columns:repeat(2,1fr); gap:16px; max-width:480px; }
+    .polaroid{ position:static; width:100%; transform:none !important; }
+  }
+  @media (max-width:480px){
+    .blob-grid{ grid-template-columns:1fr; }
+    header{ padding:8px 8px 8px 16px; gap:10px; }
+    header .brand{ font-size:12.5px; }
+  }
+
+  /* ---- password gate ---- */
+  #gate{ position:fixed; inset:0; z-index:999; background:var(--navy); display:flex; align-items:center; justify-content:center; padding:24px; }
+  #gate.hidden{ display:none; }
+  .gate-box{ background:var(--cream); color:var(--ink); max-width:380px; width:100%; padding:clamp(28px,5vw,40px); text-align:center; border-radius:8px; }
+  .gate-box h3{ font-family:'Zen Maru Gothic',sans-serif; font-size:20px; margin-bottom:10px; }
+  .gate-box p{ font-size:13px; color:var(--ink-soft); margin-bottom:20px; }
+  .gate-box input{ width:100%; font-size:16px; padding:13px 14px; border:1px solid var(--line); background:#fff; color:var(--ink); margin-bottom:12px; border-radius:4px; }
+  .gate-box button{ width:100%; font-size:15px; padding:13px 14px; border:none; cursor:pointer; background:var(--sage-text); color:#fbf7ec; letter-spacing:.04em; border-radius:4px; }
+  .gate-err{ font-size:12px; color:#b2492c; min-height:18px; margin-top:8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">TIMEisRICE</div>
+  <a class="cta" href="#contact">お問い合わせ</a>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="badge">NEW OPEN · 2026.7.7</span>
+      <h1>心とからだが、<br><em>ほっと</em>ゆるむ食堂。</h1>
+      <p>福岡県北九州市小倉南区・徳力。玄米と発酵食にこだわった「旅する玄米食堂」が、この夏オープンしました。</p>
+    </div>
+    <div class="hero-photos">
+      <div class="ph b"><span>店内カウンター席</span></div>
+      <div class="ph"><span>玄米塩むすび</span></div>
+      <div class="ph c"><span>小上がり席</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <div class="about-photo">
+      <div class="about-backing">
+        <div class="tag">ABOUT</div>
+        <h2>キッチンあーるの面影を残した、<br>こぢんまりとした空間で。</h2>
+      </div>
+    </div>
+    <div class="about-copy">
+      <p>カウンター5席、小上がり2卓。前身のお店の客席をほぼそのまま受け継ぎながら、玄米・発酵食を中心としたヘルシーな一品ずつを丁寧にお出ししています。</p>
+      <p>2階には足つぼ・マッサージ・占い・講座スペースも併設。食事だけでなく、心とからだをゆるめる時間ごと味わえる複合スペースです。</p>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <span class="tag">MENU</span>
+    <h2>玄米と発酵食の一品</h2>
+    <div class="menu-groups">
+      <div>
+        <div class="group-label">お食事</div>
+        <div class="blob-grid">
+          <div class="blob"><h4>豆腐タルタルフィッシュ</h4><div class="price">¥1,690</div><p class="d">自家製タルタルで仕上げた定番の一皿</p></div>
+          <div class="blob"><h4>玄米塩むすび</h4><div class="price">¥500</div><p class="d">噛むほどに旨みが広がる看板メニュー</p></div>
+          <div class="blob"><h4>発酵薬膳スープ膳</h4><div class="price">¥1,450</div><p class="d">季節の野菜と発酵調味料の優しい味</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="group-label">ドリンク</div>
+        <div class="blob-grid">
+          <div class="blob"><h4>米屋の玄米珈琲</h4><div class="price">¥650</div><p class="d">香ばしい玄米を使ったノンカフェイン珈琲</p></div>
+          <div class="blob"><h4>発酵ジンジャエール</h4><div class="price">¥580</div><p class="d">手作り麹シロップの自家製ドリンク</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="wrap" style="text-align:center;">
+    <span class="tag">GALLERY</span>
+    <h2>旅するように、ゆるむ時間</h2>
+    <div class="collage">
+      <div class="polaroid p1"><div class="ph2"></div><p>カウンター席</p></div>
+      <div class="polaroid p2"><div class="ph2"></div><p>玄米塩むすび</p></div>
+      <div class="polaroid p3"><div class="ph2"></div><p>小上がり</p></div>
+      <div class="polaroid p4"><div class="ph2"></div><p>発酵スープ</p></div>
+      <div class="polaroid p5"><div class="ph2"></div><p>2階スペース</p></div>
+      <div class="polaroid p6"><div class="ph2"></div><p>外観・看板</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="access">
+  <div class="wrap access-grid">
+    <div>
+      <span class="tag">ACCESS</span>
+      <h2 style="font-size:clamp(24px,3vw,32px); margin-bottom:16px;">店舗情報</h2>
+      <div class="info-list">
+        <div><b>住所</b><span>福岡県北九州市小倉南区徳力1丁目3-7 112号</span></div>
+        <div><b>連絡先</b><span>Instagram DMにて受付</span></div>
+      </div>
+      <div class="note-box">営業時間・定休日は現在SNSで随時更新中です。ご来店前にInstagramにてご確認ください。</div>
+    </div>
+    <div>
+      <span class="tag">STORY</span>
+      <h2 style="font-size:clamp(24px,3vw,32px); margin-bottom:16px;">キッチンカーから、実店舗へ。</h2>
+      <p style="color:var(--ink-soft); max-width:42ch;">2021年からキッチンカーで玄米食堂を営んできた店主が、この夏ついに実店舗をオープン。「まさか自分がお店を持つ日が来るなんて」という思いを胸に、日々小倉南区の徳力で腕を振るっています。</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap" style="text-align:center;">
+    <span class="tag">CONTACT</span>
+    <h2 style="font-size:clamp(26px,3.6vw,38px);">気になったら、まずはDMで。</h2>
+    <div class="ticket">
+      <div class="ticket-main">
+        <h3>ご予約・お問い合わせ</h3>
+        <p>現在の最新の営業状況・ご予約はInstagramのDMよりお気軽にどうぞ。</p>
+        <div class="ticket-btns">
+          <a class="cbtn" href="https://www.instagram.com/time_is_rice/" target="_blank" rel="noopener">Instagram @time_is_rice</a>
+        </div>
+      </div>
+      <div class="ticket-side">TIME is RICE</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 TIMEisRICE 旅する玄米食堂 — このページはWeb制作のご提案用サンプルです。
+</footer>
+
+<div id="gate">
+  <div class="gate-box">
+    <h3>TIMEisRICE</h3>
+    <p>このページは関係者限定の提案用サンプルです。<br>パスワードを入力してください。</p>
+    <input type="password" id="gate-input" placeholder="パスワード" autocomplete="off">
+    <button id="gate-btn">閲覧する</button>
+    <div class="gate-err" id="gate-err"></div>
+  </div>
+</div>
+
+<script>
+  const GATE_PASSWORD = "genmai2026"; // ここを店舗ごとに変更
+  const gate = document.getElementById('gate');
+  const gateInput = document.getElementById('gate-input');
+  const gateBtn = document.getElementById('gate-btn');
+  const gateErr = document.getElementById('gate-err');
+
+  function lockScroll(){
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+  }
+  function unlockScrollAndHide(){
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+    window.scrollTo(0,0);
+    gate.classList.add('hidden');
+  }
+
+  if (sessionStorage.getItem('tir_unlocked') === '1') {
+    gate.classList.add('hidden');
+  } else {
+    lockScroll();
+  }
+
+  function tryUnlock(){
+    if (gateInput.value === GATE_PASSWORD) {
+      sessionStorage.setItem('tir_unlocked','1');
+      unlockScrollAndHide();
+    } else {
+      gateErr.textContent = 'パスワードが違います。';
+    }
+  }
+  gateBtn.addEventListener('click', tryUnlock);
+  gateInput.addEventListener('keydown', e=>{ if(e.key === 'Enter') tryUnlock(); });
+</script>
+
+</body>
+</html>

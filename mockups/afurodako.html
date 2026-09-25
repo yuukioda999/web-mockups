@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>アフロだこ | 北九州市小倉南区・下南方のたこ焼き専門店</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fff6e6;
+    --charcoal:#241f1c;
+    --marigold:#e8a23a;
+    --marigold-text:#8a5a12;
+    --coral:#d94a30;
+    --coral-btn:#b83a24;
+    --coral-text:#8a2f1c;
+    --line:#ecd9b5;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{ overflow-x:hidden; overscroll-behavior-x:none; width:100%; }
+  body{
+    max-width:100vw;
+    background:var(--cream);
+    color:var(--charcoal);
+    font-family:'Noto Sans JP', sans-serif;
+    line-height:1.85;
+  }
+  h1,h2,h3,.display{ font-family:'Kaisei Decol', serif; }
+  a{ color:inherit; text-decoration:none; }
+  .wrap{ max-width:1160px; margin:0 auto; padding:0 clamp(20px,5vw,60px); }
+  section{ padding:clamp(56px,9vw,104px) 0; }
+
+  /* ---- bold color-band top nav ---- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--charcoal);
+    color:var(--cream);
+  }
+  .nav-inner{
+    max-width:1160px; margin:0 auto; padding:16px clamp(20px,5vw,60px);
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{ font-family:'Kaisei Decol',serif; font-size:18px; color:var(--marigold); letter-spacing:.02em; }
+  nav.links{ display:flex; gap:26px; font-size:13.5px; }
+  nav.links a:hover{ color:var(--marigold); }
+  .nav-cta{
+    background:var(--coral-btn); color:#fff6e6; padding:9px 18px; font-size:13px; border-radius:3px;
+    transition:transform .3s cubic-bezier(.22,1,.36,1), background .3s ease;
+  }
+  .nav-cta:hover{ transform:translateY(-2px); background:#8a2c1a; }
+  .menu-toggle{ display:none; }
+
+  /* ---- hero: centered bold headline + photo strip below ---- */
+  .hero{
+    text-align:center;
+    padding-top:clamp(56px,9vw,96px);
+    background:
+      radial-gradient(circle at 18% 20%, rgba(232,162,58,.35), transparent 42%),
+      radial-gradient(circle at 82% 12%, rgba(217,74,48,.28), transparent 40%),
+      var(--cream);
+  }
+  .badge{
+    display:inline-block; background:var(--charcoal); color:var(--marigold);
+    font-size:12px; letter-spacing:.16em; padding:8px 18px; border-radius:999px; margin-bottom:24px;
+  }
+  .hero h1{
+    font-size:clamp(38px,7vw,74px); line-height:1.2; color:var(--charcoal);
+  }
+  .hero h1 span{ color:var(--coral); }
+  .hero p{ margin:20px auto 0; max-width:42ch; color:#4a423c; font-size:15.5px; }
+  .hero-ctas{ margin-top:30px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .btn{
+    padding:14px 26px; border-radius:3px; font-size:14.5px; letter-spacing:.02em;
+    transition:transform .3s cubic-bezier(.22,1,.36,1);
+  }
+  .btn.primary{ background:var(--coral-btn); color:#fff6e6; }
+  .btn.ghost{ background:transparent; border:1.5px solid var(--charcoal); color:var(--charcoal); }
+  .btn:hover{ transform:translateY(-3px); }
+
+  .photo-strip{
+    margin-top:clamp(40px,7vw,64px);
+    display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:10px;
+    height:280px;
+  }
+  .strip-ph{ position:relative; overflow:hidden; background:linear-gradient(150deg,var(--marigold),#a8641c 130%); }
+  .strip-ph.b{ background:linear-gradient(150deg,var(--coral),#7a2c1a 130%); }
+  .strip-ph.c{ background:linear-gradient(150deg,var(--charcoal),#4a423c 130%); }
+  .strip-ph span{ position:absolute; left:10px; bottom:10px; font-size:11px; color:#fff6e6dd; background:rgba(36,31,28,.65); padding:4px 8px; }
+
+  /* ---- about ---- */
+  .about{ background:var(--charcoal); color:var(--cream); }
+  .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,5vw,60px); align-items:center; }
+  .about .tag{ color:var(--marigold); font-size:12px; letter-spacing:.2em; font-weight:700; margin-bottom:14px; }
+  .about h2{ font-size:clamp(24px,3.4vw,34px); margin-bottom:18px; }
+  .about p{ color:#d8cdbc; max-width:42ch; margin-bottom:12px; }
+  .about-photo{ aspect-ratio:4/3; background:linear-gradient(160deg,var(--marigold),var(--coral) 140%); }
+
+  /* ---- menu: price-tag sticker grid ---- */
+  .menu h2{ font-size:clamp(26px,3.6vw,38px); text-align:center; }
+  .menu .tag{ display:block; text-align:center; font-size:12px; letter-spacing:.2em; color:var(--coral-text); font-weight:700; margin-bottom:10px; }
+  .tag-grid{
+    margin-top:44px; display:grid; grid-template-columns:repeat(4,1fr); gap:26px 20px;
+  }
+  .price-tag{
+    position:relative; background:#fff; border:2px solid var(--charcoal);
+    padding:22px 16px 18px; text-align:center;
+    transition:transform .35s cubic-bezier(.22,1,.36,1);
+  }
+  .price-tag::before{
+    content:""; position:absolute; top:-9px; left:50%; transform:translateX(-50%);
+    width:16px; height:16px; background:var(--cream); border:2px solid var(--charcoal); border-radius:50%;
+  }
+  .price-tag:nth-child(1){ transform:rotate(-3deg); }
+  .price-tag:nth-child(2){ transform:rotate(2deg); }
+  .price-tag:nth-child(3){ transform:rotate(-2deg); }
+  .price-tag:nth-child(4){ transform:rotate(3deg); }
+  .price-tag:nth-child(5){ transform:rotate(2deg); }
+  .price-tag:nth-child(6){ transform:rotate(-3deg); }
+  .price-tag:hover{ transform:translateY(-6px) rotate(0deg) scale(1.04); }
+  .price-tag h4{ font-family:'Kaisei Decol',serif; font-size:16px; margin-bottom:8px; }
+  .price-tag .price{ font-size:20px; font-weight:900; color:var(--coral); }
+  .price-tag p{ font-size:11.5px; color:#6b6259; margin-top:6px; }
+
+  /* ---- gallery: horizontal filmstrip scroll ---- */
+  .gallery{ background:var(--cream); }
+  .gallery h2{ font-size:clamp(26px,3.6vw,38px); }
+  .gallery .tag{ font-size:12px; letter-spacing:.2em; color:var(--marigold-text); font-weight:700; margin-bottom:10px; display:block; }
+  .filmstrip{
+    display:flex; gap:16px; overflow-x:auto; padding:32px 4px 12px; scroll-snap-type:x mandatory;
+  }
+  .filmstrip::-webkit-scrollbar{ height:6px; }
+  .filmstrip::-webkit-scrollbar-thumb{ background:var(--marigold); border-radius:999px; }
+  .film{
+    flex:0 0 260px; aspect-ratio:4/5; scroll-snap-align:start; position:relative; overflow:hidden;
+    background:linear-gradient(150deg,var(--marigold),var(--coral) 130%);
+  }
+  .film:nth-child(3n+2){ background:linear-gradient(150deg,var(--coral),var(--charcoal) 130%); }
+  .film:nth-child(3n){ background:linear-gradient(150deg,var(--charcoal),#4a423c 130%); }
+  .film span{ position:absolute; left:12px; bottom:12px; font-size:12px; color:#fff6e6dd; background:rgba(36,31,28,.65); padding:5px 9px; }
+
+  /* ---- access ---- */
+  .access-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,4vw,56px); }
+  .info-list div{ display:flex; gap:14px; padding:12px 0; border-bottom:1px solid var(--line); font-size:14.5px; }
+  .info-list b{ width:96px; flex-shrink:0; color:var(--marigold-text); font-weight:700; }
+  .note-box{ background:#fff; border:1px solid var(--line); border-left:4px solid var(--coral); padding:18px 20px; font-size:13.5px; color:#4a423c; margin-top:18px; }
+
+  /* ---- contact: full-width color band ---- */
+  .contact{ background:var(--coral-btn); color:#fff6e6; text-align:center; }
+  .contact .tag{ font-size:12px; letter-spacing:.2em; color:#fff6e6; font-weight:700; margin-bottom:12px; display:block; }
+  .contact h2{ font-size:clamp(26px,4vw,42px); margin-bottom:16px; }
+  .contact p{ max-width:44ch; margin:0 auto 30px; color:#fff6e6; }
+  .contact-btns{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .cbtn{
+    background:#fff6e6; color:var(--coral-text); padding:14px 26px; border-radius:3px; font-size:14.5px; font-weight:700;
+    transition:transform .3s cubic-bezier(.22,1,.36,1);
+  }
+  .cbtn.outline{ background:transparent; border:1.5px solid #fff6e6; color:#fff6e6; }
+  .cbtn:hover{ transform:translateY(-3px); }
+
+  footer{ padding:30px 0 44px; text-align:center; font-size:12px; color:#8a5a12; background:var(--cream); }
+
+  @media (max-width:860px){
+    nav.links{ display:none; }
+    .photo-strip{ grid-template-columns:1fr 1fr; height:auto; }
+    .photo-strip .strip-ph{ aspect-ratio:4/3; }
+    .about-grid{ grid-template-columns:1fr; }
+    .tag-grid{ grid-template-columns:repeat(2,1fr); }
+    .access-grid{ grid-template-columns:1fr; }
+  }
+  @media (max-width:480px){
+    .tag-grid{ grid-template-columns:1fr 1fr; gap:18px 14px; }
+    .film{ flex:0 0 210px; }
+  }
+
+  /* ---- password gate ---- */
+  #gate{ position:fixed; inset:0; z-index:999; background:var(--charcoal); display:flex; align-items:center; justify-content:center; padding:24px; }
+  #gate.hidden{ display:none; }
+  .gate-box{ background:var(--cream); color:var(--charcoal); max-width:380px; width:100%; padding:clamp(28px,5vw,40px); text-align:center; }
+  .gate-box h3{ font-family:'Kaisei Decol',serif; font-size:20px; margin-bottom:10px; color:var(--coral); }
+  .gate-box p{ font-size:13px; color:#4a423c; margin-bottom:20px; }
+  .gate-box input{ width:100%; font-size:16px; padding:13px 14px; border:1px solid var(--line); background:#fff; color:var(--charcoal); margin-bottom:12px; }
+  .gate-box button{ width:100%; font-size:15px; padding:13px 14px; border:none; cursor:pointer; background:var(--coral-btn); color:#fff6e6; letter-spacing:.04em; font-weight:700; }
+  .gate-err{ font-size:12px; color:#b83a24; min-height:18px; margin-top:8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="brand">アフロだこ</div>
+    <nav class="links">
+      <a href="#menu">MENU</a>
+      <a href="#gallery">GALLERY</a>
+      <a href="#access">ACCESS</a>
+    </nav>
+    <a class="nav-cta" href="#contact">お問い合わせ</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="badge">NEW OPEN · 2026.7.9</span>
+    <h1>丸ごとイイダコ、<br><span>豪快たこ焼き。</span></h1>
+    <p>福岡県北九州市小倉南区・下南方。行列のできたキッチンカーが、この夏ついに実店舗になりました。兄弟で営む、あつあつのたこ焼き専門店です。</p>
+    <div class="hero-ctas">
+      <a class="btn primary" href="#menu">メニューを見る</a>
+      <a class="btn ghost" href="https://www.instagram.com/afurodako/" target="_blank" rel="noopener">Instagramをチェック</a>
+    </div>
+    <div class="photo-strip">
+      <div class="strip-ph"><span>大玉たこ焼き</span></div>
+      <div class="strip-ph b"><span>店主兄弟</span></div>
+      <div class="strip-ph c"><span>店内カウンター</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="tag">ABOUT</div>
+      <h2>キッチンカーから、<br>兄弟二人三脚の実店舗へ。</h2>
+      <p>行列ができる人気キッチンカーとして活動してきた「アフロだこ」が、2026年7月、北九州市小倉南区・下南方に実店舗をオープン。看板商品は「丸ごとイイダコ入り」の大玉たこ焼きです。</p>
+      <p>家族経営ならではの温かみを大切に、今日も兄弟であつあつのたこ焼きを焼き続けています。</p>
+    </div>
+    <div class="about-photo"></div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <span class="tag">MENU</span>
+    <h2>看板のたこ焼きメニュー</h2>
+    <div class="tag-grid">
+      <div class="price-tag"><h4>肉玉</h4><div class="price">¥1,300</div><p>ジューシーな豚肉入り定番</p></div>
+      <div class="price-tag"><h4>炙りチーズ</h4><div class="price">¥900</div><p>表面を炙った香ばしいチーズ</p></div>
+      <div class="price-tag"><h4>塩マヨ</h4><div class="price">¥800</div><p>だしの旨みを引き立てるシンプル系</p></div>
+      <div class="price-tag"><h4>丸ごとイイダコ</h4><div class="price">お問合せ</div><p>看板商品・数量限定</p></div>
+      <div class="price-tag"><h4>ねぎポン酢</h4><div class="price">¥850</div><p>さっぱり系の人気メニュー</p></div>
+      <div class="price-tag"><h4>明太マヨ</h4><div class="price">¥950</div><p>北九州らしいピリ辛の一品</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <span class="tag">GALLERY</span>
+    <h2>店の様子</h2>
+    <div class="filmstrip">
+      <div class="film"><span>大玉たこ焼き</span></div>
+      <div class="film"><span>鉄板の様子</span></div>
+      <div class="film"><span>店内カウンター</span></div>
+      <div class="film"><span>外観・看板</span></div>
+      <div class="film"><span>キッチンカー時代</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="access" id="access">
+  <div class="wrap access-grid">
+    <div>
+      <span class="tag" style="color:var(--marigold-text); font-size:12px; letter-spacing:.2em; font-weight:700; display:block; margin-bottom:14px;">ACCESS</span>
+      <h2 style="font-size:clamp(24px,3vw,32px); margin-bottom:16px;">店舗情報</h2>
+      <div class="info-list">
+        <div><b>住所</b><span>福岡県北九州市小倉南区下南方2-4-6</span></div>
+        <div><b>定休日</b><span>月曜日・金曜日（変更となる場合あり）</span></div>
+      </div>
+      <div class="note-box">定休日が不規則な場合があります。最新情報はご来店前に公式SNSでご確認ください。</div>
+    </div>
+    <div>
+      <span class="tag" style="color:var(--marigold-text); font-size:12px; letter-spacing:.2em; font-weight:700; display:block; margin-bottom:14px;">SNS</span>
+      <h2 style="font-size:clamp(24px,3vw,32px); margin-bottom:16px;">最新情報はSNSで</h2>
+      <p style="color:#4a423c; max-width:42ch;">Instagram・X（旧Twitter）両方で日々の営業状況や新メニュー情報を発信しています。お出かけ前のチェックがおすすめです。</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="tag">CONTACT</span>
+    <h2>あつあつを、食べに来てください。</h2>
+    <p>ご来店前の最新情報や貸切のご相談は、Instagram・Xのメッセージからお気軽にどうぞ。</p>
+    <div class="contact-btns">
+      <a class="cbtn" href="https://www.instagram.com/afurodako/" target="_blank" rel="noopener">Instagram @afurodako</a>
+      <a class="cbtn outline" href="https://x.com/afurodako" target="_blank" rel="noopener">X @afurodako</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 アフロだこ — このページはWeb制作のご提案用サンプルです。
+</footer>
+
+<div id="gate">
+  <div class="gate-box">
+    <h3>アフロだこ</h3>
+    <p>このページは関係者限定の提案用サンプルです。<br>パスワードを入力してください。</p>
+    <input type="password" id="gate-input" placeholder="パスワード" autocomplete="off">
+    <button id="gate-btn">閲覧する</button>
+    <div class="gate-err" id="gate-err"></div>
+  </div>
+</div>
+
+<script>
+  const GATE_PASSWORD = "takoyaki"; // ここを店舗ごとに変更
+  const gate = document.getElementById('gate');
+  const gateInput = document.getElementById('gate-input');
+  const gateBtn = document.getElementById('gate-btn');
+  const gateErr = document.getElementById('gate-err');
+
+  function lockScroll(){
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+  }
+  function unlockScrollAndHide(){
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+    window.scrollTo(0,0);
+    gate.classList.add('hidden');
+  }
+
+  if (sessionStorage.getItem('afd_unlocked') === '1') {
+    gate.classList.add('hidden');
+  } else {
+    lockScroll();
+  }
+
+  function tryUnlock(){
+    if (gateInput.value === GATE_PASSWORD) {
+      sessionStorage.setItem('afd_unlocked','1');
+      unlockScrollAndHide();
+    } else {
+      gateErr.textContent = 'パスワードが違います。';
+    }
+  }
+  gateBtn.addEventListener('click', tryUnlock);
+  gateInput.addEventListener('keydown', e=>{ if(e.key === 'Enter') tryUnlock(); });
+</script>
+
+</body>
+</html>
