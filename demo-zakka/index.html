@@ -3,279 +3,326 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
-<title>サンプル雑貨店｜制作サンプル</title>
+<title>サンプル雑貨店 | 制作サンプル</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#f3ede1;
-    --panel:#fffdf9;
-    --ink:#332a20;
-    --ink-soft:#75695a;
-    --clay:#b6583a;
-    --clay-text:#8a3f28; /* AA準拠(約5.9:1) */
-    --sage:#6f7d54;
-    --sage-text:#4d5839; /* AA準拠(約5.6:1) */
-    --line:#e0d3bd;
-    --ease:cubic-bezier(.16,1,.3,1);
+    --bg:#0A0A0C;
+    --card:#141418;
+    --card-border:#26262B;
+    --ink:#F3F4F6;
+    --ink-soft:#9A9AA3;
+    --accent1:#6366F1;
+    --accent2:#A855F7;
+    --grad:linear-gradient(135deg,#6366F1,#A855F7);
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;overflow-x:hidden;width:100%;overscroll-behavior-x:none;}
+  html,body{overflow-x:hidden;overscroll-behavior-x:none;max-width:100vw;}
   body{
-    font-family:'Noto Sans JP', sans-serif;
-    background:var(--bg);
-    color:var(--ink);
-    line-height:1.85;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-    width:100%;
-    max-width:100vw;
-    overscroll-behavior-x:none;
-    position:relative;
+    width:100%;max-width:100vw;background:var(--bg);color:var(--ink);
+    font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;
+    line-height:1.75;-webkit-font-smoothing:antialiased;letter-spacing:-0.01em;
   }
   a{color:inherit;text-decoration:none;}
-  .antique{font-family:'Zen Antique Soft',serif;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+  ::selection{background:var(--accent1);color:#fff;}
 
-  [data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .9s var(--ease), transform .9s var(--ease);}
+  .ph{
+    position:relative;border-radius:14px;overflow:hidden;
+    background:linear-gradient(135deg,#1c1c22,#2a2230 60%,#141418);
+    border:1px solid var(--card-border);
+  }
+  .ph::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(99,102,241,.25),transparent 60%);}
+  .ph span{position:absolute;left:16px;bottom:14px;font-size:.72rem;color:var(--ink-soft);z-index:1;}
+
+  /* fade-in on scroll */
+  [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1);}
   [data-reveal].in{opacity:1;transform:translateY(0);}
 
-  /* ===== minimal logo-only nav, single CTA ===== */
-  .top{
-    position:fixed;top:0;left:0;right:0;z-index:60;
-    display:flex;justify-content:space-between;align-items:center;
-    padding:22px 6vw;
-    mix-blend-mode:normal;
+  /* ===== header ===== */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,10,12,.55);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,.06);
   }
-  .top .brand{
-    font-family:'Zen Antique Soft',serif;
-    font-size:17px;
-    letter-spacing:.08em;
-    background:rgba(243,237,225,.82);
-    padding:6px 14px;
-    border-radius:2px;
+  .top-inner{max-width:1200px;margin:0 auto;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .logo{font-weight:800;font-size:1.15rem;letter-spacing:-.02em;}
+  .logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  nav{display:flex;gap:28px;font-size:.86rem;font-weight:500;color:var(--ink-soft);flex-wrap:wrap;}
+  nav a:hover{color:var(--ink);}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;
+    font-weight:700;font-size:.86rem;letter-spacing:-.01em;
+    transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s;
   }
-  .top .cta-mini{
-    background:var(--clay);color:#fdf8ee;
-    padding:10px 20px;font-size:12px;letter-spacing:.08em;border-radius:999px;
-    transition:transform .35s var(--ease), background .35s var(--ease);
-  }
-  .top .cta-mini:hover{transform:translateY(-2px);background:var(--clay-text);}
+  .btn-grad{background:var(--grad);color:#fff;box-shadow:0 10px 30px -12px rgba(99,102,241,.6);}
+  .btn-grad:hover{transform:translateY(-4px);box-shadow:0 16px 36px -10px rgba(99,102,241,.75);}
+  .btn-ghost{background:rgba(255,255,255,.05);border:1px solid var(--card-border);color:var(--ink);}
+  .btn-ghost:hover{transform:translateY(-4px);background:rgba(255,255,255,.09);}
 
-  /* ===== hero: oversized typographic backdrop ===== */
-  .hero{
-    position:relative;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    padding:16vh 6vw 8vh;
-    overflow:hidden;
+  /* ===== hero : asymmetric, orb blur, glass showcase panel ===== */
+  .hero{position:relative;padding:140px 0 120px;overflow:hidden;}
+  .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;pointer-events:none;z-index:0;}
+  .orb1{width:520px;height:520px;background:#6366F1;top:-160px;left:-120px;animation:float1 16s ease-in-out infinite;}
+  .orb2{width:420px;height:420px;background:#A855F7;bottom:-140px;right:-80px;animation:float2 20s ease-in-out infinite;}
+  @keyframes float1{0%,100%{transform:translate(0,0);}50%{transform:translate(60px,40px);}}
+  @keyframes float2{0%,100%{transform:translate(0,0);}50%{transform:translate(-50px,-30px);}}
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.76rem;font-weight:600;letter-spacing:.06em;color:var(--ink-soft);
+    padding:7px 14px;border:1px solid var(--card-border);border-radius:999px;background:rgba(255,255,255,.04);margin-bottom:24px;}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent2);}
+  .hero h1{font-size:clamp(2.4rem,4.6vw,3.6rem);font-weight:800;line-height:1.3;letter-spacing:-.03em;margin-bottom:22px;}
+  .hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero p{color:var(--ink-soft);font-size:1.02rem;max-width:44ch;margin-bottom:34px;}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;}
+  .hero-visual{position:relative;}
+  .hero-visual .glass{
+    background:rgba(255,255,255,.05);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border:1px solid var(--card-border);border-radius:20px;padding:20px;
   }
-  .hero-giant{
-    position:absolute;
-    right:-4vw;top:50%;
-    transform:translateY(-50%);
-    font-family:'Zen Antique Soft',serif;
-    font-size:min(46vw,520px);
-    line-height:1;
-    color:var(--ink);
-    opacity:.06;
-    writing-mode:vertical-rl;
-    pointer-events:none;
-    user-select:none;
-  }
-  .hero-content{position:relative;z-index:2;max-width:640px;}
-  .hero-eyebrow{
-    font-size:12px;letter-spacing:.35em;color:var(--clay-text);text-transform:uppercase;
-    display:block;margin-bottom:22px;
-  }
-  .hero h1{
-    font-family:'Zen Antique Soft',serif;
-    font-size:clamp(32px,5.6vw,58px);
-    line-height:1.75;
-    margin-bottom:24px;
-  }
-  .hero p{color:var(--ink-soft);font-size:15px;max-width:42ch;margin-bottom:30px;}
-  .hero-tags{display:flex;gap:10px;flex-wrap:wrap;}
-  .tag{
-    border:1px solid var(--sage);color:var(--sage-text);
-    padding:6px 15px;border-radius:999px;font-size:11.5px;
-  }
+  .hero-visual .ph{aspect-ratio:4/5;}
 
-  section{padding:12vh 6vw;border-top:1px solid var(--line);max-width:1180px;margin:0 auto;}
-  .sec-head{margin-bottom:56px;}
-  .sec-head .en{
-    display:block;font-size:11.5px;letter-spacing:.3em;color:var(--clay-text);
-    text-transform:uppercase;margin-bottom:10px;
+  /* ===== features : 4-col cards, glow border on hover ===== */
+  .features{padding:120px 0;}
+  .sec-head{max-width:640px;margin:0 auto 56px;text-align:center;}
+  .sec-head .eyebrow{margin-left:auto;margin-right:auto;}
+  .sec-head h2{font-size:clamp(1.7rem,3vw,2.3rem);font-weight:800;letter-spacing:-.02em;margin-bottom:14px;}
+  .sec-head p{color:var(--ink-soft);font-size:.96rem;}
+  .feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .feature-card{
+    background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:28px 24px;
+    transition:transform .35s cubic-bezier(.2,.7,.3,1),border-color .35s,box-shadow .35s;
   }
-  .sec-head h2{font-family:'Zen Antique Soft',serif;font-size:clamp(24px,2.8vw,32px);}
+  .feature-card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(99,102,241,.5);
+    box-shadow:0 20px 40px -20px rgba(99,102,241,.4);
+  }
+  .feature-icon{
+    width:44px;height:44px;border-radius:12px;background:var(--grad);
+    display:flex;align-items:center;justify-content:center;margin-bottom:20px;
+  }
+  .feature-icon svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.8;}
+  .feature-card h3{font-size:1.02rem;font-weight:700;margin-bottom:10px;letter-spacing:-.01em;}
+  .feature-card p{font-size:.86rem;color:var(--ink-soft);}
 
-  .ph{background:linear-gradient(150deg,#e5d3b6,#b99a71);display:flex;align-items:flex-end;padding:16px;color:#40301c;font-size:11px;letter-spacing:.05em;}
+  /* ===== metrics / stats band ===== */
+  .metrics{padding:80px 0;border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border);}
+  .metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;}
+  .metric .num{
+    font-size:clamp(2.2rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+    margin-bottom:8px;
+  }
+  .metric .label{font-size:.82rem;color:var(--ink-soft);}
 
-  /* ===== story: pull-quote with photo ===== */
-  .story{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center;}
-  .story .ph{aspect-ratio:4/5;}
-  .story-copy p{color:var(--ink-soft);font-size:15px;margin-bottom:18px;}
-  .pull-quote{
-    font-family:'Zen Antique Soft',serif;
-    font-size:22px;
-    color:var(--ink);
-    border-left:3px solid var(--clay);
-    padding-left:20px;
-    margin:26px 0;
-  }
+  /* ===== showcase : asymmetric gallery ===== */
+  .showcase{padding:120px 0;}
+  .showcase-grid{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:150px;gap:16px;}
+  .showcase .ph{height:100%;}
+  .s1{grid-column:1/4;grid-row:1/3;}
+  .s2{grid-column:4/7;grid-row:1/2;}
+  .s3{grid-column:4/6;grid-row:2/3;}
+  .s4{grid-column:6/7;grid-row:2/3;}
+  .s5{grid-column:1/3;grid-row:3/4;}
+  .s6{grid-column:3/7;grid-row:3/4;}
 
-  /* ===== products: asymmetric masonry catalog ===== */
-  .catalog{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    grid-auto-rows:150px;
-    gap:16px;
+  /* ===== CTA band : full-width gradient ===== */
+  .cta-band{padding:0 0 120px;}
+  .cta-card{
+    position:relative;overflow:hidden;border-radius:28px;
+    background:var(--grad);padding:clamp(48px,7vw,80px);text-align:center;
   }
-  .catalog .item{
-    position:relative;
-    overflow:hidden;
-    transition:transform .5s var(--ease);
-  }
-  .catalog .item:hover{transform:scale(1.015);}
-  .catalog .item .ph{width:100%;height:100%;}
-  .catalog .item:nth-child(1){grid-column:1/3;grid-row:1/3;}
-  .catalog .item:nth-child(2){grid-column:3/5;grid-row:1/2;}
-  .catalog .item:nth-child(3){grid-column:3/4;grid-row:2/4;}
-  .catalog .item:nth-child(4){grid-column:4/5;grid-row:2/3;}
-  .catalog .item:nth-child(5){grid-column:1/2;grid-row:3/4;}
-  .catalog .item:nth-child(6){grid-column:2/3;grid-row:3/4;}
-  .catalog .item:nth-child(7){grid-column:4/5;grid-row:3/4;}
-  .catalog .label{
-    position:absolute;left:0;right:0;bottom:0;
-    background:rgba(51,42,32,.82);color:#fdf8ee;
-    padding:10px 14px;font-size:11px;letter-spacing:.03em;
-  }
-  .catalog .label .artist{display:block;font-size:10px;color:#d9c9ac;margin-top:2px;}
+  .cta-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.25),transparent 55%);}
+  .cta-card h2{position:relative;font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:800;letter-spacing:-.02em;margin-bottom:16px;}
+  .cta-card p{position:relative;color:rgba(255,255,255,.85);max-width:46ch;margin:0 auto 32px;font-size:.98rem;}
+  .cta-card .hero-cta{position:relative;justify-content:center;}
+  .cta-card .btn-ghost{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);}
+  .cta-card .btn-light{background:#fff;color:#141418;}
+  .cta-card .btn-light:hover{transform:translateY(-4px);box-shadow:0 16px 36px -10px rgba(0,0,0,.4);}
 
-  .catalog-note{margin-top:26px;font-size:12.5px;color:var(--ink-soft);}
-
-  /* ===== access + contact: ticket-stub card ===== */
-  .access-contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
-  .info-line{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:14.5px;}
-  .info-line .k{width:80px;flex:0 0 80px;color:var(--sage-text);font-size:12px;letter-spacing:.06em;padding-top:2px;}
-  .ticket{
-    background:var(--panel);border:1px solid var(--ink);
-    padding:44px 38px;position:relative;
+  footer{padding:60px 0 40px;border-top:1px solid var(--card-border);}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
+  .footer-brand .logo{margin-bottom:14px;display:block;}
+  .footer-brand p{font-size:.84rem;color:var(--ink-soft);max-width:32ch;}
+  .footer-col h4{font-size:.8rem;font-weight:700;margin-bottom:16px;color:var(--ink-soft);letter-spacing:.04em;}
+  .footer-col a{display:block;font-size:.86rem;color:var(--ink-soft);margin-bottom:10px;}
+  .footer-col a:hover{color:var(--ink);}
+  .footer-bottom{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+    padding-top:24px;border-top:1px solid var(--card-border);font-size:.78rem;color:var(--ink-soft);
   }
-  .ticket::before,.ticket::after{
-    content:"";position:absolute;width:20px;height:20px;background:var(--bg);border-radius:50%;
-    top:50%;transform:translateY(-50%);
-  }
-  .ticket::before{left:-10px;}
-  .ticket::after{right:-10px;}
-  .ticket h2{font-family:'Zen Antique Soft',serif;font-size:23px;margin-bottom:14px;}
-  .ticket p{color:var(--ink-soft);font-size:13.5px;margin-bottom:26px;}
-  .cta-row{display:flex;gap:12px;flex-wrap:wrap;}
-  .cta{
-    display:inline-flex;align-items:center;padding:13px 26px;font-size:12.5px;letter-spacing:.05em;
-    border:1.5px solid var(--ink);
-    transition:background .4s var(--ease), color .4s var(--ease), transform .4s var(--ease);
-  }
-  .cta.solid{background:var(--clay);border-color:var(--clay);color:#fdf8ee;}
-  .cta:hover{transform:translateY(-2px);}
-  .band-note{margin-top:22px;font-size:11px;color:var(--ink-soft);}
+  .sns{display:flex;gap:14px;}
+  .sns a{width:34px;height:34px;border-radius:50%;border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;transition:border-color .3s,transform .3s;}
+  .sns a:hover{border-color:var(--accent1);transform:translateY(-3px);}
+  .sns svg{width:15px;height:15px;stroke:var(--ink-soft);fill:none;stroke-width:1.8;}
 
-  footer{text-align:center;padding:28px;font-size:11px;color:var(--ink-soft);border-top:1px solid var(--line);}
-
-  @media (max-width:900px){
-    .hero-giant{font-size:min(70vw,340px);opacity:.05;}
-    .story{grid-template-columns:1fr;}
-    .catalog{grid-template-columns:repeat(2,1fr);grid-auto-rows:140px;}
-    .catalog .item:nth-child(1){grid-column:1/3;grid-row:1/2;height:260px;}
-    .catalog .item:nth-child(2){grid-column:1/2;grid-row:2/3;}
-    .catalog .item:nth-child(3){grid-column:2/3;grid-row:2/4;}
-    .catalog .item:nth-child(4){grid-column:1/2;grid-row:3/4;}
-    .catalog .item:nth-child(5){grid-column:1/2;grid-row:4/5;}
-    .catalog .item:nth-child(6){grid-column:2/3;grid-row:4/5;}
-    .catalog .item:nth-child(7){grid-column:1/3;grid-row:5/6;}
-    .access-contact{grid-template-columns:1fr;}
-    section{padding:8vh 6vw;}
+  @media (max-width:920px){
+    .hero-grid{grid-template-columns:1fr;}
+    .feature-grid{grid-template-columns:repeat(2,1fr);}
+    .metric-grid{grid-template-columns:repeat(2,1fr);gap:32px;}
+    .showcase-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px;}
+    .s1,.s2,.s3,.s4,.s5,.s6{grid-column:span 1;grid-row:span 1;}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:28px;}
+  }
+  @media (max-width:560px){
+    .feature-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
   }
 </style>
 </head>
 <body>
 
-<div class="top">
-  <div class="brand">サンプル雑貨店</div>
-  <a class="cta-mini" href="#contact">お問い合わせ</a>
-</div>
-
-<div class="hero">
-  <div class="hero-giant">工藝</div>
-  <div class="hero-content">
-    <span class="hero-eyebrow">Kurashiki Bikan Chiku</span>
-    <h1 data-reveal>元理容室の、<br>小さな雑貨店。</h1>
-    <p data-reveal>地方の路地にある小さな雑貨店という想定のサンプルです。作家ものの陶器、ガラス、アクセサリーなどを中心に、その他かわいい雑貨を置いているという設定です。</p>
-    <div class="hero-tags" data-reveal>
-      <span class="tag">作家もの多数取り扱い</span>
-      <span class="tag">築年数のある古民家を改装</span>
-      <span class="tag">手書き値札</span>
-    </div>
+<header>
+  <div class="top-inner">
+    <div class="logo">サンプル<em>雑貨店</em></div>
+    <nav>
+      <a href="#concept">コンセプト</a>
+      <a href="#works">取り扱い</a>
+      <a href="#access">アクセス</a>
+    </nav>
+    <a href="#contact" class="btn btn-grad">お問い合わせ</a>
   </div>
-</div>
+</header>
 
-<section id="about">
-  <div class="sec-head"><span class="en">Story</span><h2>父の理容室を、次の物語へ</h2></div>
-  <div class="story" data-reveal>
-    <div class="ph">古い理容道具のある店内</div>
-    <div class="story-copy">
-      <p>以前は別の店舗として使われていた古い建物を改装した、歴史のある空間という設定です。</p>
-      <p class="pull-quote">古い理容道具と手書きの値札が、静かに時間の重なりを伝える。</p>
-      <p>約4坪の小さな店内には、当時使われていたバリカンや髭剃りブラシなどの理容道具がそのまま飾られ、家にあった家具も活かされています。奥には3席ほどの小さな喫茶コーナーもあり、コーヒーや紅茶（各¥400）、りんごジュース（¥230）も楽しめます。</p>
-    </div>
-  </div>
-</section>
-
-<section id="products">
-  <div class="sec-head"><span class="en">Products</span><h2>作家ものの器と雑貨（例）</h2></div>
-  <div class="catalog" data-reveal>
-    <div class="item"><div class="ph"></div><div class="label">アイスキューブ 花器<span class="artist">作家A／ガラス</span></div></div>
-    <div class="item"><div class="ph"></div><div class="label">こもれび 酒器<span class="artist">作家B／ガラス</span></div></div>
-    <div class="item"><div class="ph"></div><div class="label">動物モチーフの器<span class="artist">作家C／陶器</span></div></div>
-    <div class="item"><div class="ph"></div><div class="label">銀河のアクセサリー<span class="artist">作家D／耐熱ガラス</span></div></div>
-    <div class="item"><div class="ph"></div><div class="label">立体刺繍ピン<span class="artist">CoRte</span></div></div>
-    <div class="item"><div class="ph"></div><div class="label">吹きガラス作品<span class="artist">作家E</span></div></div>
-    <div class="item"><div class="ph"></div><div class="label">マスキングテープ他<span class="artist">ブランドF</span></div></div>
-  </div>
-  <p class="catalog-note">※ 掲載商品はサンプルです。実際の在庫・価格は店頭でご確認ください（花器 ¥2,640〜、酒器 ¥5,500 など）。</p>
-</section>
-
-<section id="access">
-  <div class="sec-head"><span class="en">Access & Contact</span><h2>アクセス・お問い合わせ</h2></div>
-  <div class="access-contact">
+<section class="hero">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="wrap hero-grid">
     <div>
-      <div class="info-line"><span class="k">住所</span><span>○○県○○市○-○-○</span></div>
-      <div class="info-line"><span class="k">アクセス</span><span>最寄り駅から徒歩圏内</span></div>
-      <div class="info-line"><span class="k">営業時間</span><span>10:00〜17:00頃（曜日により変動あり）</span></div>
-      <div class="info-line"><span class="k">定休日</span><span>水曜日（+不定休あり）</span></div>
-      <div class="info-line"><span class="k">駐車場</span><span>なし（周辺の有料駐車場をご利用ください）</span></div>
-    </div>
-    <div class="ticket" id="contact">
-      <h2>お問い合わせ</h2>
-      <p>作家作品の入荷状況などは、Instagramで随時ご案内しています。お気軽にDMからお問い合わせください。</p>
-      <div class="cta-row">
-        <a class="cta solid" href="tel:0000000000">000-000-0000</a>
-        <a class="cta" href="#" target="_blank" rel="noopener">Instagram DMで問い合わせ</a>
+      <div class="eyebrow"><span class="dot"></span>PORTFOLIO SAMPLE — 雑貨・セレクトショップ</div>
+      <h1 data-reveal>作家の手仕事を、<br><em>暮らしの中へ。</em></h1>
+      <p data-reveal>陶器、ガラス、アクセサリーなど、作家ものの逸品を扱うセレクトショップを想定した制作サンプルです。世界観を伝えるビジュアル重視の構成にしています。</p>
+      <div class="hero-cta" data-reveal>
+        <a href="#works" class="btn btn-grad">作品を見る</a>
+        <a href="#access" class="btn btn-ghost">アクセスを見る</a>
       </div>
-      <div class="band-note">※ このサイトは制作サンプルです。ご予約フォームは含まれておりません。</div>
+    </div>
+    <div class="hero-visual" data-reveal>
+      <div class="glass">
+        <div class="ph"><span>Showcase Visual</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<footer>サンプル雑貨店 — ○○県○○市○-○-○</footer>
+<section class="features" id="concept">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <div class="eyebrow"><span class="dot"></span>CONCEPT</div>
+      <h2>取り扱いジャンル</h2>
+      <p>暮らしを豊かにする、作家ものの逸品を4つのジャンルでセレクトしています。</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card" data-reveal>
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v6a8 8 0 01-16 0V4z"/><path d="M8 20h8M12 16v4"/></svg></div>
+        <h3>陶器</h3>
+        <p>土の質感を活かした、日々の食卓に寄り添う器を中心にセレクト。</p>
+      </div>
+      <div class="feature-card" data-reveal>
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4v16M4 12h16"/></svg></div>
+        <h3>ガラス</h3>
+        <p>吹きガラスならではの繊細な透明感を持つ酒器・花器などを扱います。</p>
+      </div>
+      <div class="feature-card" data-reveal>
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+        <h3>アクセサリー</h3>
+        <p>作家性の光る一点もののアクセサリー・小物を取り揃えています。</p>
+      </div>
+      <div class="feature-card" data-reveal>
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg></div>
+        <h3>雑貨・テキスタイル</h3>
+        <p>マスキングテープや布小物など、日常使いしやすいアイテムも豊富に。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="metrics">
+  <div class="wrap">
+    <div class="metric-grid">
+      <div class="metric" data-reveal><div class="num">20+</div><div class="label">取り扱い作家数（例）</div></div>
+      <div class="metric" data-reveal><div class="num">80年</div><div class="label">建物の築年数（例）</div></div>
+      <div class="metric" data-reveal><div class="num">4</div><div class="label">取り扱いジャンル</div></div>
+      <div class="metric" data-reveal><div class="num">週6</div><div class="label">営業日数（例）</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="showcase" id="works">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <div class="eyebrow"><span class="dot"></span>GALLERY</div>
+      <h2>店内・作品ギャラリー</h2>
+      <p>実際の制作では、お店の写真に差し替えて仕上げます。</p>
+    </div>
+    <div class="showcase-grid">
+      <div class="ph s1" data-reveal><span>店内の様子</span></div>
+      <div class="ph s2" data-reveal><span>陶器コーナー</span></div>
+      <div class="ph s3" data-reveal><span>ガラス作品</span></div>
+      <div class="ph s4" data-reveal><span>外観</span></div>
+      <div class="ph s5" data-reveal><span>アクセサリー</span></div>
+      <div class="ph s6" data-reveal><span>店主の手元</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <div class="cta-card" data-reveal>
+      <h2>気になる作品は<br>ございましたか？</h2>
+      <p>入荷情報やイベントのお知らせは、Instagramで随時ご案内しています。お気軽にDMからお問い合わせください。</p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-light">Instagramを見る</a>
+        <a href="#" class="btn btn-ghost">電話で問い合わせる</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="access">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">サンプル<em>雑貨店</em></div>
+        <p>作家ものの器・ガラス・アクセサリーを扱うセレクトショップを想定した制作サンプルです。店名・所在地はすべて架空の設定です。</p>
+      </div>
+      <div class="footer-col">
+        <h4>サイトマップ</h4>
+        <a href="#concept">コンセプト</a>
+        <a href="#works">取り扱い</a>
+        <a href="#contact">お問い合わせ</a>
+      </div>
+      <div class="footer-col">
+        <h4>アクセス</h4>
+        <a href="#">○○県○○市○-○-○</a>
+        <a href="#">最寄り駅より徒歩圏内</a>
+      </div>
+      <div class="footer-col">
+        <h4>SNS</h4>
+        <div class="sns">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© サンプル雑貨店 — this is a portfolio demo mockup, not a real business's website.</span>
+      <span>Design Sample by Web Engineer</span>
+    </div>
+  </div>
+</footer>
 
 <script>
   (function(){
-    var els=document.querySelectorAll('[data-reveal]');
+    var els = document.querySelectorAll('[data-reveal]');
     if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in');});return;}
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in');io.unobserve(entry.target);}});
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){entry.target.classList.add('in');io.unobserve(entry.target);}
+      });
     },{threshold:.12});
     els.forEach(function(el){io.observe(el);});
   })();

@@ -3,374 +3,224 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
 <title>サンプル飲食店 | 制作サンプル</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#f7f2e9;
-    --paper:#fffdf8;
-    --ink:#2c2620;
-    --ink-soft:#6a5f4f;
-    --rice:#e8dcc0;
-    --nori:#2f3b2c;
-    --ume:#b23a2f;
-    --ume-text:#8a2b22;
-    --gold:#af8a2f;
-    --gold-text:#856a20;
-    --line:#e3d8bd;
+    --bg:#0A0A0C;
+    --card:#141418;
+    --card-border:#26262B;
+    --ink:#F3F4F6;
+    --ink-soft:#9A9AA3;
+    --accent1:#6366F1;
+    --accent2:#A855F7;
+    --grad:linear-gradient(135deg,#6366F1,#A855F7);
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html,body{overflow-x:hidden;overscroll-behavior-x:none;max-width:100vw;}
-  body{
-    width:100%;max-width:100vw;
-    background:var(--bg);color:var(--ink);
-    font-family:'Noto Sans JP',sans-serif;
-    line-height:1.8;-webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3,.mincho{font-family:'Zen Old Mincho',serif;}
+  body{width:100%;max-width:100vw;background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased;letter-spacing:-.01em;}
   a{color:inherit;text-decoration:none;}
-  .wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+  ::selection{background:var(--accent1);color:#fff;}
 
-  .ph{
-    position:relative;background:linear-gradient(160deg,#efe6cf 0%,#cbb877 45%,#6a5622 100%);
-    display:flex;align-items:flex-end;overflow:hidden;color:#fff;
-  }
-  .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.4),transparent 50%);}
-  .ph span{position:relative;z-index:1;padding:14px 18px;font-size:.78rem;letter-spacing:.05em;}
-  .ph.ume{background:linear-gradient(160deg,#e8cfc4,#b23a2f 55%,#5c1a12);}
-  .ph.nori{background:linear-gradient(160deg,#cdd6c6,#5c6b54 55%,#1f2919);}
+  .ph{position:relative;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#1c1c22,#26202f 60%,#141418);border:1px solid var(--card-border);}
+  .ph::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 60%,rgba(99,102,241,.22),transparent 60%);}
+  .ph span{position:absolute;left:16px;bottom:14px;font-size:.72rem;color:var(--ink-soft);z-index:1;}
 
-  /* ===== bottom-anchored mobile-first nav bar (fixed to bottom, unlike prior top navs) ===== */
-  .topbar{
-    position:sticky;top:0;z-index:50;
-    background:var(--paper);
-    border-bottom:1px solid var(--line);
-    padding:14px 24px;
-    display:flex;align-items:center;justify-content:space-between;
-  }
-  .brandmark{display:flex;align-items:center;gap:10px;}
-  .brandmark .dot{
-    width:34px;height:34px;border-radius:50%;
-    background:radial-gradient(circle at 35% 30%,#fff 0 8%, var(--nori) 9% 100%);
-    flex-shrink:0;
-  }
-  .brandmark span{font-family:'Zen Old Mincho',serif;font-weight:900;font-size:1.15rem;letter-spacing:.04em;}
-  .cta-mini{
-    font-size:.8rem;font-weight:700;padding:10px 18px;border-radius:99px;
-    background:var(--ume);color:#fff;transition:background .25s,transform .25s;
-  }
-  .cta-mini:hover{background:var(--ume-text);transform:translateY(-2px);}
+  [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1);}
+  [data-reveal].in{opacity:1;transform:translateY(0);}
 
-  /* ===== hero : centered text, large photo strip below (distinct from split/diagonal heroes used before) ===== */
-  .hero{padding:64px 0 0;text-align:center;}
-  .hero .eyebrow{
-    font-size:.78rem;letter-spacing:.22em;color:var(--ume-text);font-weight:700;margin-bottom:20px;
+  /* ===== header : side rail nav (distinct from the other two headers) ===== */
+  .layout{display:grid;grid-template-columns:220px 1fr;min-height:100vh;}
+  .sidebar{
+    position:sticky;top:0;align-self:start;height:100vh;
+    border-right:1px solid var(--card-border);
+    background:rgba(20,20,24,.5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    display:flex;flex-direction:column;justify-content:space-between;padding:32px 22px;
   }
-  .hero h1{
-    font-size:clamp(2.3rem,6vw,3.8rem);line-height:1.4;color:var(--ink);
-    margin:0 auto 22px;max-width:16ch;
-  }
-  .hero h1 em{font-style:normal;color:var(--ume-text);}
-  .hero p{max-width:44ch;margin:0 auto 34px;color:var(--ink-soft);font-size:1rem;}
-  .hero-strip{
-    display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:14px;
-    padding:0 24px 0;max-width:1140px;margin:0 auto;
-  }
-  .hero-strip .ph{aspect-ratio:4/3;border-radius:4px;}
-  .hero-strip .ph:first-child{aspect-ratio:16/10;}
+  .logo{font-weight:800;font-size:1.05rem;letter-spacing:-.02em;line-height:1.4;}
+  .logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;display:block;}
+  .side-nav{display:flex;flex-direction:column;gap:6px;margin-top:44px;}
+  .side-nav a{font-size:.86rem;font-weight:600;color:var(--ink-soft);padding:10px 12px;border-radius:8px;transition:background .3s,color .3s;}
+  .side-nav a:hover{background:rgba(255,255,255,.06);color:var(--ink);}
+  .main{min-width:0;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:10px;font-weight:700;font-size:.86rem;letter-spacing:-.01em;transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s;}
+  .btn-grad{background:var(--grad);color:#fff;box-shadow:0 10px 30px -12px rgba(99,102,241,.6);}
+  .btn-grad:hover{transform:translateY(-4px);box-shadow:0 16px 36px -10px rgba(99,102,241,.75);}
+  .btn-ghost{background:rgba(255,255,255,.05);border:1px solid var(--card-border);color:var(--ink);}
+  .btn-ghost:hover{transform:translateY(-4px);background:rgba(255,255,255,.09);}
+  .btn-light{background:#fff;color:#141418;}
+  .btn-light:hover{transform:translateY(-4px);box-shadow:0 16px 36px -10px rgba(0,0,0,.4);}
 
-  /* ===== about ===== */
-  .about{padding:80px 0;}
-  .about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
-  .about-img .ph{aspect-ratio:1/1;border-radius:4px;}
-  .about h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:20px;}
-  .about p{color:var(--ink-soft);margin-bottom:16px;font-size:.98rem;}
-  .tagrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;}
-  .tag{
-    font-size:.74rem;font-weight:700;padding:7px 14px;border-radius:99px;
-    background:var(--rice);color:var(--gold-text);border:1px solid var(--line);
-  }
+  /* ===== hero : split with big number/stat card (distinct from the other two heroes) ===== */
+  .hero{position:relative;padding:90px 40px 90px;overflow:hidden;}
+  .orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.5;pointer-events:none;z-index:0;}
+  .orb1{width:460px;height:460px;background:#6366F1;top:-120px;right:-100px;animation:float1 17s ease-in-out infinite;}
+  @keyframes float1{0%,100%{transform:translate(0,0);}50%{transform:translate(-40px,50px);}}
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr .75fr;gap:40px;align-items:center;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.76rem;font-weight:600;letter-spacing:.06em;color:var(--ink-soft);padding:7px 14px;border:1px solid var(--card-border);border-radius:999px;background:rgba(255,255,255,.04);margin-bottom:22px;}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent2);}
+  .hero h1{font-size:clamp(2.1rem,3.8vw,3.1rem);font-weight:800;line-height:1.35;letter-spacing:-.03em;margin-bottom:18px;}
+  .hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero p{color:var(--ink-soft);font-size:.98rem;max-width:42ch;margin-bottom:28px;}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;}
+  .stat-card{background:var(--card);border:1px solid var(--card-border);border-radius:18px;padding:32px;text-align:center;}
+  .stat-card .num{font-size:clamp(2.4rem,4.4vw,3.4rem);font-weight:800;letter-spacing:-.03em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat-card .label{font-size:.84rem;color:var(--ink-soft);margin-top:6px;}
+  .stat-card .ph{margin-top:20px;aspect-ratio:1/1;}
 
-  /* ===== menu : vertical numbered editorial list (distinct from tab/accordion used before) ===== */
-  .menu{padding:80px 0;background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-  .sec-head{text-align:center;margin-bottom:48px;}
-  .sec-head .eyebrow{font-size:.78rem;letter-spacing:.22em;color:var(--ume-text);font-weight:700;margin-bottom:10px;}
-  .sec-head h2{font-size:clamp(1.6rem,3vw,2.2rem);}
-  .menu-list{max-width:760px;margin:0 auto;border-top:1px solid var(--line);}
-  .menu-row{
-    display:grid;grid-template-columns:52px 1fr auto;gap:18px;align-items:baseline;
-    padding:24px 4px;border-bottom:1px solid var(--line);
+  /* ===== features : vertical list with number index (distinct from other two feature layouts) ===== */
+  .features{padding:100px 40px;}
+  .sec-head{max-width:640px;margin-bottom:48px;}
+  .sec-head h2{font-size:clamp(1.6rem,2.8vw,2.1rem);font-weight:800;letter-spacing:-.02em;margin-bottom:12px;}
+  .sec-head p{color:var(--ink-soft);font-size:.94rem;}
+  .feature-list{border-top:1px solid var(--card-border);}
+  .feature-row{
+    display:grid;grid-template-columns:60px 1fr auto;gap:20px;align-items:center;
+    padding:26px 4px;border-bottom:1px solid var(--card-border);
+    transition:background .3s;
   }
-  .menu-row .num{
-    font-family:'Zen Old Mincho',serif;font-size:1.3rem;font-weight:900;color:var(--gold-text);
-  }
-  .menu-row h3{font-size:1.08rem;font-weight:700;margin-bottom:4px;}
-  .menu-row p{font-size:.86rem;color:var(--ink-soft);}
-  .menu-row .price{font-weight:700;color:var(--ume-text);white-space:nowrap;font-size:.98rem;}
+  .feature-row:hover{background:rgba(255,255,255,.03);}
+  .feature-row .idx{font-size:1.3rem;font-weight:800;color:var(--ink-soft);}
+  .feature-row h3{font-size:1.02rem;font-weight:700;margin-bottom:4px;}
+  .feature-row p{font-size:.86rem;color:var(--ink-soft);}
+  .feature-row .price{font-weight:700;font-size:.98rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap;}
 
-  /* ===== gallery : asymmetric bento grid (distinct from filmstrip/masonry used before) ===== */
-  .gallery{padding:80px 0;}
-  .bento{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    grid-auto-rows:140px;
-    gap:14px;
-  }
-  .bento .ph{border-radius:4px;height:100%;}
-  .bento .b1{grid-column:1/3;grid-row:1/3;}
-  .bento .b2{grid-column:3/5;grid-row:1/2;}
-  .bento .b3{grid-column:3/4;grid-row:2/4;}
-  .bento .b4{grid-column:4/5;grid-row:2/3;}
-  .bento .b5{grid-column:1/2;grid-row:3/4;}
-  .bento .b6{grid-column:2/4;grid-row:3/4;}
-  .bento .b7{grid-column:4/5;grid-row:3/4;}
+  /* ===== gallery : 3-col even grid (distinct from bento/filmstrip used elsewhere) ===== */
+  .gallery{padding:100px 40px;border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border);}
+  .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .gal-grid .ph{aspect-ratio:1/1;}
 
-  /* ===== story pull-band, full width color ===== */
-  .story-band{
-    padding:70px 0;background:var(--nori);color:#f2ece0;text-align:center;
-  }
-  .story-band blockquote{
-    font-family:'Zen Old Mincho',serif;font-size:clamp(1.3rem,2.8vw,1.9rem);
-    max-width:30ch;margin:0 auto 18px;line-height:1.9;
-  }
-  .story-band cite{font-style:normal;font-size:.84rem;color:#c9c1ab;}
+  .cta-band{padding:100px 40px;}
+  .cta-card{position:relative;overflow:hidden;border-radius:28px;background:var(--grad);padding:clamp(44px,6vw,68px);text-align:center;}
+  .cta-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 20%,rgba(255,255,255,.25),transparent 55%);}
+  .cta-card h2{position:relative;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;letter-spacing:-.02em;margin-bottom:14px;}
+  .cta-card p{position:relative;color:rgba(255,255,255,.85);max-width:44ch;margin:0 auto 28px;font-size:.94rem;}
+  .cta-card .hero-cta{position:relative;justify-content:center;}
+  .cta-card .btn-ghost{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);}
 
-  /* ===== access ===== */
-  .access{padding:80px 0;}
-  .access .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
-  .info-list{border-top:1px solid var(--line);}
-  .info-row{
-    display:grid;grid-template-columns:96px 1fr;gap:16px;
-    padding:18px 0;border-bottom:1px solid var(--line);font-size:.92rem;
-  }
-  .info-row dt{font-weight:700;color:var(--ink-soft);}
-  .info-row dd{color:var(--ink);}
-  .note{
-    margin-top:18px;font-size:.82rem;color:var(--ume-text);
-    background:#f9ece9;border:1px solid #eccfc7;padding:12px 14px;border-radius:4px;
-  }
-  .access .ph{width:100%;height:100%;min-height:280px;border-radius:4px;}
+  footer{padding:0 40px 48px;font-size:.8rem;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid var(--card-border);padding-top:24px;}
 
-  /* ===== contact : split with rounded card left / plain text right ===== */
-  .contact{padding:0 0 90px;}
-  .contact-grid{
-    display:grid;grid-template-columns:1fr 1fr;gap:0;
-    border-radius:20px;overflow:hidden;
-    box-shadow:0 20px 50px -25px rgba(44,38,32,.35);
+  @media (max-width:920px){
+    .layout{grid-template-columns:1fr;}
+    .sidebar{position:static;height:auto;flex-direction:row;align-items:center;padding:18px 24px;}
+    .side-nav{flex-direction:row;margin-top:0;gap:4px;}
+    .hero{padding:60px 24px;}
+    .features,.gallery,.cta-band{padding:70px 24px;}
+    .hero-grid{grid-template-columns:1fr;}
+    .gal-grid{grid-template-columns:repeat(2,1fr);}
+    footer{padding:24px 24px 40px;}
   }
-  .contact-left{
-    background:var(--ume);color:#fff;padding:clamp(36px,5vw,56px);
-    display:flex;flex-direction:column;justify-content:center;
-  }
-  .contact-left h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:14px;}
-  .contact-left p{color:#ffe3dd;font-size:.92rem;margin-bottom:26px;max-width:34ch;}
-  .contact-btns{display:flex;gap:12px;flex-wrap:wrap;}
-  .btn{
-    display:inline-flex;align-items:center;padding:13px 22px;border-radius:99px;
-    font-size:.86rem;font-weight:700;transition:transform .25s,background .25s,box-shadow .25s;
-  }
-  .btn-light{background:#fff;color:var(--ume-text);}
-  .btn-light:hover{transform:translateY(-3px);box-shadow:0 12px 22px -10px rgba(0,0,0,.35);}
-  .btn-outline{border:1.5px solid #fff;color:#fff;}
-  .btn-outline:hover{transform:translateY(-3px);background:#fff;color:var(--ume-text);}
-  .contact-right{
-    background:var(--paper);padding:clamp(36px,5vw,56px);
-    display:flex;flex-direction:column;justify-content:center;
-  }
-  .contact-right h3{font-size:1.05rem;margin-bottom:14px;color:var(--ink);}
-  .contact-right p{font-size:.88rem;color:var(--ink-soft);margin-bottom:10px;}
-  .disclaimer{margin-top:8px;font-size:.76rem;color:var(--ink-soft);}
-
-  footer{
-    padding:26px 24px;text-align:center;font-size:.74rem;color:var(--ink-soft);
-    border-top:1px solid var(--line);
-  }
-
-  @media (max-width:860px){
-    .about .wrap{grid-template-columns:1fr;gap:30px;}
-    .hero-strip{grid-template-columns:1fr 1fr;}
-    .hero-strip .ph:first-child{grid-column:1/3;}
-    .bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px;}
-    .bento .b1{grid-column:1/3;grid-row:1/2;}
-    .bento .b2{grid-column:1/2;grid-row:2/3;}
-    .bento .b3{grid-column:2/3;grid-row:2/4;}
-    .bento .b4{grid-column:1/2;grid-row:3/4;}
-    .bento .b5{grid-column:1/2;grid-row:4/5;}
-    .bento .b6{grid-column:2/3;grid-row:4/5;}
-    .bento .b7{grid-column:1/3;grid-row:5/6;}
-    .access .wrap{grid-template-columns:1fr;gap:28px;}
-    .contact-grid{grid-template-columns:1fr;border-radius:16px;}
-  }
-
-  /* ===== password gate ===== */
-  #gate{
-    position:fixed;inset:0;z-index:9999;
-    background:linear-gradient(160deg,#2c2620,#5c1a12);
-    display:flex;align-items:center;justify-content:center;padding:24px;
-  }
-  #gate .box{
-    background:var(--paper);border-radius:10px;
-    padding:clamp(28px,5vw,48px);max-width:380px;width:100%;text-align:center;
-  }
-  #gate h2{font-family:'Zen Old Mincho',serif;font-size:1.4rem;color:var(--ink);margin-bottom:8px;}
-  #gate p{font-size:.84rem;color:var(--ink-soft);margin-bottom:22px;}
-  #gate input{
-    width:100%;padding:13px 14px;font-size:16px;
-    border:1.5px solid var(--line);border-radius:6px;margin-bottom:12px;font-family:inherit;
-  }
-  #gate button{
-    width:100%;padding:13px;border:none;border-radius:6px;
-    background:var(--ume);color:#fff;font-weight:700;font-size:.94rem;cursor:pointer;transition:background .25s;
-  }
-  #gate button:hover{background:var(--ume-text);}
-  #gate .err{color:var(--ume-text);font-size:.8rem;margin-top:10px;min-height:1.2em;}
 </style>
 </head>
 <body>
 
-<div class="topbar">
-  <div class="brandmark"><div class="dot"></div><span>サンプル飲食店</span></div>
-  <a href="#contact" class="cta-mini">お問い合わせ</a>
-</div>
-
-<section class="hero">
-  <div class="wrap">
-    <div class="eyebrow">KURASHIKI BIKAN / ONIGIRI</div>
-    <h1>お米から選んだ、<br><em>こだわりのおにぎり</em>。</h1>
-    <p>観光地の路地奥という想定のサンプルです。素材の甘みと香りを大切に、一つひとつ手で握っているという設定のおにぎり専門店です。</p>
-  </div>
-  <div class="hero-strip">
-    <div class="ph"><span>店頭の様子</span></div>
-    <div class="ph ume"><span>梅おにぎり</span></div>
-    <div class="ph nori"><span>海苔巻きおにぎり</span></div>
-  </div>
-</section>
-
-<section class="about">
-  <div class="wrap">
-    <div class="about-img">
-      <div class="ph"><span>米を選ぶ様子</span></div>
-    </div>
+<div class="layout">
+  <aside class="sidebar">
     <div>
-      <h2 class="mincho">路地の奥に、<br>小さな一軒。</h2>
-      <p>観光の喧騒から少し外れた静かな路地に店を構えている、という想定です。店内はカウンターのみの小さな造りで、目の前で一つひとつ丁寧に握る様子を見ることができる、というサンプルストーリーです。</p>
-      <p>使用するお米は産地・品種にこだわって選定。塩加減や握り方も、お米の個性に合わせて微調整しています。観光の合間に立ち寄る方はもちろん、地元の方の食事使いにも選ばれています。</p>
-      <div class="tagrow">
-        <span class="tag">こだわり米</span>
-        <span class="tag">路地奥・隠れ家</span>
-        <span class="tag">一つひとつ手握り</span>
-      </div>
+      <div class="logo">サンプル<em>飲食店</em></div>
+      <nav class="side-nav">
+        <a href="#concept">こだわり</a>
+        <a href="#menu">メニュー</a>
+        <a href="#gallery">ギャラリー</a>
+      </nav>
     </div>
-  </div>
-</section>
+    <a href="#contact" class="btn btn-grad">お問い合わせ</a>
+  </aside>
 
-<section class="menu">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">MENU</div>
-      <h2 class="mincho">おにぎりメニュー</h2>
-    </div>
-    <div class="menu-list">
-      <div class="menu-row">
-        <div class="num">01</div>
-        <div><h3>紅鮭</h3><p>脂ののった紅鮭をほぐして。定番の一番人気。</p></div>
-        <div class="price">¥250</div>
-      </div>
-      <div class="menu-row">
-        <div class="num">02</div>
-        <div><h3>梅</h3><p>酸味のきいた梅干しをまるごと一粒。</p></div>
-        <div class="price">¥220</div>
-      </div>
-      <div class="menu-row">
-        <div class="num">03</div>
-        <div><h3>明太子</h3><p>ぴりっとした辛みとお米の甘みのバランスが好評。</p></div>
-        <div class="price">¥270</div>
-      </div>
-      <div class="menu-row">
-        <div class="num">04</div>
-        <div><h3>昆布</h3><p>じっくり炊いた佃煮昆布を、ほろりとほどけるお米で。</p></div>
-        <div class="price">¥240</div>
-      </div>
-      <div class="menu-row">
-        <div class="num">05</div>
-        <div><h3>季節の具材おにぎり</h3><p>仕入れによって内容が変わる、その時期だけの限定品。</p></div>
-        <div class="price">¥280〜</div>
-      </div>
-    </div>
-    <p style="text-align:center;margin-top:26px;font-size:.84rem;color:var(--ink-soft);">※ 仕入れ状況により内容が変更・売り切れになる場合があります。</p>
-  </div>
-</section>
-
-<section class="gallery">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">GALLERY</div>
-      <h2 class="mincho">店内・商品の様子</h2>
-    </div>
-    <div class="bento">
-      <div class="ph b1"><span>店内カウンター</span></div>
-      <div class="ph ume b2"><span>紅鮭おにぎり</span></div>
-      <div class="ph b3"><span>手握りの様子</span></div>
-      <div class="ph nori b4"><span>昆布おにぎり</span></div>
-      <div class="ph b5"><span>米俵</span></div>
-      <div class="ph ume b6"><span>季節限定おにぎり</span></div>
-      <div class="ph b7"><span>路地の外観</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="story-band">
-  <div class="wrap">
-    <blockquote class="mincho">「お米が主役だから、握り方も塩加減も、お米に合わせて変える。」</blockquote>
-    <cite>— 店主</cite>
-  </div>
-</section>
-
-<section class="access" id="access">
-  <div class="wrap">
-    <div>
-      <div class="sec-head" style="text-align:left;">
-        <div class="eyebrow">ACCESS</div>
-        <h2 class="mincho">営業案内</h2>
-      </div>
-      <dl class="info-list">
-        <div class="info-row"><dt>エリア</dt><dd>○○県○○市</dd></div>
-        <div class="info-row"><dt>立地</dt><dd>観光地奥の静かな路地</dd></div>
-        <div class="info-row"><dt>座席</dt><dd>カウンターのみ・少人数制</dd></div>
-        <div class="info-row"><dt>ご連絡</dt><dd>Instagram DMにて</dd></div>
-      </dl>
-      <p class="note">※ 詳しい住所・営業時間は現在整理中です。最新情報はInstagramでご確認ください。</p>
-    </div>
-    <div>
-      <div class="ph"><span>Placeholder — 地図/外観</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="contact-grid">
-      <div class="contact-left">
-        <h2 class="mincho">気になったら、<br>Instagramでチェック。</h2>
-        <p>営業状況やその日のおすすめは、Instagramで随時更新しています。</p>
-        <div class="contact-btns">
-          <a href="#" target="_blank" rel="noopener" class="btn btn-light">Instagramを見る</a>
+  <div class="main">
+    <section class="hero">
+      <div class="orb orb1"></div>
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow" data-reveal><span class="dot"></span>PORTFOLIO SAMPLE — 飲食店</div>
+          <h1 data-reveal>お米が主役の、<br><em>専門店という想定。</em></h1>
+          <p data-reveal>こだわりの米を使った専門店を想定した制作サンプルです。実績数値を魅せるカード型レイアウトを取り入れています。</p>
+          <div class="hero-cta" data-reveal>
+            <a href="#menu" class="btn btn-grad">メニューを見る</a>
+            <a href="#concept" class="btn btn-ghost">こだわりを見る</a>
+          </div>
+        </div>
+        <div class="stat-card" data-reveal>
+          <div class="num">5種</div>
+          <div class="label">定番メニュー数（例）</div>
+          <div class="ph"><span>看板商品</span></div>
         </div>
       </div>
-      <div class="contact-right">
-        <h3 class="mincho">ご来店・お問い合わせについて</h3>
-        <p>現在、お電話でのご案内は行っておりません。ご連絡はInstagramのDMからお願いしております。</p>
-        <p>ご予約フォームは含まれておりません。</p>
-        <p class="disclaimer">※ このサイトは制作サンプルです。掲載写真・情報はすべてイメージのプレースホルダーです。</p>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<footer>© サンプル飲食店 — this is a portfolio demo mockup, not a real business's website.</footer>
+    <section class="features" id="concept">
+      <div class="sec-head" data-reveal>
+        <div class="eyebrow"><span class="dot"></span>CONCEPT</div>
+        <h2>お米へのこだわり</h2>
+        <p>素材の甘みと香りを活かした、一つひとつ手仕事という想定のサンプルです。</p>
+      </div>
+      <div class="feature-list">
+        <div class="feature-row" data-reveal>
+          <div class="idx">01</div>
+          <div><h3>厳選したお米</h3><p>産地・品種にこだわって選定しているという設定です。</p></div>
+          <div class="price">—</div>
+        </div>
+        <div class="feature-row" data-reveal>
+          <div class="idx">02</div>
+          <div><h3>一つひとつ手握り</h3><p>目の前で丁寧に握る様子を見ていただける造りという設定です。</p></div>
+          <div class="price">—</div>
+        </div>
+        <div class="feature-row" data-reveal>
+          <div class="idx">03</div>
+          <div><h3>路地裏の立地</h3><p>観光の喧騒から少し外れた静かな路地にあるという想定です。</p></div>
+          <div class="price">—</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="menu">
+      <div class="sec-head" data-reveal>
+        <div class="eyebrow"><span class="dot"></span>MENU</div>
+        <h2>おにぎりラインナップ</h2>
+        <p>実際の制作では、実物の写真・価格に差し替えて仕上げます。</p>
+      </div>
+      <div class="gal-grid" id="gallery">
+        <div class="ph" data-reveal><span>紅鮭</span></div>
+        <div class="ph" data-reveal><span>梅</span></div>
+        <div class="ph" data-reveal><span>明太子</span></div>
+        <div class="ph" data-reveal><span>昆布</span></div>
+        <div class="ph" data-reveal><span>季節限定</span></div>
+        <div class="ph" data-reveal><span>店内の様子</span></div>
+      </div>
+    </section>
+
+    <section class="cta-band" id="contact">
+      <div class="cta-card" data-reveal>
+        <h2>営業状況はInstagramで<br>随時ご案内しています。</h2>
+        <p>仕入れ状況により内容が変わるため、最新情報はInstagramをご確認ください。</p>
+        <div class="hero-cta">
+          <a href="#" class="btn btn-light">Instagramを見る</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>© サンプル飲食店 — this is a portfolio demo mockup, not a real business's website.</span>
+      <span>店名・所在地はすべて架空の設定です。</span>
+    </footer>
+  </div>
+</div>
+
+<script>
+  (function(){
+    var els = document.querySelectorAll('[data-reveal]');
+    if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in');});return;}
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){entry.target.classList.add('in');io.unobserve(entry.target);}
+      });
+    },{threshold:.12});
+    els.forEach(function(el){io.observe(el);});
+  })();
+</script>
 
 </body>
 </html>
