@@ -141,3 +141,6 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# UI/UX Pro Max skill (locally generated, per-project)
+.claude/skills/ui-ux-pro-max/

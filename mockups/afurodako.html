@@ -184,6 +184,15 @@
   .gate-box input{ width:100%; font-size:16px; padding:13px 14px; border:1px solid var(--line); background:#fff; color:var(--charcoal); margin-bottom:12px; }
   .gate-box button{ width:100%; font-size:15px; padding:13px 14px; border:none; cursor:pointer; background:var(--coral-btn); color:#fff6e6; letter-spacing:.04em; font-weight:700; }
   .gate-err{ font-size:12px; color:#b83a24; min-height:18px; margin-top:8px; }
+
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{
+      animation-duration:.01ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.01ms !important;
+      scroll-behavior:auto !important;
+    }
+  }
 </style>
 </head>
 <body>
