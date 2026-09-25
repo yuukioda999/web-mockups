@@ -35,11 +35,11 @@
   .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
   img,.ph{display:block;}
 
+  .cursor{display:none;position:fixed;top:0;left:0;width:16px;height:16px;border-radius:50%;background:var(--indigo);pointer-events:none;z-index:999;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s,opacity .25s;mix-blend-mode:normal;opacity:.85;}
   @media (pointer:fine){
     body,a,button,.btn{cursor:none;}
     .cursor{display:block;}
   }
-  .cursor{display:none;position:fixed;top:0;left:0;width:16px;height:16px;border-radius:50%;background:var(--indigo);pointer-events:none;z-index:999;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s,opacity .25s;mix-blend-mode:normal;opacity:.85;}
   .cursor.hover{width:44px;height:44px;background:rgba(79,70,229,.16);border:1.5px solid var(--indigo);}
   .cursor.hover-coral{background:rgba(239,90,53,.16);border-color:var(--coral);}
 
