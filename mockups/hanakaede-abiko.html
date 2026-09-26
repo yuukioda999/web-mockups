@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>花楓 -hanakaede- | 我孫子市の花屋</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --base:#F7F4EC;
+    --base-2:#EFE9DC;
+    --ink:#3B332C;
+    --ink-soft:#6B6255;
+    --moss:#6B7A5E;
+    --moss-text:#49563E;
+    --rose:#C98F82;
+    --rose-text:#95564B;
+    --mustard:#8A6512;
+    --line:rgba(59,51,44,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{
+    overflow-x:hidden;
+    overscroll-behavior-x:none;
+    background:var(--base);
+  }
+  body{
+    width:100%;
+    max-width:100vw;
+    color:var(--ink);
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.brand{
+    font-family:'Shippori Mincho', serif;
+    font-weight:600;
+    letter-spacing:.02em;
+  }
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+  ul{list-style:none;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 clamp(20px,5vw,64px);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- Placeholder photo blocks ---------- */
+  .ph{
+    position:relative;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+    background:linear-gradient(155deg,#DCE2CE 0%, #B9C4A0 45%, #93A279 100%);
+  }
+  .ph::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      radial-gradient(circle at 20% 25%, rgba(255,255,255,0.35), transparent 40%),
+      radial-gradient(circle at 80% 75%, rgba(59,51,44,0.18), transparent 45%);
+  }
+  .ph span{
+    position:relative;
+    z-index:1;
+    display:inline-block;
+    margin:20px;
+    padding:8px 14px;
+    background:rgba(59,51,44,0.72);
+    color:#F7F4EC;
+    font-size:.78rem;
+    letter-spacing:.06em;
+    border-radius:3px;
+  }
+  .ph.alt{background:linear-gradient(155deg,#EAD9CF 0%, #D9B7A9 45%, #C0917F 100%);}
+  .ph.alt2{background:linear-gradient(155deg,#E7DFC9 0%, #D6C494 45%, #C2A45C 100%);}
+
+  /* ---------- Side rail nav ---------- */
+  .rail{
+    position:fixed;
+    top:0; left:0; bottom:0;
+    width:112px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-between;
+    padding:28px 10px 22px;
+    background:rgba(247,244,236,0.92);
+    backdrop-filter:blur(8px);
+    border-right:1px solid var(--line);
+    z-index:200;
+  }
+  .rail .brand{
+    font-size:1.15rem;
+    letter-spacing:.1em;
+    text-align:center;
+  }
+  .rail nav{display:flex; flex-direction:column; gap:26px; align-items:center;}
+  .rail nav a{
+    font-size:.78rem;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+    padding:4px 8px;
+    text-align:center;
+    line-height:1.4;
+    border-bottom:2px solid transparent;
+    transition:color .3s ease, border-color .3s ease;
+  }
+  .rail nav a:hover{color:var(--moss-text); border-color:var(--moss);}
+  .rail .rail-cta{
+    font-size:.78rem;
+    letter-spacing:.05em;
+    padding:12px 14px;
+    text-align:center;
+    line-height:1.4;
+    background:var(--moss);
+    color:#fff;
+    border-radius:999px;
+    transition:transform .35s cubic-bezier(.22,1,.36,1), background .3s ease;
+  }
+  .rail .rail-cta:hover{transform:scale(1.06); background:var(--moss-text);}
+
+  main{margin-left:112px;}
+  @media (max-width: 780px){
+    .rail{
+      width:100%; height:auto; bottom:auto;
+      flex-direction:row; padding:14px 20px;
+      border-right:none; border-bottom:1px solid var(--line);
+    }
+    .rail .brand{font-size:1.05rem;}
+    .rail nav{display:none;}
+    .rail .rail-cta{padding:9px 16px; font-size:.75rem;}
+    main{margin-left:0;}
+  }
+
+  /* ---------- Hero: split screen ---------- */
+  .hero{
+    display:grid;
+    grid-template-columns:1.05fr 1fr;
+    min-height:92vh;
+  }
+  .hero-text{
+    display:flex; flex-direction:column; justify-content:center;
+    padding:clamp(28px,6vw,80px);
+    gap:22px;
+  }
+  .eyebrow{
+    font-size:.82rem; letter-spacing:.22em; color:var(--moss-text); font-weight:700;
+  }
+  .hero-text h1{
+    font-size:clamp(2.4rem, 5.6vw, 4.1rem);
+    line-height:1.25;
+  }
+  .hero-text p{color:var(--ink-soft); max-width:34em; font-size:1.02rem;}
+  .hero-photo{position:relative; min-height:420px;}
+  .hero-photo .ph{position:absolute; inset:0;}
+  @media (max-width:780px){
+    .hero{grid-template-columns:1fr; min-height:auto;}
+    .hero-photo{min-height:320px; order:-1;}
+  }
+
+  .btn-row{display:flex; flex-wrap:wrap; gap:14px; margin-top:6px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 26px;
+    border-radius:999px;
+    font-size:.9rem; letter-spacing:.03em; font-weight:700;
+    transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, background .3s ease;
+  }
+  .btn-primary{background:var(--moss); color:#fff;}
+  .btn-primary:hover{transform:translateY(-3px); box-shadow:0 14px 28px -12px rgba(107,122,94,0.55);}
+  .btn-outline{border:1.5px solid var(--ink); color:var(--ink);}
+  .btn-outline:hover{transform:translateY(-3px); background:var(--ink); color:var(--base);}
+
+  section{padding:clamp(64px,10vw,120px) 0;}
+  .section-head{max-width:640px; margin-bottom:48px;}
+  .section-head .eyebrow{display:block; margin-bottom:12px;}
+  .section-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);}
+  .section-head p{color:var(--ink-soft); margin-top:14px;}
+
+  /* ---------- About: overlap text on photo ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:0;
+    align-items:center;
+  }
+  .about-photo{position:relative; min-height:460px;}
+  .about-photo .ph{position:absolute; inset:0;}
+  .about-copy{
+    position:relative;
+    background:var(--base-2);
+    margin-left:-64px;
+    padding:48px 56px;
+    border:1px solid var(--line);
+    z-index:2;
+  }
+  .about-copy h3{font-size:1.5rem; margin-bottom:16px;}
+  .about-copy p + p{margin-top:14px;}
+  .about-copy p{color:var(--ink-soft);}
+  @media (max-width:900px){
+    .about-grid{grid-template-columns:1fr;}
+    .about-copy{margin-left:0; margin-top:-48px; padding:32px clamp(20px,6vw,56px);}
+  }
+
+  /* ---------- Menu: numbered editorial list ---------- */
+  .menu-list{border-top:1px solid var(--line);}
+  .menu-row{
+    display:grid;
+    grid-template-columns:64px 1fr auto;
+    gap:24px;
+    align-items:baseline;
+    padding:26px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .menu-row .num{font-family:'Shippori Mincho',serif; color:var(--rose-text); font-size:1.1rem; font-weight:700;}
+  .menu-row h4{font-size:1.15rem; margin-bottom:6px;}
+  .menu-row .desc{color:var(--ink-soft); font-size:.94rem; max-width:46em;}
+  .menu-row .price{font-family:'Shippori Mincho',serif; font-size:1.15rem; white-space:nowrap;}
+  .badge{
+    display:inline-block;
+    font-size:.7rem; letter-spacing:.06em; font-weight:700;
+    padding:3px 9px; border-radius:999px;
+    margin-left:10px;
+    color:#fff;
+  }
+  .badge.moss{background:var(--moss);}
+  .badge.rose{background:var(--rose-text);}
+  .badge.mustard{background:var(--mustard);}
+  @media (max-width:600px){
+    .menu-row{grid-template-columns:40px 1fr; }
+    .menu-row .price{grid-column:2; margin-top:6px;}
+  }
+
+  /* ---------- Gallery: horizontal filmstrip ---------- */
+  .filmstrip{
+    display:flex;
+    gap:18px;
+    overflow-x:auto;
+    padding-bottom:14px;
+    scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;
+  }
+  .filmstrip::-webkit-scrollbar{height:6px;}
+  .filmstrip::-webkit-scrollbar-thumb{background:var(--line); border-radius:4px;}
+  .filmstrip .ph{
+    flex:0 0 clamp(220px,32vw,340px);
+    height:clamp(260px,32vw,380px);
+    scroll-snap-align:start;
+    border-radius:4px;
+    transition:transform .4s cubic-bezier(.22,1,.36,1);
+  }
+  .filmstrip .ph:hover{transform:translateY(-8px);}
+
+  /* ---------- Access / hours ---------- */
+  .info-band{background:var(--ink); color:var(--base); padding:clamp(56px,9vw,96px) 0;}
+  .info-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:36px;}
+  .info-grid h4{font-size:.82rem; letter-spacing:.14em; color:#C9B79C; margin-bottom:10px; font-family:'Zen Kaku Gothic New',sans-serif; font-weight:700;}
+  .info-grid p{color:#EFE9DC;}
+
+  /* ---------- Contact: split map panel ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    border:1px solid var(--line);
+  }
+  .contact-map{position:relative; min-height:380px;}
+  .contact-map .ph{position:absolute; inset:0;}
+  .contact-copy{padding:clamp(32px,5vw,56px);}
+  .contact-copy h2{font-size:clamp(1.7rem,3vw,2.2rem); margin-bottom:16px;}
+  .contact-copy p{color:var(--ink-soft); margin-bottom:26px;}
+  .contact-buttons{display:flex; flex-direction:column; gap:14px;}
+  .contact-buttons .btn{justify-content:center;}
+  @media (max-width:780px){
+    .contact-grid{grid-template-columns:1fr;}
+    .contact-map{min-height:260px;}
+  }
+
+  footer{padding:36px 0; text-align:center; color:var(--ink-soft); font-size:.82rem; border-top:1px solid var(--line);}
+
+  /* ---------- reveal-on-scroll ---------- */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .8s ease, transform .8s cubic-bezier(.22,1,.36,1);}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- Password gate ---------- */
+  #gate{
+    position:fixed; inset:0; z-index:999;
+    background:var(--ink);
+    color:var(--base);
+    display:flex; align-items:center; justify-content:center;
+    padding:24px;
+  }
+  #gate.hidden{display:none;}
+  .gate-box{max-width:380px; width:100%; text-align:center;}
+  .gate-box .brand{font-size:1.4rem; margin-bottom:8px; display:block;}
+  .gate-box p{color:#C9B79C; margin-bottom:22px; font-size:.9rem;}
+  #gate-pass{
+    width:100%;
+    font-size:16px;
+    padding:14px 16px;
+    border-radius:8px;
+    border:1px solid rgba(247,244,236,0.3);
+    background:rgba(247,244,236,0.08);
+    color:var(--base);
+    margin-bottom:14px;
+    text-align:center;
+    letter-spacing:.08em;
+  }
+  #gate-pass::placeholder{color:#9C927F;}
+  #gate-submit{
+    width:100%;
+    font-size:16px;
+    padding:14px 16px;
+    border-radius:8px;
+    border:none;
+    background:var(--moss);
+    color:#fff;
+    font-weight:700;
+    cursor:pointer;
+    transition:background .3s ease;
+  }
+  #gate-submit:hover{background:#7d8f6e;}
+  #gate-error{color:var(--rose); font-size:.82rem; margin-top:12px; min-height:1.2em;}
+</style>
+</head>
+<body>
+
+<div class="rail">
+  <span class="brand">花楓</span>
+  <nav>
+    <a href="#about">物語</a>
+    <a href="#menu">メニュー</a>
+    <a href="#gallery">ギャラリー</a>
+    <a href="#access">アクセス</a>
+  </nav>
+  <a class="rail-cta" href="#contact">お問い合わせ</a>
+</div>
+
+<main>
+  <section class="hero">
+    <div class="hero-text">
+      <span class="eyebrow reveal">CHIBA / ABIKO</span>
+      <h1 class="reveal">大正の梁組みが、<br>季節の花を見守る店。</h1>
+      <p class="reveal">茨城・笠間にあった大正時代の隠居（離れ）を、そのまま我孫子へ移築。釘を使わない梁組みの下で、白を基調にした花束とアレンジメントをひとつずつ仕立てています。</p>
+      <div class="btn-row reveal">
+        <a class="btn btn-primary" href="#contact">相談してみる</a>
+        <a class="btn btn-outline" href="#menu">メニューを見る</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="ph"><span>移築した大正期の古民家外観（写真準備中）</span></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="about-photo reveal">
+        <div class="ph alt"><span>釘を使わない梁組み・店内(写真準備中)</span></div>
+      </div>
+      <div class="about-copy reveal">
+        <span class="eyebrow">OUR STORY</span>
+        <h3>移築した梁が語る、時間の積み重ね。</h3>
+        <p>「花楓」の建物は、茨城県笠間市にあった大正時代の隠居を解体し、我孫子の地でもう一度組み上げたものです。釘を一切使わない伝統的な梁組みが天井に美しく浮かび上がり、季節の花々を静かに引き立てます。</p>
+        <p>白を基調にしたアレンジメントを中心に、ご予算やシーンに合わせて一点ずつお仕立て。近隣へのお届けにも対応しています。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">MENU</span>
+        <h2>花束・アレンジメント</h2>
+        <p>すべてお仕立てのオーダーメイド。ご予算やお届け先の雰囲気に合わせてご相談いただけます。</p>
+      </div>
+      <div class="menu-list reveal">
+        <div class="menu-row">
+          <span class="num">01</span>
+          <div>
+            <h4>白のブーケ <span class="badge moss">人気</span></h4>
+            <p class="desc">季節の白花を中心に、店の梁組みのような凛とした一本を。ギフトにも。</p>
+          </div>
+          <span class="price">¥3,000〜</span>
+        </div>
+        <div class="menu-row">
+          <span class="num">02</span>
+          <div>
+            <h4>寄せ植え鉢 <span class="badge rose">季節限定</span></h4>
+            <p class="desc">店頭でお選びいただいた鉢に、季節の草花を寄せて。玄関先のお祝いに。</p>
+          </div>
+          <span class="price">¥4,500〜</span>
+        </div>
+        <div class="menu-row">
+          <span class="num">03</span>
+          <div>
+            <h4>アレンジメント <span class="badge mustard">お届け対応</span></h4>
+            <p class="desc">箱型・かご型からお選びいただけます。近隣配達（¥3,000以上）承ります。</p>
+          </div>
+          <span class="price">¥3,500〜</span>
+        </div>
+        <div class="menu-row">
+          <span class="num">04</span>
+          <div>
+            <h4>母の日・特別注文</h4>
+            <p class="desc">繁忙期は事前のご相談がおすすめです。お早めにInstagram DMまたはお電話で。</p>
+          </div>
+          <span class="price">要相談</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">GALLERY</span>
+        <h2>店内・お花のようす</h2>
+      </div>
+      <div class="filmstrip reveal">
+        <div class="ph"><span>店内・梁組み(写真準備中)</span></div>
+        <div class="ph alt"><span>白のアレンジメント(写真準備中)</span></div>
+        <div class="ph alt2"><span>寄せ植え鉢(写真準備中)</span></div>
+        <div class="ph"><span>店先・季節の花(写真準備中)</span></div>
+        <div class="ph alt"><span>ラッピングの様子(写真準備中)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="access" class="info-band">
+    <div class="wrap info-grid">
+      <div class="reveal">
+        <h4>住所</h4>
+        <p>千葉県我孫子市久寺家2-1-16</p>
+      </div>
+      <div class="reveal">
+        <h4>営業時間</h4>
+        <p>9:00 – 19:00<br>日曜・祝日は 9:00 – 18:00</p>
+      </div>
+      <div class="reveal">
+        <h4>定休日</h4>
+        <p>木曜日</p>
+      </div>
+      <div class="reveal">
+        <h4>電話</h4>
+        <p>04-7186-2909</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-grid reveal">
+        <div class="contact-map">
+          <div class="ph alt2"><span>店舗周辺マップ(準備中)</span></div>
+        </div>
+        <div class="contact-copy">
+          <span class="eyebrow">CONTACT</span>
+          <h2>ご相談・ご注文はこちらから</h2>
+          <p>お電話またはInstagramのDMにて、ご希望のイメージやご予算をお聞かせください。折り返しご案内いたします。</p>
+          <div class="contact-buttons">
+            <a class="btn btn-primary" href="tel:0471862909">04-7186-2909 に電話する</a>
+            <a class="btn btn-outline" href="https://www.instagram.com/hanakaede_abiko/" target="_blank" rel="noopener">Instagramでメッセージ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <p>花楓 -hanakaede- ｜ 千葉県我孫子市久寺家2-1-16　※本サイトは制作サンプル（試作モックアップ）です</p>
+    </div>
+  </footer>
+</main>
+
+<div id="gate">
+  <div class="gate-box">
+    <span class="brand">花楓</span>
+    <p>プレビュー用パスワードを入力してください</p>
+    <input type="password" id="gate-pass" placeholder="password" autocomplete="off">
+    <button id="gate-submit" type="button">開く</button>
+    <p id="gate-error"></p>
+  </div>
+</div>
+
+<script>
+  // このパスワードは店舗ごとに変更可能な、低リスクデモ用のUI簡易ロックです（本番のセキュリティ機能ではありません）
+  var GATE_PASSWORD = "kaede2026";
+
+  (function(){
+    var gate = document.getElementById('gate');
+    var input = document.getElementById('gate-pass');
+    var submit = document.getElementById('gate-submit');
+    var error = document.getElementById('gate-error');
+    var html = document.documentElement;
+    var body = document.body;
+
+    function unlock(){
+      sessionStorage.setItem('hanakaede_unlocked', '1');
+      window.scrollTo(0, 0);
+      gate.classList.add('hidden');
+      html.style.overflow = '';
+      body.style.overflow = '';
+    }
+
+    function tryUnlock(){
+      if(input.value === GATE_PASSWORD){
+        unlock();
+      } else {
+        error.textContent = 'パスワードが違います';
+      }
+    }
+
+    if(sessionStorage.getItem('hanakaede_unlocked') === '1'){
+      gate.classList.add('hidden');
+    } else {
+      html.style.overflow = 'hidden';
+      body.style.overflow = 'hidden';
+    }
+
+    submit.addEventListener('click', tryUnlock);
+    input.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ tryUnlock(); }
+    });
+  })();
+
+  // scroll reveal
+  (function(){
+    var items = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){
+      items.forEach(function(el){ el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15});
+    items.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+</body>
+</html>
