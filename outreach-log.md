@@ -8,13 +8,13 @@
 | TIMEisRICE 旅する玄米食堂 | 新規開店ティア（2026-07-07オープン／福岡県北九州市小倉南区） | https://yuukioda999.github.io/web-mockups/mockups/timeisrice.html | genmai2026 | Instagram: https://www.instagram.com/time_is_rice/ | 下書き作成済・未送信 | 2026-09-26 |
 | アフロだこ | 新規開店ティア（2026-07-09オープン／福岡県北九州市小倉南区） | https://yuukioda999.github.io/web-mockups/mockups/afurodako.html | takoyaki | Instagram: https://www.instagram.com/afurodako/ ／X: https://x.com/afurodako | 下書き作成済・未送信 | 2026-09-26 |
 
-| 花屋つくし | DIYサイト保有ティア（花屋／兵庫県宝塚市武庫川町。Ameba Owndの簡易ページのみ） | https://yuukioda999.github.io/web-mockups/mockups/hanaya-tsukushi.html | tsukushi2026 | Instagram: https://www.instagram.com/hanayatsukushi/ | 下書き作成済・未送信 | 2026-09-27 |
-| bakery nico（ベーカリーニコ） | 新規開店ティア（パン屋／島根県松江市鹿島町。2026-09-26オープン） | https://yuukioda999.github.io/web-mockups/mockups/bakery-nico-matsue.html | nico0926 | Instagram: https://www.instagram.com/bakery_nico25/ | 下書き作成済・未送信 | 2026-09-27 |
-| Uniq Coffee（ユニクコーヒー） | 新規開店ティア（カフェ／岡山県岡山市南区新保。2026-07-11オープン） | https://yuukioda999.github.io/web-mockups/mockups/uniq-coffee-okayama.html | uniq2026 | Instagram: https://www.instagram.com/uniqcoffee_/ | 下書き作成済・未送信 | 2026-09-27 |
+| 花屋つくし | DIYサイト保有ティア（花屋／兵庫県宝塚市武庫川町。Ameba Owndの簡易ページのみ） | https://yuukioda999.github.io/web-mockups/mockups/hanaya-tsukushi.html | tsukushi2026 | Instagram: https://www.instagram.com/hanayatsukushi/ | 送信済み | 2026-09-27 |
+| bakery nico（ベーカリーニコ） | 新規開店ティア（パン屋／島根県松江市鹿島町。2026-09-26オープン） | https://yuukioda999.github.io/web-mockups/mockups/bakery-nico-matsue.html | nico0926 | Instagram: https://www.instagram.com/bakery_nico25/ | 送信済み | 2026-09-27 |
+| Uniq Coffee（ユニクコーヒー） | 新規開店ティア（カフェ／岡山県岡山市南区新保。2026-07-11オープン） | https://yuukioda999.github.io/web-mockups/mockups/uniq-coffee-okayama.html | uniq2026 | Instagram: https://www.instagram.com/uniqcoffee_/ | 送信済み | 2026-09-27 |
 
-| 花屋ぼたん | DIYサイト保有ティア（花屋／兵庫県三木市。BASEのECページのみで店舗の世界観・レッスン案内は手薄） | https://yuukioda999.github.io/web-mockups/mockups/hanaya-bouton-miki.html | bouton150 | Instagram: https://www.instagram.com/bouton878/ | 下書き作成済・未送信 | 2026-09-28 |
-| テイクアウト&cafe Moca | 新規開店ティア（シフォンケーキ専門テイクアウトカフェ／北海道河西郡芽室町。2026-09-07オープン） | https://yuukioda999.github.io/web-mockups/mockups/moca-takeout-memuro.html | chiffon0907 | Instagram: https://www.instagram.com/moca_takeout.cafe/ | 下書き作成済・未送信 | 2026-09-28 |
-| cafe&bar tetsuneko | 新規開店ティア（カフェ&バー／北海道河西郡芽室町。2026-09-10グランドオープン。オーナー: なかおたくみ氏） | https://yuukioda999.github.io/web-mockups/mockups/tetsuneko-memuro.html | tetsuneko910 | Instagram: https://www.instagram.com/tetsuneko_memuro/ | 下書き作成済・未送信 | 2026-09-28 |
+| 花屋ぼたん | DIYサイト保有ティア（花屋／兵庫県三木市。BASEのECページのみで店舗の世界観・レッスン案内は手薄） | https://yuukioda999.github.io/web-mockups/mockups/hanaya-bouton-miki.html | bouton150 | Instagram: https://www.instagram.com/bouton878/ | 送信済み | 2026-09-28 |
+| テイクアウト&cafe Moca | 新規開店ティア（シフォンケーキ専門テイクアウトカフェ／北海道河西郡芽室町。2026-09-07オープン） | https://yuukioda999.github.io/web-mockups/mockups/moca-takeout-memuro.html | chiffon0907 | Instagram: https://www.instagram.com/moca_takeout.cafe/ | 送信済み | 2026-09-28 |
+| cafe&bar tetsuneko | 新規開店ティア（カフェ&バー／北海道河西郡芽室町。2026-09-10グランドオープン。オーナー: なかおたくみ氏） | https://yuukioda999.github.io/web-mockups/mockups/tetsuneko-memuro.html | tetsuneko910 | Instagram: https://www.instagram.com/tetsuneko_memuro/ | 送信済み | 2026-09-28 |
 
 ## 備考
 - 候補リサーチの全詳細（除外店舗リスト・検証済み出典URLなど）は自動タスクの実行ログを参照。
