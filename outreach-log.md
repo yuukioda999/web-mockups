@@ -16,6 +16,10 @@
 | テイクアウト&cafe Moca | 新規開店ティア（シフォンケーキ専門テイクアウトカフェ／北海道河西郡芽室町。2026-09-07オープン） | https://yuukioda999.github.io/web-mockups/mockups/moca-takeout-memuro.html | chiffon0907 | Instagram: https://www.instagram.com/moca_takeout.cafe/ | 送信済み | 2026-09-28 |
 | cafe&bar tetsuneko | 新規開店ティア（カフェ&バー／北海道河西郡芽室町。2026-09-10グランドオープン。オーナー: なかおたくみ氏） | https://yuukioda999.github.io/web-mockups/mockups/tetsuneko-memuro.html | tetsuneko910 | Instagram: https://www.instagram.com/tetsuneko_memuro/ | 送信済み | 2026-09-28 |
 
+| 民芸店ましこ | DIYサイト保有ティア（益子焼専門民芸品店／栃木県芳賀郡益子町。Jimdo無料ページのみで独自ドメインの公式サイトなし） | https://yuukioda999.github.io/web-mockups/mockups/mingeiten-mashiko.html | mashiko1952 | Instagram: https://www.instagram.com/mingeiten_mashiko/ | 下書き作成済・未送信 | 2026-09-29 |
+| ナガキ製パン | 新規開店ティア（パン屋／埼玉県白岡市新白岡。プレオープン2026-08-31、グランドオープン2026-09-04） | https://yuukioda999.github.io/web-mockups/mockups/nagaki-seipan.html | nagaki0904 | Instagram: https://www.instagram.com/nagakiseipan/ | 下書き作成済・未送信 | 2026-09-29 |
+| パンとビバーク | 新規開店ティア（パン屋／愛知県一宮市。2026-08-23グランドオープン） | https://yuukioda999.github.io/web-mockups/mockups/pain-to-bivouac.html | bivouac823 | Instagram: https://www.instagram.com/paintobivouac/ | 下書き作成済・未送信 | 2026-09-29 |
+
 ## 備考
 - 候補リサーチの全詳細（除外店舗リスト・検証済み出典URLなど）は自動タスクの実行ログを参照。
 - 各モックアップはPlaywrightによるセルフレビュー（375px/768px/1440pxでのレンダリング確認、コンソールエラー確認、パスワードゲートの解錠確認、アクセントカラーのコントラスト比確認）を実施済み。
