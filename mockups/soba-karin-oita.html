@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>手打ち蕎麦 かりん｜大分市城原</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600;700&family=Zen+Maru+Gothic:wght@300;400;500;700&family=EB+Garamond:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --base:#f1efe8;
+    --paper:#f8f6f0;
+    --sub:#2d2a26;
+    --accent:#4a5a6b;
+    --accent-text:#33424f;
+    --accent2:#b5633a;
+    --accent2-text:#8a4423;
+    --accent3:#6b7a52;
+    --ink:#262320;
+    --line:rgba(45,42,38,.16);
+    --ease:cubic-bezier(.22,.88,.28,1);
+    --font-head:"Zen Old Mincho","Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP",serif;
+    --font-body:"Zen Maru Gothic","Hiragino Sans","Yu Gothic","Noto Sans CJK JP",sans-serif;
+    --font-accent:"EB Garamond",serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{overflow-x:hidden;overscroll-behavior-x:none;}
+  body{width:100%;max-width:100vw;margin:0;background:var(--base);color:var(--ink);font-family:var(--font-body);line-height:1.85;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3{font-family:var(--font-head);margin:0;font-weight:600;word-break:keep-all;}
+  .ib{display:inline-block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1.2rem,4vw,3rem);}
+  .eyebrow{font-family:var(--font-accent);font-style:italic;font-size:.95rem;letter-spacing:.1em;color:var(--accent-text);text-transform:uppercase;}
+
+  .ph-box{position:relative;overflow:hidden;background:linear-gradient(150deg,#d9d4c4,#9aa6ab 55%,#3f4b55);display:flex;align-items:flex-end;color:#f3f1ea;font-family:var(--font-accent);font-style:italic;font-size:.9rem;}
+  .ph-box::before{content:"";position:absolute;inset:0;opacity:.12;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .ph-box::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,18,16,.5),transparent 55%);}
+  .ph-box span{position:relative;padding:.8rem 1rem;z-index:1;}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---- vertical side rail nav ---- */
+  .rail{position:fixed;left:0;top:0;bottom:0;width:72px;background:var(--sub);z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:1.6rem 0;}
+  .rail .mark{writing-mode:vertical-rl;color:#f3f1ea;font-family:var(--font-head);font-size:1.05rem;letter-spacing:.2em;}
+  .rail nav{display:flex;flex-direction:column;gap:1.6rem;}
+  .rail nav a{writing-mode:vertical-rl;color:#cfd6da;font-size:.85rem;letter-spacing:.14em;padding:.3rem 0;position:relative;white-space:nowrap;}
+  .rail nav a::before{content:"";position:absolute;left:50%;top:-10px;width:1px;height:0;background:var(--accent2);transition:height .4s var(--ease);transform:translateX(-50%);}
+  .rail nav a:hover::before{height:8px;}
+  .rail .cta{writing-mode:vertical-rl;background:#9c5230;color:#f8f6f0;font-size:.82rem;padding:.9rem .5rem;border-radius:999px;letter-spacing:.1em;transition:transform .35s var(--ease);}
+  .rail .cta:hover{transform:scale(1.05);}
+  .rail .cta:active{transform:scale(.96);}
+  main{margin-left:72px;}
+  @media (max-width:760px){
+    .rail{width:100%;height:auto;bottom:auto;flex-direction:row;padding:.7rem 1rem;}
+    .rail .mark{writing-mode:horizontal-tb;font-size:1.05rem;}
+    .rail nav{display:none;}
+    .rail .cta{writing-mode:horizontal-tb;font-size:.82rem;padding:.55rem 1.1rem;}
+    main{margin-left:0;padding-top:52px;}
+  }
+
+  /* ---- hero: centered text + photo strip ---- */
+  .hero{padding:6.5rem 0 2.5rem;text-align:center;}
+  .hero .eyebrow{display:block;margin-bottom:.8rem;}
+  .hero h1{font-size:clamp(2.1rem,6vw,3.4rem);line-height:1.5;}
+  .hero p.lead{max-width:40ch;margin:1.2rem auto 0;color:#454138;font-size:1rem;}
+  .hero-strip{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:.9rem;margin-top:2.6rem;height:clamp(180px,32vw,280px);}
+  .found-note{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.5rem;background:rgba(74,90,107,.1);border:1px solid rgba(74,90,107,.3);color:var(--accent-text);border-radius:999px;padding:.5rem 1.1rem;font-size:.84rem;}
+
+  /* ---- story ---- */
+  .story{padding:5.5rem 0;border-top:1px solid var(--line);}
+  .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:center;}
+  .story blockquote{font-family:var(--font-head);font-size:clamp(1.25rem,2.2vw,1.6rem);line-height:1.75;margin:1rem 0;color:var(--sub);}
+  .story-note{color:#454138;font-size:.96rem;}
+  .wait-card{margin-top:1.3rem;background:var(--paper);border-left:3px solid var(--accent2);border-radius:0 10px 10px 0;padding:1rem 1.2rem;font-size:.9rem;color:#4a3a2e;}
+
+  /* ---- menu numbered list ---- */
+  .menu{padding:5.5rem 0;}
+  .menu-head{margin-bottom:2.2rem;}
+  .menu-grid{display:grid;gap:0;}
+  .menu-row{display:grid;grid-template-columns:90px 1fr auto;gap:1.2rem;align-items:baseline;padding:1.5rem 0;border-bottom:1px solid var(--line);}
+  .menu-row .idx{font-family:var(--font-accent);font-style:italic;font-size:1.8rem;color:var(--accent2);}
+  .menu-row h3{font-size:clamp(1.05rem,2vw,1.3rem);}
+  .menu-row p{margin:.35rem 0 0;color:#454138;font-size:.9rem;max-width:48ch;}
+  .menu-row .pr{font-family:var(--font-accent);font-style:italic;color:var(--accent-text);white-space:nowrap;}
+
+  /* ---- bento gallery ---- */
+  .gallery{padding:5.5rem 0;background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,160px);gap:1rem;margin-top:2rem;}
+  .bento .b1{grid-column:1/3;grid-row:1/3;}
+  .bento .b2{grid-column:3/5;grid-row:1/2;}
+  .bento .b3{grid-column:3/4;grid-row:2/3;}
+  .bento .b4{grid-column:4/5;grid-row:2/3;}
+  .bento > div{border-radius:10px;transition:transform .5s var(--ease);}
+  .bento > div:hover{transform:scale(1.03);}
+
+  /* ---- access + contact split ---- */
+  .access{padding:5.5rem 0;}
+  .access-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,4vw,3rem);align-items:stretch;}
+  .map-ph{border-radius:10px;background:
+      repeating-linear-gradient(0deg,rgba(45,42,38,.08) 0 1px,transparent 1px 32px),
+      repeating-linear-gradient(90deg,rgba(45,42,38,.08) 0 1px,transparent 1px 32px),
+      linear-gradient(135deg,#dfdccf,#b7c0c2);
+    display:flex;align-items:center;justify-content:center;color:var(--accent-text);font-family:var(--font-accent);font-style:italic;min-height:260px;}
+  .info-card{background:var(--sub);color:#f3f1ea;border-radius:10px;padding:2rem clamp(1.4rem,3vw,2.2rem);display:flex;flex-direction:column;justify-content:center;gap:1rem;}
+  .info-card dt{font-family:var(--font-accent);font-style:italic;color:#c9b79e;font-size:.85rem;letter-spacing:.06em;}
+  .info-card dd{margin:.15rem 0 0;font-size:.98rem;}
+
+  .contact{padding:5rem 0 6rem;text-align:center;}
+  .contact h2{font-size:clamp(1.7rem,4vw,2.3rem);}
+  .contact p{max-width:48ch;margin:1.1rem auto 2.2rem;color:#454138;}
+  .ig-btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:#f3f1ea;padding:1rem 2.2rem;border-radius:999px;font-weight:700;transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
+  .ig-btn:hover{transform:scale(1.045);box-shadow:0 16px 30px rgba(0,0,0,.22);}
+  .ig-btn:active{transform:scale(.97);}
+  .contact small{display:block;margin-top:1.3rem;color:#8a8375;font-size:.78rem;}
+
+  footer{padding:1.6rem;text-align:center;font-size:.78rem;color:#8a8375;}
+
+  @media (max-width:860px){
+    .story-grid,.access-grid{grid-template-columns:1fr;}
+    .hero-strip{grid-template-columns:1fr 1fr;height:auto;}
+    .hero-strip > div{aspect-ratio:4/3;}
+    .bento{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,140px);}
+    .bento .b1{grid-column:1/3;grid-row:1/2;}
+    .bento .b2{grid-column:1/2;grid-row:2/3;}
+    .bento .b3{grid-column:2/3;grid-row:2/3;}
+    .bento .b4{grid-column:1/3;grid-row:3/4;}
+    .menu-row{grid-template-columns:50px 1fr;}
+    .menu-row .pr{grid-column:2/3;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation-duration:.01ms !important;}
+  }
+
+  #gate{position:fixed;inset:0;z-index:999;background:linear-gradient(160deg,#2d2a26,#15130f);display:flex;align-items:center;justify-content:center;padding:1.4rem;}
+  #gate.hidden{display:none;}
+  .gate-card{background:var(--paper);border-radius:10px;max-width:380px;width:100%;padding:2.2rem 1.8rem;text-align:center;box-shadow:0 30px 60px rgba(0,0,0,.4);}
+  .gate-card h2{font-size:1.35rem;margin-bottom:.6rem;color:var(--sub);}
+  .gate-card p{font-size:.88rem;color:#4a463e;margin-bottom:1.4rem;font-family:var(--font-body);}
+  .gate-card input{width:100%;font-size:16px;padding:.8rem 1rem;border-radius:8px;border:1px solid var(--line);margin-bottom:.9rem;font-family:var(--font-body);}
+  .gate-card button{width:100%;font-size:16px;padding:.8rem 1rem;border-radius:8px;border:0;background:var(--sub);color:#f3f1ea;cursor:pointer;transition:transform .3s var(--ease);}
+  .gate-card button:hover{transform:scale(1.03);}
+  .gate-card button:active{transform:scale(.97);}
+  .gate-err{color:var(--accent2-text);font-size:.8rem;min-height:1.2em;margin-top:-.4rem;margin-bottom:.6rem;}
+</style>
+</head>
+<body>
+
+<header class="rail">
+  <div class="mark">かりん</div>
+  <nav>
+    <a href="#story">こだわり</a>
+    <a href="#menu">品書き</a>
+    <a href="#gallery">写真</a>
+    <a href="#access">道順</a>
+  </nav>
+  <a class="cta" href="https://www.instagram.com/karin_t_soba/" target="_blank" rel="noopener">予約DM</a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow reveal">Handmade Soba, Since 2026.7.22</span>
+      <h1 class="reveal"><span class="ib">注文を受けてから、</span><span class="ib">一枚ずつ茹でる蕎麦。</span></h1>
+      <p class="lead reveal">大分市城原、大在駅から歩いて約15分。ごく普通の民家をリノベーションした、カウンター5席・テーブル数席だけの小さな蕎麦屋です。</p>
+      <div class="found-note reveal">看板は小さめです — 一見、普通の民家のような外観です</div>
+    </div>
+    <div class="wrap hero-strip reveal">
+      <div class="ph-box"><span>民家の外観（準備中）</span></div>
+      <div class="ph-box"><span>カウンター席（準備中）</span></div>
+      <div class="ph-box"><span>そば粉（準備中）</span></div>
+    </div>
+  </section>
+
+  <section class="story" id="story">
+    <div class="wrap story-grid">
+      <div class="reveal">
+        <p class="eyebrow">こだわり</p>
+        <blockquote>豊後高田産のそば粉を使い、<br class="ib">注文を受けてから一枚ずつ茹で上げます。</blockquote>
+        <p class="story-note">天ぷらは下処理から丁寧に仕上げ、軽やかな口当たりに。付け合わせの人参は、猫の形にカットしてお出ししています。日本酒も厳選した数本をご用意しています。</p>
+      </div>
+      <div class="reveal">
+        <div class="ph-box" style="aspect-ratio:4/5;"><span>猫人参と天ぷら（準備中）</span></div>
+        <div class="wait-card">お待たせする時間について：茹で上げに<strong>30分〜1時間ほど</strong>かかります。お時間に余裕を持ってお越しください。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <div class="menu-head reveal">
+        <p class="eyebrow">品書き</p>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.1rem);margin-top:.4rem;">Menu</h2>
+      </div>
+      <div class="menu-grid reveal">
+        <div class="menu-row">
+          <span class="idx">01</span>
+          <div><h3>二八蕎麦（冷）</h3><p>豊後高田産そば粉を使った、喉越しの良い冷たい二八蕎麦。</p></div>
+          <span class="pr">価格は店頭にて</span>
+        </div>
+        <div class="menu-row">
+          <span class="idx">02</span>
+          <div><h3>二八蕎麦（温）</h3><p>同じ二八蕎麦を、あたたかいつゆで。</p></div>
+          <span class="pr">価格は店頭にて</span>
+        </div>
+        <div class="menu-row">
+          <span class="idx">03</span>
+          <div><h3>天ぷらもり蕎麦</h3><p>丁寧に仕上げたサクサクの天ぷらを添えて。</p></div>
+          <span class="pr">価格は店頭にて</span>
+        </div>
+        <div class="menu-row">
+          <span class="idx">04</span>
+          <div><h3>炭火鶏親子丼</h3><p>炭火で仕上げた、香り豊かな親子丼。</p></div>
+          <span class="pr">価格は店頭にて</span>
+        </div>
+        <div class="menu-row">
+          <span class="idx">05</span>
+          <div><h3>厳選日本酒</h3><p>蕎麦に合わせたい方へ、数本を厳選してご用意。</p></div>
+          <span class="pr">価格は店頭にて</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <p class="eyebrow reveal">写真</p>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.1rem);margin-top:.4rem;" class="reveal">Snapshots</h2>
+      <div class="bento reveal">
+        <div class="ph-box b1"><span>民家の佇まい（準備中）</span></div>
+        <div class="ph-box b2"><span>そば打ち（準備中）</span></div>
+        <div class="ph-box b3"><span>猫人参（準備中）</span></div>
+        <div class="ph-box b4"><span>日本酒（準備中）</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="access" id="access">
+    <div class="wrap access-grid">
+      <div class="map-ph reveal"><span>MAP（大在駅から徒歩約15分）</span></div>
+      <dl class="info-card reveal">
+        <div><dt>ADDRESS</dt><dd>大分市城原（大在駅より徒歩約15分・197号線から住宅街へ）</dd></div>
+        <div><dt>SEATS</dt><dd>カウンター5席／テーブル数席（計8席ほどの小さなお店です）</dd></div>
+        <div><dt>NOTE</dt><dd>営業時間・定休日は現在Instagramにて随時ご案内しています。ご来店前のご確認をおすすめします。</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="wrap">
+      <p class="eyebrow">ご予約・お問い合わせ</p>
+      <h2><span class="ib">Instagramで</span> <span class="ib">道順と</span> <span class="ib">営業日を</span> <span class="ib">ご確認ください</span></h2>
+      <p>民家をリノベーションした分かりにくい外観のお店のため、まずはInstagramで外観写真と最新の営業日をご確認いただくのがおすすめです。</p>
+      <a class="ig-btn" href="https://www.instagram.com/karin_t_soba/" target="_blank" rel="noopener">Instagramを見る</a>
+      <small>※このページはモックアップです。写真はすべて準備中のイメージです。</small>
+    </div>
+  </section>
+</main>
+
+<footer>&copy; 手打ち蕎麦 かりん — Oita</footer>
+
+<div id="gate">
+  <div class="gate-card">
+    <h2>手打ち蕎麦 かりん</h2>
+    <p>このページはプレビュー用です。パスワードを入力してください。</p>
+    <input type="password" id="gate-pw" placeholder="password" autocomplete="off">
+    <div class="gate-err" id="gate-err"></div>
+    <button id="gate-btn">開く</button>
+  </div>
+</div>
+
+<script>
+  // パスワードはプレビュー共有用（店舗ごとに変更可能・本番の認証ではありません）
+  var SITE_PASSWORD = "karin722";
+
+  (function(){
+    var gate = document.getElementById('gate');
+    var input = document.getElementById('gate-pw');
+    var btn = document.getElementById('gate-btn');
+    var err = document.getElementById('gate-err');
+
+    function lockScroll(){
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+    }
+    function unlockScroll(){
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    }
+    function openSite(){
+      gate.classList.add('hidden');
+      unlockScroll();
+      window.scrollTo(0,0);
+    }
+
+    if (sessionStorage.getItem('karin_unlocked') === '1') {
+      gate.classList.add('hidden');
+    } else {
+      lockScroll();
+    }
+
+    function tryUnlock(){
+      if (input.value === SITE_PASSWORD) {
+        sessionStorage.setItem('karin_unlocked','1');
+        openSite();
+      } else {
+        err.textContent = 'パスワードが違います';
+      }
+    }
+    btn.addEventListener('click', tryUnlock);
+    input.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryUnlock(); });
+  })();
+
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:.15});
+    reveals.forEach(function(r){ io.observe(r); });
+  } else {
+    reveals.forEach(function(r){ r.classList.add('in'); });
+  }
+</script>
+</body>
+</html>

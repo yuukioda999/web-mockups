@@ -28,6 +28,11 @@
 | CANDY Cafe(キャンディカフェ) みんなのおやつ | 新規開店ティア（カフェ／兵庫県姫路市八代本町。2026-07-19オープン） | https://yuukioda999.github.io/web-mockups/mockups/candycafe-himeji.html | candy0719 | Instagram: https://www.instagram.com/candy.minnanooyatsu/ | 下書き作成済・未送信 | 2026-10-01 |
 | peg（ペグ） | 新規開店ティア（カフェ／兵庫県姫路市大津区天満。2026-09-10オープン） | https://yuukioda999.github.io/web-mockups/mockups/peg-himeji.html | peg0910 | Instagram: https://www.instagram.com/__peg____/ | 下書き作成済・未送信 | 2026-10-01 |
 
+| Bloom（ブルーム） | DIYサイト保有ティア（プライベート美容室／三重県松阪市射和町。Ameba Owndの簡易ページのみ） | https://yuukioda999.github.io/web-mockups/mockups/hairbloom-matsusaka.html | bloom5050 | LINE: https://page.line.me/kfn0506c （Instagram未確定・要確認） | 下書き作成済・未送信（送信手段要検討） | 2026-10-02 |
+| 惣菜、ときどき珈琲の店 いわさき | 新規開店ティア（惣菜・弁当店／香川県善通寺市生野本町。2026-08-03オープン） | https://yuukioda999.github.io/web-mockups/mockups/iwasaki-zentsuji.html | iwasaki803 | Instagram: https://www.instagram.com/iwasaki_hm25/ | 下書き作成済・未送信 | 2026-10-02 |
+| 手打ち蕎麦 かりん | 新規開店ティア（手打ち蕎麦店／大分県大分市城原。2026-07-22オープン） | https://yuukioda999.github.io/web-mockups/mockups/soba-karin-oita.html | karin722 | Instagram: https://www.instagram.com/karin_t_soba/ | 下書き作成済・未送信 | 2026-10-02 |
+
+
 ## 備考
 - 候補リサーチの全詳細（除外店舗リスト・検証済み出典URLなど）は自動タスクの実行ログを参照。
 - 各モックアップはPlaywrightによるセルフレビュー（375px/768px/1440pxでのレンダリング確認、コンソールエラー確認、パスワードゲートの解錠確認、アクセントカラーのコントラスト比確認）を実施済み。
