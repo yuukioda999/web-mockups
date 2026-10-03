@@ -3,78 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>特定商取引法に基づく表記 | 小田裕貴</title>
-<meta name="description" content="小田裕貴が提供する個人店向けホームページ制作サービスの、特定商取引法に基づく表記です。">
+<title>特定商取引法に基づく表記 | noren（ノレン）</title>
+<meta name="description" content="個人店向けホームページ制作サービス「noren」の、特定商取引法に基づく表記です。">
 <meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="./assets/icon.png">
+<link rel="apple-touch-icon" href="./assets/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;800&family=Zen+Maru+Gothic:wght@400;500;700;900&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#ffffff;
-    --paper:#f7f7f9;
-    --ink:#111114;
-    --ink-soft:#68676f;
-    --line:#e9e8ec;
-    --indigo:#4f46e5;
-    --indigo-text:#372fc4;
-    --coral:#ef5a35;
-    --coral-text:#c0431f;
-    --lime:#7dc242;
-    --lime-text:#5a9127;
+    --bg:#f8edd2;
+    --paper:#f1e3c4;
+    --cream-card:#fffbf0;
+    --ink:#2e2015;
+    --ink-soft:#6b6154;
+    --line:#e3d2ac;
+    --ink-panel:#2b241c;
+    --ink-panel-2:#352a1d;
+    --coral:#c36a4c;
+    --coral-deep:#8a3f28;
+    --coral-light:#e08b65;
+    --coral-tint:#f3ddd1;
+    --indigo:#4f5680;
+    --indigo-deep:#39406b;
+    --indigo-tint:#e1e2ec;
+    --green:#4b7245;
+    --green-deep:#3a5a34;
+    --green-tint:#e1e9db;
+    --gold:#d6a235;
+    --gold-deep:#7a5713;
+    --gold-tint:#f6e6c3;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   html,body{overflow-x:hidden;overscroll-behavior-x:none;max-width:100vw;}
   body{
     width:100%;max-width:100vw;background:var(--bg);color:var(--ink);
-    font-family:'Zen Kaku Gothic New',sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;
+    font-family:'Zen Maru Gothic',sans-serif;line-height:1.85;-webkit-font-smoothing:antialiased;
   }
-  h1,h2{font-weight:900;}
-  .grotesk{font-family:'Space Grotesk',sans-serif;}
-  a{color:var(--indigo-text);text-decoration:underline;text-underline-offset:2px;}
-  a:hover{color:var(--indigo);}
+  h1{font-family:'Shippori Mincho',serif;font-weight:800;letter-spacing:.01em;}
+  .disp{font-family:'Fraunces',serif;font-style:italic;font-optical-sizing:auto;}
+  a{color:var(--coral-deep);text-decoration:underline;text-underline-offset:2px;}
+  a:hover{color:var(--coral);}
   .wrap{max-width:840px;margin:0 auto;padding:0 24px;}
 
-  header{padding:28px 0;border-bottom:1px solid var(--line);}
+  header{padding:22px 0;border-bottom:1px solid var(--line);background:var(--bg);}
   header .wrap{display:flex;align-items:center;justify-content:space-between;}
-  .brand{font-weight:900;font-size:1rem;letter-spacing:.02em;}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .brand img{width:38px;height:38px;border-radius:10px;display:block;}
+  .brand-text{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:1.15rem;color:var(--ink);line-height:1.2;}
+  .brand-sub{display:block;font-family:'Zen Maru Gothic',sans-serif;font-style:normal;font-size:.6rem;color:var(--ink-soft);letter-spacing:.06em;margin-top:1px;font-weight:500;}
   .back{font-size:.82rem;color:var(--ink-soft);text-decoration:none;}
-  .back:hover{color:var(--indigo-text);}
+  .back:hover{color:var(--coral-deep);}
 
   main{padding:56px 0 90px;}
-  h1{font-size:clamp(1.5rem,4vw,2rem);margin-bottom:8px;}
-  .lede{color:var(--ink-soft);font-size:.9rem;margin-bottom:40px;}
+  h1{font-size:clamp(1.6rem,4vw,2.1rem);margin-bottom:10px;}
+  .lede{color:var(--ink-soft);font-size:.92rem;margin-bottom:40px;}
 
-  table{width:100%;border-collapse:collapse;margin-bottom:16px;}
+  table{width:100%;border-collapse:collapse;margin-bottom:16px;background:var(--cream-card);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
   table th,table td{
-    text-align:left;padding:18px 16px;border-top:1px solid var(--line);
+    text-align:left;padding:18px 20px;border-top:1px solid var(--line);
     vertical-align:top;font-size:.92rem;
   }
-  table tr:last-child th,table tr:last-child td{border-bottom:1px solid var(--line);}
+  table tr:first-child th,table tr:first-child td{border-top:none;}
   table th{
     width:9.5em;flex-shrink:0;color:var(--ink-soft);font-weight:700;
     white-space:nowrap;
   }
   table td{color:var(--ink);}
-  table td .sub{display:block;font-size:.8rem;color:var(--ink-soft);margin-top:4px;}
+  table td .sub{display:block;font-size:.8rem;color:var(--ink-soft);margin-top:4px;line-height:1.7;}
 
   @media (max-width:640px){
     table, table tbody, table tr, table th, table td{display:block;width:100%;}
-    table tr{border-top:1px solid var(--line);padding:16px 0;}
-    table tr:last-child{border-bottom:1px solid var(--line);}
+    table tr{border-top:1px solid var(--line);padding:16px 20px;}
+    table tr:first-child{border-top:none;}
     table th, table td{border:none;padding:2px 0;}
-    table th{color:var(--indigo-text);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;}
+    table th{color:var(--coral-deep);font-size:.76rem;text-transform:uppercase;letter-spacing:.04em;}
   }
 
-  footer{padding:30px 24px;text-align:center;font-size:.76rem;color:var(--ink-soft);border-top:1px solid var(--line);}
+  footer{padding:30px 24px;text-align:center;font-size:.76rem;color:var(--ink-soft);border-top:1px solid var(--line);background:var(--bg);}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap">
-    <div class="brand grotesk">Oda Yuuki</div>
+    <a class="brand" href="./index.html">
+      <img src="./assets/icon.png" alt="noren ロゴ">
+      <span>
+        <span class="brand-text">noren</span>
+        <span class="brand-sub">個人店のホームページ制作</span>
+      </span>
+    </a>
     <a class="back" href="./index.html">← トップに戻る</a>
   </div>
 </header>
@@ -82,7 +103,7 @@
 <main>
   <div class="wrap">
     <h1>特定商取引法に基づく表記</h1>
-    <p class="lede">本ページは、当方が提供する「個人店向けホームページ制作サービス」に関する、特定商取引法に基づく表示です。</p>
+    <p class="lede">本ページは、当方が提供する個人店向けホームページ制作サービス「noren（ノレン）」に関する、特定商取引法に基づく表示です。</p>
 
     <table>
       <tr><th>販売事業者</th><td>小田裕貴</td></tr>
@@ -94,14 +115,14 @@
       <tr><th>商品代金以外の必要料金</th><td>特になし<span class="sub">（インターネット接続に関する通信費等はお客様のご負担となります）</span></td></tr>
       <tr><th>お支払方法</th><td>クレジットカード決済（Stripeを利用）<span class="sub">初期費用が発生する場合は一括、月額費用は自動継続課金となります。</span></td></tr>
       <tr><th>お支払時期</th><td>お申込み確定後、Stripeの決済ページより都度お支払いいただきます。月額費用は毎月自動で課金されます。</td></tr>
-      <tr><th>サービス提供時期</th><td>契約前に無料でホームページ案をご確認いただけます。ご契約・お支払い確認後、通常7日以内に正式に公開いたします。<span class="sub">内容のご確認・修正のやり取りが発生する場合、公開までにお時間をいただくことがあります。</span></td></tr>
+      <tr><th>サービス提供時期</th><td>契約前に無料でホームページ案（ノレン）をご確認いただけます。ご契約・お支払い確認後、通常7日以内に正式に公開いたします。<span class="sub">内容のご確認・修正のやり取りが発生する場合、公開までにお時間をいただくことがあります。</span></td></tr>
       <tr><th>キャンセル・返品について</th><td>サービスの性質上、制作開始後の返金には応じられません。<span class="sub">月額費用は解約のご連絡をいただいた月の末日をもって、以降の課金を停止いたします（既にお支払いいただいた月額費用の返金はいたしかねます）。</span></td></tr>
       <tr><th>動作環境</th><td>インターネットに接続されたパソコン・スマートフォン等（主要なブラウザに対応）</td></tr>
     </table>
   </div>
 </main>
 
-<footer>© 小田裕貴 — 個人店向けホームページ制作サービス</footer>
+<footer>© 小田裕貴 — noren（個人店向けホームページ制作サービス）</footer>
 
 </body>
 </html>
