@@ -156,11 +156,14 @@
   .work-card{background:var(--cream-card);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:box-shadow .3s,border-color .3s,transform .3s;}
   .work-card:hover{box-shadow:0 24px 46px -26px rgba(43,36,28,.3);transform:translateY(-4px);}
   .work-ph{position:relative;aspect-ratio:16/11;display:flex;align-items:flex-end;overflow:hidden;color:#fff9f1;}
-  .work-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.4),transparent 55%);}
+  .work-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .5s cubic-bezier(.2,.7,.2,1);}
+  .work-card:hover .work-ph img{transform:scale(1.045);}
+  .work-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,15,8,.62) 0%,rgba(20,15,8,.08) 45%,rgba(20,15,8,.12) 100%);}
   .work-ph span{position:relative;z-index:1;padding:14px 16px;font-size:.76rem;letter-spacing:.03em;font-weight:700;}
-  .work-ph.ph-1{background:linear-gradient(135deg,var(--green) 0%,var(--green-deep) 100%);}
-  .work-ph.ph-2{background:linear-gradient(135deg,var(--coral) 0%,var(--coral-deep) 100%);}
-  .work-ph.ph-3{background:linear-gradient(135deg,var(--indigo) 0%,var(--indigo-deep) 100%);}
+  .work-ph.ph-1::before,.work-ph.ph-2::before,.work-ph.ph-3::before{content:"";position:absolute;inset:0;z-index:0;mix-blend-mode:multiply;opacity:.22;}
+  .work-ph.ph-1::before{background:var(--green);}
+  .work-ph.ph-2::before{background:var(--coral);}
+  .work-ph.ph-3::before{background:var(--indigo);}
   .work-card-body{padding:20px 20px 24px;}
   .work-card-body .cat{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.03em;margin-bottom:9px;padding:4px 11px;border-radius:999px;}
   .work-card:nth-child(1) .cat{color:var(--green-deep);background:var(--green-tint);}
@@ -339,7 +342,7 @@
     </div>
     <div class="work-grid">
       <div class="work-card" data-reveal>
-        <div class="work-ph ph-1"><span>雑貨店サンプル</span></div>
+        <div class="work-ph ph-1"><img src="./assets/demo-zakka.png" alt="雑貨・セレクトショップ様向けサンプルサイトのスクリーンショット" loading="lazy"><span>雑貨店サンプル</span></div>
         <div class="work-card-body">
           <div class="cat">雑貨店・セレクトショップ</div>
           <h3>雑貨・セレクトショップ様向け</h3>
@@ -348,7 +351,7 @@
         </div>
       </div>
       <div class="work-card" data-reveal>
-        <div class="work-ph ph-2"><span>ベーカリーサンプル</span></div>
+        <div class="work-ph ph-2"><img src="./assets/demo-bakery.png" alt="ベーカリー様向けサンプルサイトのスクリーンショット" loading="lazy"><span>ベーカリーサンプル</span></div>
         <div class="work-card-body">
           <div class="cat">ベーカリー</div>
           <h3>ベーカリー様向け</h3>
@@ -357,7 +360,7 @@
         </div>
       </div>
       <div class="work-card" data-reveal>
-        <div class="work-ph ph-3"><span>飲食店サンプル</span></div>
+        <div class="work-ph ph-3"><img src="./assets/demo-onigiri.png" alt="飲食店様向けサンプルサイトのスクリーンショット" loading="lazy"><span>飲食店サンプル</span></div>
         <div class="work-card-body">
           <div class="cat">飲食店</div>
           <h3>飲食店様向け</h3>
