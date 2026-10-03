@@ -32,6 +32,7 @@
 | 惣菜、ときどき珈琲の店 いわさき | 新規開店ティア（惣菜・弁当店／香川県善通寺市生野本町。2026-08-03オープン） | https://yuukioda999.github.io/web-mockups/mockups/iwasaki-zentsuji.html | iwasaki803 | Instagram: https://www.instagram.com/iwasaki_hm25/ | 下書き作成済・未送信 | 2026-10-02 |
 | 手打ち蕎麦 かりん | 新規開店ティア（手打ち蕎麦店／大分県大分市城原。2026-07-22オープン） | https://yuukioda999.github.io/web-mockups/mockups/soba-karin-oita.html | karin722 | Instagram: https://www.instagram.com/karin_t_soba/ | 下書き作成済・未送信 | 2026-10-02 |
 
+| アンドパン（&PAN） | 一般ティア（パン屋／滋賀県高島市今津町。公式サイト不在。開店2025-11-15のため新規開店ティア基準外） | https://yuukioda999.github.io/web-mockups/mockups/andpan-takashima.html | （ゲートパスワードなし／現行スキルで廃止） | Instagram: https://www.instagram.com/and_pan_shiga/ | 下書き作成済・未送信 | 2026-10-03 |
 
 ## 備考
 - 候補リサーチの全詳細（除外店舗リスト・検証済み出典URLなど）は自動タスクの実行ログを参照。
