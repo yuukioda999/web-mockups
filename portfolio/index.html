@@ -148,7 +148,12 @@
   .approach .wrap{display:grid;grid-template-columns:.78fr 1.22fr;gap:56px;align-items:start;}
   .approach h2{font-size:clamp(1.5rem,2.8vw,2.05rem);line-height:1.6;}
   .approach-body p{color:var(--ink-soft);margin-bottom:17px;font-size:.96rem;}
-  .approach-body strong{color:var(--ink);font-weight:700;border-bottom:2px solid var(--coral);}
+  .approach strong{color:var(--ink);font-weight:700;border-bottom:2px solid var(--coral);}
+  .about-card{grid-column:1/-1;display:flex;gap:18px;align-items:flex-start;background:var(--cream-card);border:1px solid var(--line);border-left:4px solid var(--coral-deep);border-radius:10px;padding:22px 24px;margin-top:18px;max-width:640px;}
+  .about-card-avatar{flex-shrink:0;width:46px;height:46px;border-radius:50%;background:var(--ink-panel);color:var(--gold-tint);display:flex;align-items:center;justify-content:center;font-family:'Shippori Mincho',serif;font-weight:800;font-size:1.1rem;}
+  .about-card-name{font-weight:700;font-size:.95rem;margin-bottom:6px;}
+  .about-card-name span{display:inline-block;margin-left:8px;font-size:.72rem;font-weight:500;color:var(--ink-soft);background:var(--gold-tint);padding:2px 9px;border-radius:999px;}
+  .about-card p{font-size:.88rem;color:var(--ink-soft);margin:0;}
 
   /* ---------- works ---------- */
   .works{padding:96px 0;}
@@ -174,6 +179,7 @@
   .work-link{font-size:.82rem;font-weight:700;color:var(--coral-deep);display:inline-flex;align-items:center;gap:6px;}
   .work-link:hover{text-decoration:underline;}
   .works-note{text-align:center;margin-top:30px;font-size:.8rem;color:var(--ink-soft);}
+  .mid-cta{text-align:center;margin-top:34px;}
 
   /* ---------- process ---------- */
   .process{padding:96px 0;background:var(--paper);}
@@ -197,9 +203,11 @@
   .price-badge{display:inline-block;font-size:.7rem;font-weight:700;color:var(--ink-panel);background:var(--gold);padding:5px 15px;border-radius:999px;margin-bottom:16px;letter-spacing:.03em;}
   .price-card h3{font-size:1.2rem;margin-bottom:6px;color:var(--bg);}
   .price-row{display:flex;justify-content:center;gap:44px;margin:30px 0;flex-wrap:wrap;}
+  .price-item .was{font-size:.78rem;color:#9a9080;text-decoration:line-through;margin-bottom:2px;}
   .price-item .amount{font-family:'Fraunces',serif;font-weight:600;font-size:2.3rem;color:var(--gold);}
   .price-item:nth-child(2) .amount{color:var(--coral-light);}
   .price-item .label{font-size:.8rem;color:#c9c0b1;margin-top:6px;}
+  .price-badge .slots{font-weight:900;}
   .price-note{font-size:.84rem;color:#c9c0b1;margin-top:14px;}
   .price-standard{font-size:.78rem;color:#a39b8c;margin-top:20px;border-top:1px solid rgba(255,255,255,.14);padding-top:18px;}
 
@@ -319,6 +327,9 @@
         <p>打ち合わせや修正対応に時間を割く余裕がない方がほとんどです。ご判断いただくだけで進められるよう、やり取りは最小限にしています。</p>
       </div>
     </div>
+    <div class="mid-cta" data-reveal>
+      <a href="#works" class="btn btn-primary">まずは無料でノレンを見てみる →</a>
+    </div>
   </div>
 </section>
 
@@ -328,7 +339,13 @@
     <div class="approach-body" data-reveal>
       <p>Instagramだけで集客している個人店は多くありますが、検索に出てこない・お店の世界観を伝えきれない・連絡先が分かりにくいといった課題を抱えていることが少なくありません。</p>
       <p>noren では、まずお店の雰囲気に合わせて&quot;ノレン&quot;を無料でお仕立てします。実際に公開できる形でお見せするので、見ていただいて、気に入らなければそのままで大丈夫です。費用が発生するのは、ご契約いただいた場合のみです。</p>
-      <p>普段は<strong>PHP/Laravel</strong>を中心にフリーランスのシステムエンジニアとして活動している小田裕貴が、個人店向けのホームページ制作を専門に行っています。</p>
+    </div>
+    <div class="about-card" data-reveal>
+      <div class="about-card-avatar">小</div>
+      <div>
+        <div class="about-card-name">小田裕貴<span>noren 運営者</span></div>
+        <p>普段は<strong>PHP/Laravel</strong>を中心に活動するフリーランスのシステムエンジニア（開発歴4.5年）。企業からの受託ではなく個人店向けのホームページ制作を専門にしていて、ヒアリングから公開後の修正対応まで、すべて私一人が直接担当します。</p>
+      </div>
     </div>
   </div>
 </section>
@@ -370,6 +387,9 @@
       </div>
     </div>
     <p class="works-note">※ 店名・住所などはすべて架空の設定です。</p>
+    <div class="mid-cta" data-reveal>
+      <a href="#contact" class="btn btn-primary">気になるイメージがあれば相談する →</a>
+    </div>
   </div>
 </section>
 
@@ -412,14 +432,16 @@
       <h2>料金</h2>
     </div>
     <div class="price-card" data-reveal>
-      <div class="price-badge">先着5店舗様限定</div>
+      <div class="price-badge">先着5店舗様限定・<span class="slots">残り5枠</span></div>
       <h3>はじめのノレンプラン</h3>
       <div class="price-row">
         <div class="price-item">
+          <div class="was">通常 ¥10,000</div>
           <div class="amount disp">¥0</div>
           <div class="label">初期費用</div>
         </div>
         <div class="price-item">
+          <div class="was">通常 ¥5,000</div>
           <div class="amount disp">¥2,980</div>
           <div class="label">月額運用・維持費</div>
         </div>
