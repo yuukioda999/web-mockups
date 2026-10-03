@@ -138,22 +138,11 @@
   @keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
   /* ---------- worries ---------- */
-  .worries{padding:92px 0 20px;}
   .sec-head{text-align:center;margin-bottom:46px;}
   .sec-head .eyebrow{margin-bottom:16px;}
   .sec-head h2{font-size:clamp(1.55rem,2.8vw,2.1rem);line-height:1.5;}
   .sec-head p.desc{color:var(--ink-soft);font-size:.92rem;margin-top:14px;max-width:46ch;margin-left:auto;margin-right:auto;}
-  .worry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-  .worry-card{background:var(--cream-card);border:1px solid var(--line);border-radius:10px;padding:30px 24px;position:relative;border-top:3px solid transparent;}
-  .worry-card:nth-child(1){border-top-color:var(--coral);}
-  .worry-card:nth-child(2){border-top-color:var(--indigo);}
-  .worry-card:nth-child(3){border-top-color:var(--green);}
-  .worry-card .n{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;margin-bottom:16px;}
-  .worry-card:nth-child(1) .n{color:var(--coral-deep);background:var(--coral-tint);}
-  .worry-card:nth-child(2) .n{color:var(--indigo-deep);background:var(--indigo-tint);}
-  .worry-card:nth-child(3) .n{color:var(--green-deep);background:var(--green-tint);}
-  .worry-card h3{font-size:1.02rem;margin-bottom:10px;line-height:1.6;}
-  .worry-card p{font-size:.86rem;color:var(--ink-soft);}
+  .stats-lede{text-align:center;max-width:44ch;margin:0 auto 26px;font-size:.95rem;color:var(--ink-soft);line-height:1.8;}
 
   /* ---------- approach ---------- */
   .approach{padding:96px 0;background:var(--paper);position:relative;}
@@ -249,7 +238,7 @@
     .hero{padding-top:120px;}
     .approach .wrap{grid-template-columns:1fr;gap:28px;}
     .work-grid{grid-template-columns:1fr;}
-    .worry-grid{grid-template-columns:1fr;}
+    .stats-lede{padding:0 4px;}
     .steps-grid{grid-template-columns:1fr;gap:28px;}
     .steps-line{display:none;}
     .price-row{gap:24px;}
@@ -300,11 +289,15 @@
 
 <section class="stats-wrap">
   <div class="wrap">
+    <p class="stats-lede" data-reveal>「問い合わせたら、高い金額を提示されそうで怖い」——そう思われる方がほとんどです。noren は最初に、この金額だけをお約束します。</p>
     <div class="stat-row" data-reveal>
       <div class="stat"><div class="num disp c-coral" data-count="0" data-prefix="¥">0</div><div class="label">初期費用</div></div>
       <div class="stat"><div class="num disp c-indigo" data-count="2980" data-prefix="¥">0</div><div class="label">月額（先着5店舗様）</div></div>
       <div class="stat"><div class="num disp c-green" data-count="7" data-suffix="日〜">0</div><div class="label">公開までの目安</div></div>
       <div class="stat"><div class="num disp c-gold">全国</div><div class="label">対応エリア</div></div>
+    </div>
+    <div class="mid-cta" data-reveal>
+      <a href="#works" class="btn btn-primary">まずは無料でノレンを見てみる →</a>
     </div>
   </div>
 </section>
@@ -315,35 +308,6 @@
     <span>個人店特化</span><span>契約前に無料で確認</span><span>レスポンシブ対応</span><span>Stripe決済連携</span><span>SNS連携</span><span>SEO意識設計</span><span>保守・運用対応</span><span>全国対応</span>
   </div>
 </div>
-
-<section class="worries">
-  <div class="wrap">
-    <div class="sec-head" data-reveal>
-      <div class="eyebrow eyebrow-coral">こんなお悩み、ありませんか</div>
-      <h2>ノレンを出したいけど、<br>踏み出せない理由がある。</h2>
-    </div>
-    <div class="worry-grid">
-      <div class="worry-card" data-reveal>
-        <div class="n disp">01</div>
-        <h3>相場も分からず、営業されそうで身構えてしまう</h3>
-        <p>問い合わせた途端に高いプランを勧められるのでは、という心配はもっともです。noren は先に初期費用0円・月額2,980円とお伝えし、ノレンが仕上がるまで費用は一切発生しません。</p>
-      </div>
-      <div class="worry-card" data-reveal>
-        <div class="n disp">02</div>
-        <h3>作ってもらっても、効果があるか形になるまで分からない</h3>
-        <p>お金をかけたのに閑古鳥、という事態は避けたいところです。だからこそ、契約前に無料でお仕立てした実際のノレン（サイト案）をご覧いただいてから決めていただけます。</p>
-      </div>
-      <div class="worry-card" data-reveal>
-        <div class="n disp">03</div>
-        <h3>打ち合わせや修正のやり取りに時間を取られたくない</h3>
-        <p>日々の営業で忙しく、何度も打ち合わせする余裕がない方がほとんどです。ノレンのご提案からやり取りは最小限に抑え、ご判断いただくだけで進められます。</p>
-      </div>
-    </div>
-    <div class="mid-cta" data-reveal>
-      <a href="#works" class="btn btn-primary">まずは無料でノレンを見てみる →</a>
-    </div>
-  </div>
-</section>
 
 <section class="approach">
   <div class="wrap">
@@ -367,7 +331,7 @@
     <div class="sec-head" data-reveal>
       <div class="eyebrow eyebrow-green">WORKS</div>
       <h2>制作イメージ</h2>
-      <p class="desc">サービスの雰囲気をお伝えするために制作した、架空の店舗を想定したサンプルです。実際にご依頼いただいた場合は、お店の写真や情報に差し替えて仕上げます。</p>
+      <p class="desc">「作ってもらっても、意味があるか分からない」——そう感じるのは当然です。だからこそ契約前に、実際に公開できる形のノレンをご覧いただけます。以下はサービスの雰囲気をお伝えするための、架空の店舗を想定したサンプルです。</p>
     </div>
     <div class="work-grid">
       <div class="work-card" data-reveal>
@@ -410,6 +374,7 @@
     <div class="sec-head" data-reveal>
       <div class="eyebrow eyebrow-indigo">PROCESS</div>
       <h2>ご利用の流れ</h2>
+      <p class="desc">「忙しくて、何度も打ち合わせする時間がない」という方がほとんどです。やり取りは最小限、たった3ステップで完結します。</p>
     </div>
     <div class="steps" data-reveal>
       <svg class="steps-line" viewBox="0 0 100 2" preserveAspectRatio="none">
