@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>椿窯 TSUBAKIGAMA | 瀬戸・定光寺の窯元</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --base:#f2efe8;
+  --surface:#e8e2d4;
+  --primary:#4c5b66;      /* 灰釉のような青灰色 */
+  --secondary:#a98b6f;    /* 土の色 */
+  --text:#2b2a26;
+  --muted:#6b6860;
+  --accent:#b5572e;       /* 窯の炎の色 */
+  --accent-text:#8a3f1f;  /* 小さい文字用の濃い炎色 */
+  --accent2:#7c8f82;      /* 定光寺の山の緑 */
+  --line:#c9c1b0;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --font-head:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP","Noto Serif JP",serif;
+  --font-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans CJK JP",sans-serif;
+  --font-num:"Cormorant","Shippori Mincho",serif;
+}
+*{box-sizing:border-box;}
+html,body{overflow-x:hidden;overscroll-behavior-x:none;}
+body{width:100%;max-width:100vw;margin:0;background:var(--base);color:var(--text);font-family:var(--font-body);line-height:1.8;letter-spacing:.01em;-webkit-font-smoothing:antialiased;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+.ib{display:inline-block;}
+
+/* grain overlay */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:2;opacity:.05;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---- side rail nav ---- */
+.rail{position:fixed;top:0;left:0;height:100vh;width:88px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:28px 0;z-index:50;background:rgba(242,239,232,.86);backdrop-filter:none;border-right:1px solid var(--line);}
+.rail .mark{writing-mode:vertical-rl;font-family:var(--font-head);font-size:1rem;letter-spacing:.3em;font-weight:600;}
+.rail nav{display:flex;flex-direction:column;gap:22px;}
+.rail nav a{writing-mode:vertical-rl;font-size:.78rem;letter-spacing:.2em;color:var(--muted);transition:color .3s var(--ease);padding:4px 0;}
+.rail nav a:hover{color:var(--accent-text);}
+.rail .sns{display:flex;flex-direction:column;gap:14px;}
+.rail .sns a{width:30px;height:30px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;border-radius:2px;font-size:.62rem;letter-spacing:0;transition:transform .3s var(--ease),border-color .3s var(--ease);}
+.rail .sns a:hover{transform:scale(1.08);border-color:var(--accent);}
+
+.mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--text);color:var(--base);padding:12px 16px;align-items:center;justify-content:space-between;}
+.mobile-bar .mtitle{font-family:var(--font-head);font-size:.95rem;letter-spacing:.08em;}
+.mobile-bar .mcta{border:1px solid var(--base);padding:8px 16px;border-radius:2px;font-size:.78rem;letter-spacing:.08em;}
+
+main{margin-left:88px;}
+
+/* sample tag */
+.sample-tag{position:absolute;top:18px;right:18px;z-index:40;background:var(--text);color:var(--base);font-size:.66rem;letter-spacing:.08em;padding:7px 12px;line-height:1.4;max-width:180px;text-align:right;border-radius:1px;}
+
+/* ---- hero ---- */
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;overflow:hidden;}
+.hero .bgwrap{position:absolute;inset:0;aspect-ratio:16/10;min-height:100%;background:linear-gradient(160deg,#5d6c76 0%,#8a7a67 60%,#b5572e 130%);}
+.hero .bgwrap img{width:100%;height:100%;object-fit:cover;object-position:center 40%;opacity:0;transition:opacity .6s var(--ease);}
+.hero .bgwrap img.loaded{opacity:1;}
+.hero .scrim{position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,20,18,.78) 0%,rgba(20,20,18,.25) 45%,rgba(20,20,18,.05) 70%);}
+.hero .content{position:relative;z-index:5;padding:0 6vw 7vw;max-width:980px;}
+.hero .eyebrow{color:#e8e2d4;font-family:var(--font-num);font-style:italic;font-size:1.05rem;letter-spacing:.1em;margin-bottom:18px;opacity:.92;}
+.hero h1{font-family:var(--font-head);color:#f5f2ea;font-weight:600;font-size:clamp(2.6rem,6vw + .6rem,5.3rem);line-height:1.25;letter-spacing:-.02em;margin:0 0 22px;word-break:keep-all;}
+.hero p.lead{color:#eceae3;font-size:1.02rem;max-width:520px;margin:0 0 30px;line-height:1.95;}
+.hero .ctarow{display:flex;gap:14px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:2px;font-size:.86rem;letter-spacing:.1em;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .35s var(--ease);}
+.btn:active{transform:scale(.97);}
+.btn-primary{background:var(--accent-text);color:#f5f2ea;}
+.btn-primary:hover{transform:scale(1.04);box-shadow:0 10px 24px -8px rgba(138,63,31,.55);}
+.btn-ghost{border:1px solid rgba(245,242,234,.6);color:#f5f2ea;}
+.btn-ghost:hover{transform:scale(1.04);background:rgba(245,242,234,.12);}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .75s var(--ease),transform .75s var(--ease);}
+.reveal.in{opacity:1;transform:translateY(0);}
+@media (prefers-reduced-motion:reduce){.reveal{transition:none;opacity:1;transform:none;}}
+
+/* ---- section shell ---- */
+section{padding:min(14vw,120px) 6vw;}
+.section-head{display:flex;align-items:baseline;gap:18px;margin-bottom:56px;flex-wrap:wrap;}
+.section-head .no{font-family:var(--font-num);font-style:italic;color:var(--accent-text);font-size:1.3rem;}
+.section-head h2{font-family:var(--font-head);font-size:clamp(1.9rem,3vw + .8rem,2.8rem);font-weight:600;margin:0;letter-spacing:-.01em;}
+.section-head .sub{color:var(--muted);font-size:.9rem;max-width:280px;margin-left:auto;line-height:1.8;}
+
+/* about */
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start;}
+.about .lede{font-size:1.18rem;line-height:2;color:var(--text);}
+.about .lede strong{color:var(--accent-text);font-weight:500;}
+.about .facts{display:grid;gap:22px;border-left:1px solid var(--line);padding-left:28px;}
+.about .facts dt{font-family:var(--font-num);font-style:italic;color:var(--muted);font-size:.82rem;letter-spacing:.06em;}
+.about .facts dd{margin:4px 0 0;font-size:.98rem;}
+
+/* numbered product list */
+.works{background:var(--surface);}
+.worklist{display:grid;gap:0;border-top:1px solid var(--line);}
+.workrow{display:grid;grid-template-columns:70px 1.1fr 1.4fr;gap:28px;padding:34px 0;border-bottom:1px solid var(--line);align-items:center;min-width:0;}
+.workrow .idx{font-family:var(--font-num);font-style:italic;color:var(--accent-text);font-size:1.4rem;}
+.workrow h3{font-family:var(--font-head);font-size:1.3rem;font-weight:600;margin:0 0 8px;min-width:0;}
+.workrow p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.85;min-width:0;}
+.workrow .tagrow{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;}
+.tag{font-size:.68rem;letter-spacing:.06em;padding:4px 9px;border:1px solid var(--line);border-radius:2px;color:var(--muted);white-space:nowrap;}
+
+/* masonry gallery */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:16vw;gap:14px;}
+.gallery figure{position:relative;margin:0;overflow:hidden;border-radius:2px;background:linear-gradient(145deg,#6d7a82,#a98b6f);aspect-ratio:auto;min-height:0;}
+.gallery figure img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s var(--ease),transform .7s var(--ease);min-width:0;}
+.gallery figure img.loaded{opacity:1;}
+.gallery figure:hover img{transform:scale(1.04);}
+.g1{grid-column:span 2;grid-row:span 2;}
+.g2{grid-column:span 1;grid-row:span 1;}
+.g3{grid-column:span 1;grid-row:span 2;}
+.g4{grid-column:span 1;grid-row:span 1;}
+.g5{grid-column:span 1;grid-row:span 1;}
+.g6{grid-column:span 1;grid-row:span 1;}
+.gcap{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;font-size:.68rem;color:#f5f2ea;background:linear-gradient(0deg,rgba(0,0,0,.55),transparent);letter-spacing:.04em;}
+.imgnote{color:var(--muted);font-size:.74rem;margin-top:14px;letter-spacing:.03em;}
+
+/* access / contact band */
+.contact-band{background:var(--text);color:var(--surface);}
+.contact-band .section-head h2,.contact-band .section-head .no{color:var(--surface);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+.contact-grid .info dt{font-family:var(--font-num);font-style:italic;font-size:.82rem;letter-spacing:.06em;color:#c9c1b0;margin-top:20px;}
+.contact-grid .info dt:first-child{margin-top:0;}
+.contact-grid .info dd{margin:4px 0 0;font-size:1rem;}
+.contact-grid .ctacard{background:#3a3934;border:1px solid #4a4943;border-radius:4px;padding:36px;}
+.contact-grid .ctacard p{color:#d9d3c4;font-size:.92rem;margin:0 0 22px;line-height:1.9;}
+.snsgrid{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;}
+.snsgrid a{font-size:.78rem;letter-spacing:.05em;padding:10px 16px;border:1px solid #5a594f;border-radius:2px;color:var(--surface);transition:border-color .3s var(--ease),transform .3s var(--ease);}
+.snsgrid a:hover{border-color:var(--accent);transform:translateY(-2px);}
+
+footer{padding:34px 6vw;font-size:.72rem;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid var(--line);}
+
+/* -------- responsive -------- */
+@media (max-width:1024px){
+  .gallery{grid-auto-rows:22vw;}
+  .about{grid-template-columns:1fr;}
+  .about .facts{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:24px;}
+}
+@media (max-width:860px){
+  .rail{display:none;}
+  main{margin-left:0;}
+  .mobile-bar{display:flex;}
+  body{padding-bottom:64px;}
+  .sample-tag{right:12px;top:14px;max-width:150px;font-size:.6rem;}
+  .contact-grid{grid-template-columns:1fr;gap:34px;}
+}
+@media (max-width:767px){
+  section{padding:70px 6vw;}
+  .section-head{flex-direction:column;align-items:flex-start;gap:8px;}
+  .section-head .sub{margin-left:0;max-width:100%;}
+  .workrow{grid-template-columns:40px 1fr;grid-template-areas:"idx title" ". desc";row-gap:6px;padding:26px 0;}
+  .workrow .idx{grid-area:idx;}
+  .workrow h3{grid-area:title;}
+  .workrow p{grid-area:desc;}
+  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:34vw;}
+  .g1{grid-column:span 2;grid-row:span 1;}
+  .g3{grid-row:span 1;}
+  .hero h1{font-size:clamp(2.1rem,9vw,3rem);}
+}
+@media (max-width:420px){
+  .hero .content{padding:0 5vw 9vw;}
+  .btn{padding:13px 20px;font-size:.8rem;}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="sample-tag">椿窯様への<br>ご提案サンプル</div>
+
+<aside class="rail">
+  <div class="mark">椿窯 TSUBAKIGAMA</div>
+  <nav>
+    <a href="#about">about</a>
+    <a href="#works">works</a>
+    <a href="#gallery">gallery</a>
+    <a href="#contact">contact</a>
+  </nav>
+  <div class="sns">
+    <a href="https://www.instagram.com/tsubakigama2018/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+    <a href="https://line.me/R/ti/p/@457xifhd" target="_blank" rel="noopener" aria-label="LINE">LN</a>
+  </div>
+</aside>
+
+<main>
+  <section class="hero">
+    <div class="bgwrap">
+      <img src="https://images.unsplash.com/photo-1565193566173-7a0af771d71a?auto=format&fit=crop&w=1800&q=70" alt="陶芸家が器を形作る様子" onerror="this.style.display='none'">
+    </div>
+    <div class="scrim"></div>
+    <div class="content">
+      <p class="eyebrow">Seto, Jōkōji — since the first generation</p>
+      <h1><span class="ib">定光寺の山裾で、</span><span class="ib">土と炎を継ぐ。</span></h1>
+      <p class="lead">瀬戸市北西、定光寺の山裾にひっそりと構える窯元・椿窯。初代が開いた窯を、二代目・林栄治が受け継ぎ、灰釉と染付、そして現代の暮らしに合う器を焼いています。</p>
+      <div class="ctarow">
+        <a class="btn btn-primary" href="https://thebase.com/inquiry/tsubakigama-base-shop" target="_blank" rel="noopener">お問い合わせ</a>
+        <a class="btn btn-ghost" href="https://tsubakigama.base.shop" target="_blank" rel="noopener">オンラインショップ</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-head reveal">
+      <span class="no">01</span>
+      <h2>about</h2>
+      <p class="sub">初代父が開いた窯を、2012年に林栄治が継承しました。</p>
+    </div>
+    <div class="about">
+      <p class="lede reveal">灰釉のやわらかな青灰色と、染付の澄んだ藍。<strong>椿窯</strong>の器は、山の静けさそのものを写したような質感をしています。京都で学んだ「雅」の感覚を、瀬戸焼の伝統技法に重ねながら、日々の食卓にそっと寄り添う器をひとつひとつ手で仕上げています。量産品にはない、土と炎と人の手の跡を感じてもらえたら——それが椿窯のものづくりです。</p>
+      <dl class="facts reveal">
+        <dt>創業</dt><dd>初代父が定光寺山麓にて開窯</dd>
+        <dt>継承</dt><dd>2012年、二代目・林栄治が継承</dd>
+        <dt>技法</dt><dd>灰釉・染付／瀬戸焼の伝統技法</dd>
+        <dt>所在地</dt><dd>愛知県瀬戸市北西部・定光寺山麓</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section id="works" class="works">
+    <div class="section-head reveal">
+      <span class="no">02</span>
+      <h2>works</h2>
+      <p class="sub">代表的な2つのラインナップ。</p>
+    </div>
+    <div class="worklist">
+      <div class="workrow reveal">
+        <span class="idx">01</span>
+        <h3>IZUMI シリーズ</h3>
+        <p>灰釉を基調にした、暮らしの中に静かに馴染む器のライン。飯碗・片口・小鉢など、毎日の食卓で使いやすい形を中心に展開。
+          <span class="tagrow"><span class="tag">灰釉</span><span class="tag">普段使い</span></span>
+        </p>
+      </div>
+      <div class="workrow reveal">
+        <span class="idx">02</span>
+        <h3>mike シリーズ</h3>
+        <p>染付の藍を主役にした、少しモダンな器のライン。直線的な輪郭と藍の濃淡で、和と洋のどちらの食卓にも合う佇まいに仕上げています。
+          <span class="tagrow"><span class="tag">染付</span><span class="tag">モダン</span></span>
+        </p>
+      </div>
+      <div class="workrow reveal">
+        <span class="idx">03</span>
+        <h3>一点物・特注</h3>
+        <p>ギフトや特別な用途に向けた一点物、オーダーメイドの器も承っています。詳しい内容はお問い合わせフォームよりご相談ください。
+          <span class="tagrow"><span class="tag">オーダー</span><span class="tag">ギフト</span></span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="section-head reveal">
+      <span class="no">03</span>
+      <h2>gallery</h2>
+      <p class="sub">窯場と器のある風景。</p>
+    </div>
+    <div class="gallery">
+      <figure class="g1 reveal"><img data-src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1200&q=70" alt="窯場で作業する陶芸家の手" onerror="this.style.display='none'"><span class="gcap">窯場にて</span></figure>
+      <figure class="g2 reveal"><img data-src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=800&q=70" alt="灰釉の器" onerror="this.style.display='none'"></figure>
+      <figure class="g3 reveal"><img data-src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=70" alt="並べられた陶器の器" onerror="this.style.display='none'"><span class="gcap">IZUMIシリーズ</span></figure>
+      <figure class="g4 reveal"><img data-src="https://images.unsplash.com/photo-1565193298357-6e45a1ad4f49?auto=format&fit=crop&w=800&q=70" alt="染付の器" onerror="this.style.display='none'"></figure>
+      <figure class="g5 reveal"><img data-src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=70" alt="土をこねる手元" onerror="this.style.display='none'"></figure>
+      <figure class="g6 reveal"><img data-src="https://images.unsplash.com/photo-1606292101822-b69855a862f0?auto=format&fit=crop&w=800&q=70" alt="定光寺の山の風景" onerror="this.style.display='none'"></figure>
+    </div>
+    <p class="imgnote">※写真はイメージです。実店舗の様子は、ご契約後に実際の写真へ差し替えます。</p>
+  </section>
+
+  <section id="contact" class="contact-band">
+    <div class="section-head reveal">
+      <span class="no">04</span>
+      <h2>access / contact</h2>
+      <p class="sub" style="color:#b9b2a0">ご注文・お取り扱いのご相談はこちらから。</p>
+    </div>
+    <div class="contact-grid">
+      <dl class="info reveal">
+        <dt>所在地</dt><dd>愛知県瀬戸市北西部・定光寺山麓（詳細はお問い合わせください）</dd>
+        <dt>営業形態</dt><dd>オンラインショップ（BASE）を中心に、ギフト・特注のご相談を承っています</dd>
+        <dt>代表</dt><dd>二代目 林栄治</dd>
+      </dl>
+      <div class="ctacard reveal">
+        <p>ご注文・コラボレーション・取材のご相談は、下記のお問い合わせフォームよりお気軽にご連絡ください。SNSでも日々の窯の様子を発信しています。</p>
+        <a class="btn btn-primary" href="https://thebase.com/inquiry/tsubakigama-base-shop" target="_blank" rel="noopener">お問い合わせフォームへ</a>
+        <div class="snsgrid">
+          <a href="https://www.instagram.com/tsubakigama2018/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://x.com/tsubakigamaseto" target="_blank" rel="noopener">X</a>
+          <a href="https://line.me/R/ti/p/@457xifhd" target="_blank" rel="noopener">LINE</a>
+          <a href="https://www.facebook.com/tsubakigama.seto" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© TSUBAKIGAMA 椿窯</span>
+    <span>本ページは提案用のデザインサンプルです</span>
+  </footer>
+</main>
+
+<div class="mobile-bar">
+  <span class="mtitle">椿窯</span>
+  <a class="mcta" href="https://thebase.com/inquiry/tsubakigama-base-shop" target="_blank" rel="noopener">お問い合わせ</a>
+</div>
+
+<script>
+// lazy-load gallery images
+document.querySelectorAll('.gallery img[data-src]').forEach(img=>{
+  const src = img.getAttribute('data-src');
+  const real = new Image();
+  real.onload = ()=>{ img.src = src; img.classList.add('loaded'); };
+  real.onerror = ()=>{ img.style.display='none'; };
+  real.src = src;
+});
+// hero image loaded class toggle
+document.querySelectorAll('.hero .bgwrap img').forEach(img=>{
+  img.addEventListener('load', ()=>img.classList.add('loaded'));
+});
+
+// scroll reveal
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
