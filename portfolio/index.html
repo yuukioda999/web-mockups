@@ -101,6 +101,12 @@
   @media (prefers-reduced-motion: reduce){.hero-icon{animation:none;}}
 
   .hero-inner{position:relative;z-index:1;text-align:center;padding:30px 0 96px;}
+  .noren-mini{display:flex;justify-content:center;gap:4px;margin:22px 0 2px;}
+  .noren-mini span{width:9px;height:30px;border-radius:0 0 7px 7px;opacity:.88;}
+  .noren-mini span:nth-child(1){background:var(--coral);}
+  .noren-mini span:nth-child(2){background:var(--gold);}
+  .noren-mini span:nth-child(3){background:var(--green);}
+  .noren-mini span:nth-child(4){background:var(--indigo);}
   .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.76rem;letter-spacing:.1em;color:var(--coral-deep);font-weight:700;margin:28px 0;background:var(--cream-card);border:1px solid var(--line);padding:8px 18px;border-radius:999px;}
   .eyebrow-coral{color:var(--coral-deep);background:var(--coral-tint);border-color:transparent;}
   .eyebrow-green{color:var(--green-deep);background:var(--green-tint);border-color:transparent;}
@@ -116,7 +122,7 @@
   .hero-reassure span::before{content:"◯";font-size:.6rem;color:var(--green-deep);}
 
   /* ---------- stats ---------- */
-  .stats-wrap{padding:0 0 10px;}
+  .stats-wrap{padding:52px 0 10px;}
   .stat-row{display:grid;grid-template-columns:repeat(4,1fr);max-width:880px;margin:0 auto;background:var(--cream-card);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
   .stat{padding:28px 10px;text-align:center;border-right:1px solid var(--line);}
   .stat:last-child{border-right:none;}
@@ -151,7 +157,8 @@
   .approach-body p{color:var(--ink-soft);margin-bottom:17px;font-size:.96rem;}
   .approach strong{color:var(--ink);font-weight:700;border-bottom:2px solid var(--coral);}
   .about-card{grid-column:1/-1;display:flex;gap:18px;align-items:flex-start;background:var(--cream-card);border:1px solid var(--line);border-left:4px solid var(--coral-deep);border-radius:10px;padding:22px 24px;margin-top:18px;max-width:640px;}
-  .about-card-avatar{flex-shrink:0;width:46px;height:46px;border-radius:50%;background:var(--ink-panel);color:var(--gold-tint);display:flex;align-items:center;justify-content:center;font-family:'Shippori Mincho',serif;font-weight:800;font-size:1.1rem;}
+  .about-card-avatar{position:relative;flex-shrink:0;width:46px;height:46px;border-radius:50%;background:var(--ink-panel);color:var(--gold-tint);display:flex;align-items:center;justify-content:center;font-family:'Shippori Mincho',serif;font-weight:800;font-size:1.1rem;}
+  .hanko-mini{position:absolute;bottom:-9px;right:-10px;width:28px;height:28px;border-radius:50%;background:var(--coral-deep);color:#fff6ec;display:flex;align-items:center;justify-content:center;font-family:'Shippori Mincho',serif;font-weight:800;font-size:.56rem;line-height:1.05;text-align:center;transform:rotate(-10deg);border:2px solid var(--cream-card);box-shadow:0 4px 10px -4px rgba(156,58,31,.55);}
   .about-card-name{font-weight:700;font-size:.95rem;margin-bottom:6px;}
   .about-card-name span{display:inline-block;margin-left:8px;font-size:.72rem;font-weight:500;color:var(--ink-soft);background:var(--gold-tint);padding:2px 9px;border-radius:999px;}
   .about-card p{font-size:.88rem;color:var(--ink-soft);margin:0;}
@@ -272,6 +279,7 @@
     <img class="hero-icon" src="./assets/icon.png" alt="noren ロゴ">
   </div>
   <div class="wrap hero-inner">
+    <div class="noren-mini" data-reveal aria-hidden="true"><span></span><span></span><span></span><span></span></div>
     <div class="eyebrow" data-reveal><span class="dot"></span>個人店向け・無料ホームページ制作</div>
     <h1 data-reveal>お店の、<br><em>はじめの一枚</em>を。</h1>
     <p class="lede" data-reveal>「noren（ノレン）」は、公式サイトを持たない個人店のためのホームページ制作サービスです。契約前に、まずお店の顔となる&quot;ノレン&quot;を無料でお仕立てします。気に入ったときだけ、正式に掲げてください。</p>
@@ -317,7 +325,7 @@
       <p>noren では、まずお店の雰囲気に合わせて&quot;ノレン&quot;を無料でお仕立てします。実際に公開できる形でお見せするので、見ていただいて、気に入らなければそのままで大丈夫です。費用が発生するのは、ご契約いただいた場合のみです。</p>
     </div>
     <div class="about-card" data-reveal>
-      <div class="about-card-avatar">小</div>
+      <div class="about-card-avatar">小<span class="hanko-mini" aria-hidden="true">個人<br>運営</span></div>
       <div>
         <div class="about-card-name">小田裕貴<span>noren 運営者</span></div>
         <p>普段は<strong>PHP/Laravel</strong>を中心に活動するフリーランスのシステムエンジニア（開発歴4.5年）。企業からの受託ではなく個人店向けのホームページ制作を専門にしていて、ヒアリングから公開後の修正対応まで、すべて私一人が直接担当します。</p>
