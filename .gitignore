@@ -144,3 +144,4 @@ vite.config.ts.timestamp-*
 
 # UI/UX Pro Max skill (locally generated, per-project)
 .claude/skills/ui-ux-pro-max/
+.github-token.txt
