@@ -37,6 +37,8 @@
 | 椿窯（TSUBAKIGAMA） | DIYサイト保有ティア（陶芸・窯元／愛知県瀬戸市北西部・定光寺山麓。BASEのオンラインショップ(tsubakigama.base.shop)のみで独自の公式サイトなし。旧ドメインtsubakigama.comはSSL証明書エラーで機能していない） | https://yuukioda999.github.io/web-mockups/mockups/tsubakigama-seto.html | （ゲートパスワードなし／現行スキルで廃止） | フォーム: https://thebase.com/inquiry/tsubakigama-base-shop ／Instagram: https://www.instagram.com/tsubakigama2018/ ／X: https://x.com/tsubakigamaseto ／LINE: https://line.me/R/ti/p/@457xifhd | 下書き作成済・未送信 | 2026-10-04 |
 | んみゃーコーヒー and おやつ | 新規開店ティア（カフェ／熊本県上益城郡山都町下市159。通潤橋近くの元洋服店跡に新店舗を2026-07-19オープン。間借り営業としては2025-04-19から人気） | https://yuukioda999.github.io/web-mockups/mockups/ummmia-coffee-yamato.html | （ゲートパスワードなし／現行スキルで廃止） | Instagram: https://www.instagram.com/ummmia.coffee.oyatsu/ （電話番号・公式サイトは非公開） | 下書き作成済・未送信 | 2026-10-04 |
 
+| YAGURA（ヤグラ） | 一般ティア（抹茶・ほうじ茶ラテ専門ティースタンド／長野県松本市丸の内2-11。開業2026-05-20のため新規開店ティア基準外） | https://yuukioda999.github.io/web-mockups/mockups/yagura-matsumoto.html | Instagram: https://www.instagram.com/yagura_matsumoto/ | 下書き作成済・未送信 | 2026-10-05 |
+
 ## 備考
 - 候補リサーチの全詳細（除外店舗リスト・検証済み出典URLなど）は自動タスクの実行ログを参照。
 - 各モックアップはPlaywrightによるセルフレビュー（375px/768px/1440pxでのレンダリング確認、コンソールエラー確認、パスワードゲートの解錠確認、アクセントカラーのコントラスト比確認）を実施済み。
