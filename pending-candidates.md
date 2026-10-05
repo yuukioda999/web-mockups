@@ -22,3 +22,17 @@
 | PIZZA Ktarou | 米沢市（山形県） | A | 飲食（冷凍ピザ販売） | 山形県米沢市大町四丁目6-18 | フォーム: https://thebase.com/inquiry/ktaroushop | BASEショップ(ktaroushop.thebase.in)。グルメグランプリ受賞の冷凍ピザ単独店。特定商取引法表記は事業者名「株式会社福副」・個人名「渡邉豪」の併記で法人格の可能性あり（要再確認。多店舗チェーンの兆候はなし）。独自公式サイトなし。問い合わせフォームリンク確認済み。storeleads.app経由で発見。 | 2026-10-05 18:43 JST |
 | 白布温泉 中屋別館不動閣 | 米沢市（山形県） | A | 旅館・ゲストハウス | 山形県米沢市関1534 | フォーム: https://www.fudokaku.com/contact（Wixサイト内の一般問い合わせフォーム。予約専用システムではない） | Wixサイト(fudokaku.com)。単独の家族経営旅館（チェーン展開の兆候なし）。問い合わせページに「送信」ボタンと受信確認メッセージの記載を確認したが、フォームの完全な動作テストは未実施のため次回要再確認。独自公式サイトなし。storeleads.app経由で発見。 | 2026-10-05 18:43 JST |
 | 革工房アバッリ ABALLI | 村上市（新潟県） | A | 工芸（革製品） | 新潟県村上市碁石40 | フォーム: https://www.aballi.jp （CONTACTページ内フォーム） | Wixサイト(aballi.jp)。特定商取引法表記は「株式会社アバッリ」という法人格だが、2006年草加皮革大賞受賞の職人による単独1拠点の革工房で代表者個人名の明記なし・多店舗展開の兆候なし（法人格のため厳密な個人経営判定は要確認）。独自公式サイトなし。storeleads.app経由で発見。 | 2026-10-05 18:43 JST |
+
+| KUON（空穏） | 高岡市（富山県） | A | 伝統工芸・雑貨（鋳物・インテリア） | 富山県高岡市金屋町7-15 | フォーム: https://www.kuon-life.com/contact | Wixサイト(kuon-life.com)運営。問い合わせフォームは全項目(お名前・メール・電話・お問い合わせ内容・送信ボタン)をWebFetchで実際に確認済み。特定商取引法表記で販売業者「有限会社四津川製作所」代表者「四津川晋」と確認（法人格だが単一拠点の鋳物工房でチェーン展開の兆候なし）。独自公式サイトは他に見当たらず。storeleads.app経由で発見。 | 2026-10-05 19:50 JST |
+
+| Handnitting ORIZURU | 高岡市（富山県） | A | 手編み・手芸 | 富山県高岡市出来田255-7 AGL GOLF STUDIO LB 2F | フォーム: https://www.orizuruknit.com/contact | Wixサイト(orizuruknit.com)運営。問い合わせフォームは送信ボタンと受信確認メッセージをWebFetchで確認済み。フッター表記の運営元「有限会社エルビー」は同一拠点のゴルフショップ(AGL GOLF STUDIO LB)と共通運営だが、ORIZURU自体に別の独自公式サイトは見当たらない（運営体の実態は要留意）。storeleads.app経由で発見。 | 2026-10-05 19:50 JST |
+
+| dotto・CANDLE | 小樽市（北海道） | A | 手作りキャンドル・アロマ | 北海道小樽市相生町2-3 | フォーム: https://thebase.com/inquiry/dottocandle | BASEショップ(shop.dottocandle.com)運営。特定商取引法表記で個人事業主と確認（電話非公開・メールのみ対応、個人色が強い）。独自公式サイトなし。CONTACTリンクの実在はショップ内で確認済みだが、thebase.com/inquiry配下はこの環境のrobots.txt・ネットワークプロキシの両方でWebFetch/curl不可のため完全なフォーム読み込みテストは未実施（次回要再確認）。storeleads.app経由で発見。 | 2026-10-05 19:50 JST |
+
+| 宅配クリーニング ONE MORE | 弘前市（青森県） | A | 宅配クリーニング | 青森県弘前市元寺町小路23 | フォーム: https://thebase.com/inquiry/onemoreclean-official-ec | BASEショップ(onemoreclean.official.ec、カスタムドメイン)運営。特定商取引法表記で運営元「合同会社manazashi」（代表久保栄一郎、一人運営の合同会社）と確認。独自公式サイトなし（Makuakeクラウドファンディング実績はあるが別サイトなし）。CONTACTリンクの実在は確認済みだが、thebase.com/inquiry配下は環境制約により完全読み込み未実施（次回要再確認）。storeleads.app経由で発見。 | 2026-10-05 19:50 JST |
+
+| みうら生花店 花蔵 | 鶴岡市（山形県） | A | 生花店 | 山形県鶴岡市東原町17-17 | フォーム: https://thebase.com/inquiry/hanazo87-thebase-in（URLスラッグは次回クリックスルーで要再確認） | BASEショップ(hanazo87.thebase.in)運営。特定商取引法表記で個人事業主、代表「三浦淳志」氏と明記（内閣総理大臣賞受賞歴あり、個人経営の根拠が強い）。独自公式サイトなし。CONTACTリンクの実在は確認したが、thebase.com/inquiry配下は環境制約により完全読み込み未実施・URLスラッグの正確性も次回要確認。storeleads.app経由で発見。 | 2026-10-05 19:50 JST |
+
+| woodenpoly | 萩市（山口県） | A | 木工工芸（多面体モデル） | 山口県萩市川上5014 | フォーム: https://thebase.com/inquiry/woodenpoly | BASEショップ(woodenpoly.thebase.in)運営。特定商取引法表記で個人名「山﨑憲久」と確認。独自公式サイトなし。CONTACTリンクの実在は確認したが、thebase.com/inquiry配下は環境制約により完全読み込み未実施（次回要再確認）。storeleads.app経由で発見。 | 2026-10-05 19:50 JST |
+
+| NEW TOKYO BARBER | 大洲市（愛媛県） | A | 理容室 | 愛媛県大洲市中村613番地 | フォーム: https://thebase.com/inquiry/ntstyle | BASEショップ(ntstyle.thebase.in)運営。特定商取引法表記で個人名「仲岡浩司」と確認。独自公式サイトなし。ショップ内に出品商品が現在ゼロで運営がやや低活性な可能性あり。CONTACTリンクの実在は確認したが、thebase.com/inquiry配下は環境制約により完全読み込み未実施（次回要再確認）。storeleads.app経由で発見。 | 2026-10-05 19:50 JST |
