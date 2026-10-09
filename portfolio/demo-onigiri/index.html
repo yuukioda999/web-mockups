@@ -2,280 +2,221 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
-<title>サンプル飲食店 | 制作サンプル</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>おむすび 一粒 | 注文を受けてから結ぶ、おむすび専門店（制作サンプル）</title>
+<meta name="description" content="noren の制作サンプル。注文を受けてから一つずつ結ぶ、おむすび専門店を想定したサイトです。店名・住所は架空の設定です。">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#fbfbf9">
+<meta property="og:title" content="おむすび 一粒（noren 制作サンプル）">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://yuukioda999.github.io/web-mockups/portfolio/demo-onigiri/images/hero-sq.webp">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;600;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="./images/hero-sq.webp" fetchpriority="high">
 <style>
   :root{
-    --bg:#ffffff;
-    --paper:#f7f6f2;
-    --ink:#141414;
-    --ink-soft:#6e6a63;
-    --line:#e6e3dc;
-    --shu:#d1330f;
-    --shu-text:#a8270c;
-    --shu-deep:#6b1d09;
-    --salmon:#e07a5f;
-    --salmon-text:#b8583f;
-    --ume:#b0355e;
-    --ume-text:#8c2648;
-    --mentaiko:#e0912e;
-    --mentaiko-text:#a86a1a;
-    --kombu:#5a6b42;
-    --kombu-text:#414f2f;
+    --paper:#fbfbf9; --wash:#f1f0ec; --sumi:#1b1b1b; --sumi-2:#55534e; --line:#dedcd6; --shu:#b23a24;
+    color-scheme:light;
   }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html,body{overflow-x:hidden;overscroll-behavior-x:none;max-width:100vw;}
-  body{width:100%;max-width:100vw;background:var(--bg);color:var(--ink);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:1.85;-webkit-font-smoothing:antialiased;}
-  a{color:inherit;text-decoration:none;}
-  .serif{font-family:'Shippori Mincho B1',serif;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-padding-top:72px;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth;}}
+  body{background:var(--paper);color:var(--sumi);font-family:'Zen Kaku Gothic New',system-ui,sans-serif;line-height:1.95;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:clip;}
+  img{display:block;max-width:100%;height:auto;}
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--shu);outline-offset:3px;}
+  .min{font-family:'Shippori Mincho B1',serif;font-weight:800;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  .ph{display:inline-block;}
 
-  .ph{position:relative;overflow:hidden;background:linear-gradient(155deg,#f4efe4,#ead9c4 55%,#d9c0a0);}
-  .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-  .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.22),transparent 45%);}
-  .ph span{position:absolute;left:16px;bottom:12px;font-size:.68rem;color:#fff;z-index:1;letter-spacing:.05em;}
+  .sample{background:var(--sumi);color:#e9e8e3;font-size:.8rem;}
+  .sample .wrap{display:flex;justify-content:space-between;gap:12px;align-items:center;min-height:40px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px;}
+  .sample a{color:#fff;font-weight:700;text-underline-offset:3px;}
+  @media (max-width:600px){.sample .wrap{flex-wrap:nowrap;font-size:.74rem;}.sample a{white-space:nowrap;}}
 
-  [data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .85s cubic-bezier(.2,.7,.3,1),transform .85s cubic-bezier(.2,.7,.3,1);}
-  [data-reveal].in{opacity:1;transform:translateY(0);}
+  header{border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:20;}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px;}
+  .logo{display:flex;align-items:baseline;gap:10px;text-decoration:none;}
+  .logo .min{font-size:1.35rem;letter-spacing:.12em;}
+  .logo small{font-size:.72rem;color:var(--sumi-2);letter-spacing:.1em;}
+  nav{display:flex;gap:28px;}
+  nav a{font-size:.88rem;font-weight:500;text-decoration:none;color:var(--sumi-2);padding:8px 0;}
+  nav a:hover{color:var(--sumi);}
+  @media (max-width:720px){nav{display:none;}}
 
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 30px;font-weight:700;font-size:.82rem;letter-spacing:.06em;transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,background .3s,color .3s;}
-  .btn-solid{background:var(--shu);color:#fff;}
-  .btn-solid:hover{transform:translateY(-3px);box-shadow:0 16px 28px -16px rgba(122,39,18,.55);}
-  .btn-line{border-bottom:1px solid var(--ink);color:var(--ink);padding:6px 2px;}
-  .btn-line:hover{border-color:var(--shu);color:var(--shu-text);}
-  .btn-light{background:#fff;color:var(--shu-text);}
-  .btn-light:hover{transform:translateY(-3px);box-shadow:0 16px 28px -14px rgba(0,0,0,.3);}
+  /* hero */
+  .hero{padding:56px 0 80px;}
+  .hero .wrap{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:stretch;}
+  .hero-text{display:flex;gap:40px;align-items:flex-start;}
+  .hero h1{writing-mode:vertical-rl;font-size:clamp(2.4rem,4.6vw,3.6rem);line-height:1.5;letter-spacing:.18em;}
+  .hero h1 em{font-style:normal;color:var(--shu);}
+  .hero-side{writing-mode:vertical-rl;font-size:.95rem;color:var(--sumi-2);letter-spacing:.14em;line-height:2.2;max-height:22em;}
+  .hero-photo{position:relative;background:var(--wash);}
+  .hero-photo img{width:100%;height:100%;max-height:600px;object-fit:cover;}
+  .hours{position:absolute;left:0;bottom:0;background:var(--paper);padding:18px 24px;display:grid;gap:2px;}
+  .hours b{font-size:1.05rem;letter-spacing:.06em;}
+  .hours span{font-size:.82rem;color:var(--sumi-2);}
 
-  /* Top nav: thin fixed bar, underline links */
-  header.top{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:22px 48px;background:rgba(250,250,247,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
-  .logo{font-size:.92rem;font-weight:800;letter-spacing:.08em;}
-  .logo b{color:var(--shu-text);}
-  .top-nav{display:flex;gap:34px;}
-  .top-nav a{font-size:.8rem;font-weight:500;color:var(--ink-soft);position:relative;padding-bottom:3px;}
-  .top-nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--shu);transition:width .3s;}
-  .top-nav a:hover{color:var(--ink);}
-  .top-nav a:hover::after{width:100%;}
-  .top-cta{display:flex;align-items:center;gap:18px;}
-  @media (max-width:820px){.top-nav{display:none;}}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 28px;font-weight:700;font-size:.92rem;text-decoration:none;border:1.5px solid var(--sumi);transition:background-color .2s ease,color .2s ease;}
+  .btn-fill{background:var(--sumi);color:var(--paper);}
+  .btn-fill:hover{background:var(--shu);border-color:var(--shu);}
+  .btn-line:hover{background:var(--sumi);color:var(--paper);}
 
-  /* Hero: full-bleed photo, overlaid editorial text, bottom-left */
-  .hero{position:relative;height:92vh;min-height:560px;margin-top:0;}
-  .hero .ph{position:absolute;inset:0;border-radius:0;}
-  .hero-inner{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 70px;max-width:900px;}
-  .eyebrow{font-size:.72rem;letter-spacing:.3em;font-weight:700;margin-bottom:22px;text-transform:uppercase;}
-  .hero .eyebrow{color:var(--ink);text-shadow:0 1px 14px rgba(255,255,255,.9),0 0 3px rgba(255,255,255,.9);}
-  .hero h1{font-size:clamp(2.1rem,4.6vw,3.6rem);font-weight:800;line-height:1.5;color:var(--ink);letter-spacing:.02em;text-shadow:0 2px 24px rgba(255,255,255,.85),0 0 6px rgba(255,255,255,.85);}
-  .hero h1 .shu{color:var(--shu-deep);}
-  .hero p{color:var(--ink);max-width:44ch;margin-top:26px;font-size:.94rem;font-weight:500;text-shadow:0 1px 18px rgba(255,255,255,.9),0 0 4px rgba(255,255,255,.9);}
-  .hero-ghost{color:var(--ink);border-color:var(--ink);}
-  .hero-ghost:hover{background:var(--ink);color:#fff;}
-  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:34px;}
+  /* story */
+  .story{background:var(--wash);}
+  .story-photo img{width:100%;aspect-ratio:21/8;object-fit:cover;}
+  .story .wrap{padding-top:72px;padding-bottom:96px;}
+  .story h2{font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:.08em;line-height:1.6;margin-bottom:48px;max-width:20em;}
+  .points{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px;}
+  .points .no{font-size:2rem;color:var(--shu);line-height:1;display:block;margin-bottom:16px;}
+  .points h3{font-size:1.1rem;margin-bottom:8px;letter-spacing:.04em;}
+  .points p{font-size:.93rem;color:var(--sumi-2);}
 
-  section{padding:100px 48px;}
-  .sec-head{max-width:600px;margin-bottom:56px;}
-  .sec-head .eyebrow{color:var(--shu-text);}
-  .sec-head h2{font-size:clamp(1.5rem,2.6vw,2rem);font-weight:800;margin-bottom:14px;letter-spacing:.01em;}
-  .sec-head p{color:var(--ink-soft);font-size:.9rem;}
+  /* menu */
+  .menu{padding:104px 0;}
+  .menu-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:48px;border-bottom:2px solid var(--sumi);padding-bottom:20px;}
+  .menu-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);letter-spacing:.2em;}
+  .menu-head p{font-size:.86rem;color:var(--sumi-2);}
+  .items{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:56px;row-gap:8px;}
+  .item{display:grid;grid-template-columns:112px 1fr auto;gap:20px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line);}
+  .item img{width:112px;height:112px;object-fit:cover;background:var(--wash);}
+  .item h3{font-size:1.15rem;letter-spacing:.06em;}
+  .item p{font-size:.86rem;color:var(--sumi-2);line-height:1.7;}
+  .item .tag{display:inline-block;font-size:.72rem;color:var(--shu);border:1px solid var(--shu);padding:0 8px;margin-left:8px;vertical-align:middle;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:700;letter-spacing:0;}
+  .price{font-size:1.15rem;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .menu-note{margin-top:28px;font-size:.84rem;color:var(--sumi-2);}
 
-  /* Menu: table-style rows */
-  .menu-table{border-top:1px solid var(--line);}
-  .menu-row{display:grid;grid-template-columns:1fr auto auto;gap:20px;align-items:baseline;padding:26px 4px;border-bottom:1px solid var(--line);transition:padding-left .3s;}
-  .menu-row:hover{padding-left:10px;}
-  .menu-row .name{font-size:1.02rem;font-weight:700;}
-  .menu-row .desc{grid-column:1;font-size:.82rem;color:var(--ink-soft);font-weight:300;margin-top:4px;}
-  .menu-row .tag{font-size:.68rem;color:var(--shu-text);letter-spacing:.05em;border:1px solid var(--shu);padding:3px 10px;border-radius:20px;white-space:nowrap;}
-  .menu-row .price{font-size:.95rem;font-weight:700;color:var(--shu-text);white-space:nowrap;}
-  .menu-row.f-salmon .tag{color:var(--salmon-text);border-color:var(--salmon);}
-  .menu-row.f-salmon .price{color:var(--salmon-text);}
-  .menu-row.f-ume .tag{color:var(--ume-text);border-color:var(--ume);}
-  .menu-row.f-ume .price{color:var(--ume-text);}
-  .menu-row.f-mentaiko .tag{color:var(--mentaiko-text);border-color:var(--mentaiko);}
-  .menu-row.f-mentaiko .price{color:var(--mentaiko-text);}
-  .menu-row.f-kombu .tag{color:var(--kombu-text);border-color:var(--kombu);}
-  .menu-row.f-kombu .price{color:var(--kombu-text);}
-  .film-item span.f-salmon{color:#f4c4b4;}
-  .film-item span.f-ume{color:#f0bdd0;}
-  .film-item span.f-mentaiko{color:#f7d6a3;}
-  .film-item span.f-kombu{color:#d3dcc0;}
+  /* access */
+  .access{border-top:1px solid var(--line);padding:96px 0 104px;}
+  .access .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+  .access h2{font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:.14em;margin-bottom:28px;}
+  dl{display:grid;grid-template-columns:7em 1fr;row-gap:14px;column-gap:16px;margin-bottom:32px;}
+  dt{font-weight:700;font-size:.9rem;}
+  dd{font-size:.95rem;}
+  dd small{display:block;font-size:.82rem;color:var(--sumi-2);}
+  .access-cta{display:flex;flex-wrap:wrap;gap:12px;}
+  .map{background:var(--wash);border:1px solid var(--line);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--sumi-2);font-size:.88rem;padding:24px;}
 
-  /* Filmstrip gallery: horizontal scroll */
-  .film-wrap{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-  .film-head{padding:100px 48px 40px;}
-  .filmstrip{display:flex;gap:16px;overflow-x:auto;padding:0 48px 100px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
-  .filmstrip::-webkit-scrollbar{height:6px;}
-  .filmstrip::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;}
-  .film-item{flex:0 0 auto;width:min(76vw,320px);aspect-ratio:4/5;scroll-snap-align:start;}
-  .film-item .ph{width:100%;height:100%;}
+  footer{background:var(--sumi);color:#cfcdc6;font-size:.8rem;padding:36px 0;}
+  footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  footer .min{color:#fff;font-size:1rem;letter-spacing:.12em;}
+  footer a{color:#fff;}
 
-  /* About: split with numbers */
-  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center;}
-  .about-grid .ph{aspect-ratio:4/5;}
-  .about-points{display:flex;flex-direction:column;gap:0;}
-  .about-point{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--line);}
-  .about-point:first-child{border-top:1px solid var(--line);}
-  .about-point .n{font-family:'Shippori Mincho B1',serif;font-size:1.3rem;font-weight:800;color:var(--shu-text);}
-  .about-point h3{font-size:.96rem;font-weight:700;margin-bottom:6px;}
-  .about-point p{font-size:.84rem;color:var(--ink-soft);}
-
-  /* Access/contact: split panel with info + map-style block */
-  .contact-wrap{background:var(--ink);color:#fff;padding:100px 48px;}
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
-  .contact-grid .eyebrow{color:#ffb199;}
-  .contact-grid h2{font-size:clamp(1.5rem,2.6vw,2rem);font-weight:800;margin-bottom:18px;}
-  .contact-grid p{color:rgba(255,255,255,.72);font-size:.9rem;max-width:42ch;margin-bottom:30px;}
-  .info-list{display:flex;flex-direction:column;gap:14px;margin-bottom:34px;font-size:.86rem;}
-  .info-list div{display:flex;gap:14px;color:rgba(255,255,255,.85);}
-  .info-list b{min-width:64px;color:#ffb199;font-weight:700;font-size:.76rem;letter-spacing:.05em;}
-  .map-ph{aspect-ratio:1/1;border-radius:0;background:linear-gradient(155deg,#3a3530,#26221e 60%,#171412);}
-  .map-ph::after{display:none;}
-  .map-ph span{color:rgba(255,255,255,.5);position:static;display:block;text-align:center;padding-top:44%;font-size:.72rem;letter-spacing:.08em;}
-
-  footer{padding:26px 48px;font-size:.76rem;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;background:var(--bg);}
-
-  @media (max-width:920px){
-    header.top{padding:18px 24px;}
-    .hero-inner{padding:0 24px 50px;}
-    section{padding:70px 24px;}
-    .film-head{padding:70px 24px 32px;}
-    .filmstrip{padding:0 24px 70px;}
-    .about-grid{grid-template-columns:1fr;gap:40px;}
-    .contact-wrap{padding:70px 24px;}
-    .contact-grid{grid-template-columns:1fr;gap:36px;}
-    .menu-row{grid-template-columns:1fr auto;}
-    .menu-row .tag{grid-column:2;justify-self:start;}
-    footer{padding:20px 24px 40px;}
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;gap:32px;}
+    .hero-text{order:-1;}
+    .points{grid-template-columns:1fr;gap:36px;}
+    .items{grid-template-columns:1fr;}
+    .access .wrap{grid-template-columns:1fr;gap:40px;}
+  }
+  @media (max-width:600px){
+    .wrap{padding:0 20px;}
+    .hero{padding:32px 0 56px;}
+    .hero-text{gap:20px;}
+    .hero h1{font-size:2.2rem;}
+    .hero-side{font-size:.88rem;max-height:13em;}
+    .hours{position:static;padding:16px 0 0;}
+    .story-photo img{aspect-ratio:4/3;}
+    .story .wrap,.menu,.access{padding-top:64px;padding-bottom:72px;}
+    .item{grid-template-columns:84px 1fr;gap:16px;}
+    .item img{width:84px;height:84px;}
+    .item .price{grid-column:2;}
+    dl{grid-template-columns:5.5em 1fr;}
+    .access-cta .btn{flex:1 1 100%;}
   }
 </style>
 </head>
 <body>
 
-<header class="top">
-  <div class="logo"><b>サンプル</b>飲食店</div>
-  <nav class="top-nav">
-    <a href="#about">こだわり</a>
-    <a href="#menu">メニュー</a>
-    <a href="#gallery">ギャラリー</a>
-    <a href="#contact">アクセス</a>
-  </nav>
-  <div class="top-cta"><a href="#" class="btn-line" style="font-size:.78rem;">Instagram</a></div>
+<div class="sample" role="note">
+  <div class="wrap">
+    <span>noren の制作サンプルです（店名・住所は架空）</span>
+    <a href="../">noren に戻る</a>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="min">一粒</span><small>おむすび専門</small></a>
+    <nav aria-label="メイン">
+      <a href="#story">店のこと</a>
+      <a href="#menu">お品書き</a>
+      <a href="#access">営業案内</a>
+    </nav>
+  </div>
 </header>
 
-<section class="hero">
-  <div class="ph"><img src="./images/hero.jpg" alt="" onerror="this.style.display='none'"></div>
-  <div class="hero-inner">
-    <div class="eyebrow" data-reveal>PORTFOLIO SAMPLE</div>
-    <h1 data-reveal>お米の一粒まで、<span class="shu">丁寧に。</span></h1>
-    <p data-reveal>お米専門のおにぎり店を想定した制作サンプルです。素材と手仕事の空気感を、余白と写真で伝える構成にしています。</p>
-    <div class="hero-cta" data-reveal>
-      <a href="#menu" class="btn btn-solid">メニューを見る</a>
-      <a href="#about" class="btn-line hero-ghost">こだわりを読む</a>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="sec-head" data-reveal>
-    <div class="eyebrow">ABOUT</div>
-    <h2 class="serif">お米へのこだわり、という設定</h2>
-    <p>実際の制作では、実店舗の情報・写真・こだわりの内容に差し替えて仕上げます。</p>
-  </div>
-  <div class="about-grid">
-    <div class="ph" data-reveal><img src="./images/gallery-6.jpg" alt="" onerror="this.style.display='none'"><span>店内の様子</span></div>
-    <div class="about-points" data-reveal>
-      <div class="about-point"><div class="n">01</div><div><h3>産地・品種を厳選</h3><p>お米そのものの甘みが引き立つ品種を選定しているという設定です。</p></div></div>
-      <div class="about-point"><div class="n">02</div><div><h3>注文を受けてから握る</h3><p>目の前で一つひとつ丁寧に握る様子を見ていただける造りという想定です。</p></div></div>
-      <div class="about-point"><div class="n">03</div><div><h3>路地裏の隠れた立地</h3><p>観光の喧騒から少し外れた静かな路地にあるという設定です。</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="menu">
-  <div class="sec-head" data-reveal>
-    <div class="eyebrow">MENU</div>
-    <h2 class="serif">おにぎりラインナップ</h2>
-    <p>実際の制作では、実物の写真・正式な価格に差し替えて仕上げます。</p>
-  </div>
-  <div class="menu-table" data-reveal>
-    <div class="menu-row f-salmon">
-      <div><div class="name">紅鮭</div><div class="desc">脂ののった紅鮭を、ほぐしてたっぷりと。</div></div>
-      <div class="tag">定番</div>
-      <div class="price">¥250</div>
-    </div>
-    <div class="menu-row f-ume">
-      <div><div class="name">南高梅</div><div class="desc">酸味を抑えたまろやかな梅を使用。</div></div>
-      <div class="tag">定番</div>
-      <div class="price">¥230</div>
-    </div>
-    <div class="menu-row f-mentaiko">
-      <div><div class="name">辛子明太子</div><div class="desc">粒立ちの良い辛子明太子をひと粒ずつ。</div></div>
-      <div class="tag">人気</div>
-      <div class="price">¥280</div>
-    </div>
-    <div class="menu-row f-kombu">
-      <div><div class="name">昆布</div><div class="desc">じっくり炊いた甘辛い昆布の佃煮。</div></div>
-      <div class="tag">定番</div>
-      <div class="price">¥220</div>
-    </div>
-    <div class="menu-row">
-      <div><div class="name">季節限定</div><div class="desc">仕入れに応じて内容が変わる季節のおにぎり。</div></div>
-      <div class="tag">季節限定</div>
-      <div class="price">¥300〜</div>
-    </div>
-  </div>
-</section>
-
-<div class="film-wrap">
-  <div class="film-head sec-head" id="gallery" data-reveal>
-    <div class="eyebrow">GALLERY</div>
-    <h2 class="serif">写真で見る、店の空気</h2>
-    <p>横にスクロールしてご覧いただけます。</p>
-  </div>
-  <div class="filmstrip">
-    <div class="film-item ph" data-reveal><img src="./images/gallery-1.jpg" alt="" onerror="this.style.display='none'"><span class="f-salmon">紅鮭</span></div>
-    <div class="film-item ph" data-reveal><img src="./images/gallery-2.jpg" alt="" onerror="this.style.display='none'"><span class="f-ume">梅</span></div>
-    <div class="film-item ph" data-reveal><img src="./images/gallery-3.jpg" alt="" onerror="this.style.display='none'"><span class="f-mentaiko">明太子</span></div>
-    <div class="film-item ph" data-reveal><img src="./images/gallery-4.jpg" alt="" onerror="this.style.display='none'"><span class="f-kombu">昆布</span></div>
-    <div class="film-item ph" data-reveal><img src="./images/gallery-5.jpg" alt="" onerror="this.style.display='none'"><span>季節限定</span></div>
-  </div>
-</div>
-
-<div class="contact-wrap" id="contact">
-  <div class="contact-grid">
-    <div data-reveal>
-      <div class="eyebrow">ACCESS</div>
-      <h2 class="serif">ご来店・お問い合わせ</h2>
-      <p>営業状況は仕入れにより変動するため、最新情報はInstagramでご案内しています。</p>
-      <div class="info-list">
-        <div><b>住所</b><span>架空県架空市中央1-2-3（設定）</span></div>
-        <div><b>営業時間</b><span>11:00–15:00（売り切れ次第終了・設定）</span></div>
-        <div><b>定休日</b><span>月曜・火曜（設定）</span></div>
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-text">
+        <h1 id="hero-title" class="min">一粒まで、<br><em>手で結ぶ。</em></h1>
+        <p class="hero-side">ご注文を受けてから、目の前で一つずつ結びます。</p>
       </div>
-      <div class="hero-cta">
-        <a href="#" class="btn btn-light">Instagramを見る</a>
+      <div>
+        <div class="hero-photo">
+          <img src="./images/hero-sq.webp" width="900" height="900" fetchpriority="high" alt="海苔を巻いた白いおむすび">
+          <p class="hours"><b>11:00 開店</b><span>月・火定休 / 売り切れ次第終了</span></p>
+        </div>
       </div>
     </div>
-    <div class="ph map-ph" data-reveal><span>MAP（実際の制作では地図を設置）</span></div>
-  </div>
-</div>
+  </section>
+
+  <section class="story" id="story" aria-labelledby="story-title">
+    <div class="story-photo"><img src="./images/gallery-6.webp" width="1200" height="800" loading="lazy" alt="白木のカウンターと朱色の椅子が並ぶ店内"></div>
+    <div class="wrap">
+      <h2 id="story-title" class="min"><span class="ph">炊きたてのお米を、</span><span class="ph">いちばんおいしい瞬間に。</span></h2>
+      <ol class="points">
+        <li><span class="no min" aria-hidden="true">壱</span><h3>産地を選んだお米</h3><p>冷めても甘みが残る品種を選び、毎朝その日の分だけ炊いています。</p></li>
+        <li><span class="no min" aria-hidden="true">弐</span><h3>注文を受けてから結ぶ</h3><p>ふんわりと空気を含ませて、カウンター越しに一つずつ結びます。</p></li>
+        <li><span class="no min" aria-hidden="true">参</span><h3>路地裏の小さな店</h3><p>カウンター8席だけの店です。お持ち帰りもできます。</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="menu" id="menu" aria-labelledby="menu-title">
+    <div class="wrap">
+      <div class="menu-head">
+        <h2 id="menu-title" class="min">お品書き</h2>
+        <p>価格はすべて税込です。</p>
+      </div>
+      <ul class="items">
+        <li class="item"><img src="./images/item-1.webp" width="640" height="640" loading="lazy" alt="紅鮭のおむすび"><div><h3 class="min">紅鮭</h3><p>脂ののった紅鮭を、ほぐしてたっぷりと。</p></div><span class="price min">250円</span></li>
+        <li class="item"><img src="./images/item-2.webp" width="640" height="640" loading="lazy" alt="南高梅のおむすび"><div><h3 class="min">南高梅</h3><p>酸味をやわらげた、まろやかな梅。</p></div><span class="price min">230円</span></li>
+        <li class="item"><img src="./images/item-3.webp" width="640" height="640" loading="lazy" alt="辛子明太子のおむすび"><div><h3 class="min">辛子明太子<span class="tag">人気</span></h3><p>粒立ちのよい明太子をひと粒ずつ。</p></div><span class="price min">280円</span></li>
+        <li class="item"><img src="./images/item-4.webp" width="640" height="640" loading="lazy" alt="昆布のおむすび"><div><h3 class="min">昆布</h3><p>じっくり炊いた、甘辛い昆布の佃煮。</p></div><span class="price min">220円</span></li>
+        <li class="item"><img src="./images/item-5.webp" width="640" height="640" loading="lazy" alt="そぼろと卵黄をのせたおむすび"><div><h3 class="min">季節のおむすび<span class="tag">季節</span></h3><p>仕入れによって中身が変わります。今月は鶏そぼろと卵黄。</p></div><span class="price min">300円〜</span></li>
+      </ul>
+      <p class="menu-note">お味噌汁（150円）もご用意しています。</p>
+    </div>
+  </section>
+
+  <section class="access" id="access" aria-labelledby="access-title">
+    <div class="wrap">
+      <div>
+        <h2 id="access-title" class="min">営業案内</h2>
+        <dl>
+          <dt>営業時間</dt><dd>11:00〜15:00<small>お米がなくなり次第、閉店します</small></dd>
+          <dt>定休日</dt><dd>月曜・火曜</dd>
+          <dt>席数</dt><dd>カウンター8席（お持ち帰り可）</dd>
+          <dt>住所</dt><dd>架空県架空市中央1-2-3</dd>
+        </dl>
+        <div class="access-cta">
+          <a class="btn btn-fill" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagramで今日の営業を見る</a>
+        </div>
+      </div>
+      <div class="map" role="img" aria-label="地図の表示位置">実際のサイトでは、ここに Googleマップを表示します</div>
+    </div>
+  </section>
+</main>
 
 <footer>
-  <span>© サンプル飲食店 — this is a portfolio demo mockup, not a real business's website.</span>
-  <span>店名・所在地はすべて架空の設定です。</span>
+  <div class="wrap">
+    <span class="min">おむすび 一粒</span>
+    <span>noren 制作サンプル / <a href="../">noren のサイトへ</a></span>
+  </div>
 </footer>
-
-<script>
-  (function(){
-    var els = document.querySelectorAll('[data-reveal]');
-    if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in');});return;}
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in');io.unobserve(entry.target);}});
-    },{threshold:.12});
-    els.forEach(function(el){io.observe(el);});
-  })();
-</script>
-
 </body>
 </html>
