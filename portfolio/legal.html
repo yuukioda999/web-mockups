@@ -2,109 +2,55 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>特定商取引法に基づく表記 | noren（ノレン）</title>
 <meta name="description" content="個人店向けホームページ制作サービス「noren」の、特定商取引法に基づく表記です。">
 <meta name="robots" content="noindex, nofollow">
-<link rel="icon" href="./assets/icon.png">
-<link rel="apple-touch-icon" href="./assets/icon.png">
+<meta name="theme-color" content="#f3f4f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121429" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="./assets/icon-192.png">
+<link rel="apple-touch-icon" href="./assets/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;800&family=Zen+Maru+Gothic:wght@400;500;700;900&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/site.css">
 <style>
-  :root{
-    --bg:#f8edd2;
-    --paper:#f1e3c4;
-    --cream-card:#fffbf0;
-    --ink:#2e2015;
-    --ink-soft:#6b6154;
-    --line:#e3d2ac;
-    --ink-panel:#2b241c;
-    --ink-panel-2:#352a1d;
-    --coral:#c36a4c;
-    --coral-deep:#8a3f28;
-    --coral-light:#e08b65;
-    --coral-tint:#f3ddd1;
-    --indigo:#4f5680;
-    --indigo-deep:#39406b;
-    --indigo-tint:#e1e2ec;
-    --green:#4b7245;
-    --green-deep:#3a5a34;
-    --green-tint:#e1e9db;
-    --gold:#d6a235;
-    --gold-deep:#7a5713;
-    --gold-tint:#f6e6c3;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  html,body{overflow-x:hidden;overscroll-behavior-x:none;max-width:100vw;}
-  body{
-    width:100%;max-width:100vw;background:var(--bg);color:var(--ink);
-    font-family:'Zen Maru Gothic',sans-serif;line-height:1.85;-webkit-font-smoothing:antialiased;
-  }
-  h1{font-family:'Shippori Mincho',serif;font-weight:800;letter-spacing:.01em;}
-  .disp{font-family:'Fraunces',serif;font-style:italic;font-optical-sizing:auto;}
-  a{color:var(--coral-deep);text-decoration:underline;text-underline-offset:2px;}
-  a:hover{color:var(--coral);}
-  .wrap{max-width:840px;margin:0 auto;padding:0 24px;}
-
-  header{padding:22px 0;border-bottom:1px solid var(--line);background:var(--bg);}
-  header .wrap{display:flex;align-items:center;justify-content:space-between;}
-  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
-  .brand img{width:38px;height:38px;border-radius:10px;display:block;}
-  .brand-text{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:1.15rem;color:var(--ink);line-height:1.2;}
-  .brand-sub{display:block;font-family:'Zen Maru Gothic',sans-serif;font-style:normal;font-size:.6rem;color:var(--ink-soft);letter-spacing:.06em;margin-top:1px;font-weight:500;}
-  .back{font-size:.82rem;color:var(--ink-soft);text-decoration:none;}
-  .back:hover{color:var(--coral-deep);}
-
-  main{padding:56px 0 90px;}
-  h1{font-size:clamp(1.6rem,4vw,2.1rem);margin-bottom:10px;}
-  .lede{color:var(--ink-soft);font-size:.92rem;margin-bottom:40px;}
-
-  table{width:100%;border-collapse:collapse;margin-bottom:16px;background:var(--cream-card);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
-  table th,table td{
-    text-align:left;padding:18px 20px;border-top:1px solid var(--line);
-    vertical-align:top;font-size:.92rem;
-  }
-  table tr:first-child th,table tr:first-child td{border-top:none;}
-  table th{
-    width:9.5em;flex-shrink:0;color:var(--ink-soft);font-weight:700;
-    white-space:nowrap;
-  }
-  table td{color:var(--ink);}
-  table td .sub{display:block;font-size:.8rem;color:var(--ink-soft);margin-top:4px;line-height:1.7;}
-
+  main{padding:56px 0 96px;}
+  main .wrap{max-width:880px;}
+  h1{font-size:clamp(1.6rem,3.6vw,2.2rem);font-weight:900;margin-bottom:12px;}
+  .lede{color:var(--ink-2);font-size:.95rem;margin-bottom:36px;}
+  table{width:100%;border-collapse:separate;border-spacing:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-panel);overflow:hidden;}
+  th,td{text-align:left;vertical-align:top;padding:18px 22px;border-top:1px solid var(--line);font-size:.93rem;line-height:1.85;}
+  tr:first-child th,tr:first-child td{border-top:none;}
+  th{width:11em;color:var(--ink-2);font-weight:700;white-space:nowrap;}
+  td a{color:var(--accent);text-underline-offset:3px;}
+  td .sub{display:block;font-size:.82rem;color:var(--ink-2);margin-top:4px;line-height:1.75;}
+  .back{font-size:.88rem;font-weight:700;color:var(--ink-2);text-decoration:none;display:inline-flex;align-items:center;min-height:44px;}
+  .back:hover{color:var(--ink);}
   @media (max-width:640px){
-    table, table tbody, table tr, table th, table td{display:block;width:100%;}
-    table tr{border-top:1px solid var(--line);padding:16px 20px;}
-    table tr:first-child{border-top:none;}
-    table th, table td{border:none;padding:2px 0;}
-    table th{color:var(--coral-deep);font-size:.76rem;text-transform:uppercase;letter-spacing:.04em;}
+    table,tbody,tr,th,td{display:block;width:100%;}
+    tr{border-top:1px solid var(--line);padding:16px 18px;}
+    tr:first-child{border-top:none;}
+    th,td{border:none;padding:0;}
+    th{font-size:.8rem;margin-bottom:2px;}
   }
-
-  footer{padding:30px 24px;text-align:center;font-size:.76rem;color:var(--ink-soft);border-top:1px solid var(--line);background:var(--bg);}
 </style>
 </head>
 <body>
-
-<header>
+<a class="skip" href="#main">本文へ移動</a>
+<header class="site-head">
   <div class="wrap">
-    <a class="brand" href="./index.html">
-      <img src="./assets/icon.png" alt="noren ロゴ">
-      <span>
-        <span class="brand-text">noren</span>
-        <span class="brand-sub">個人店のホームページ制作</span>
-      </span>
+    <a class="brand" href="./" aria-label="noren トップ">
+      <img src="./assets/icon-160.webp" width="40" height="40" alt="">
+      <span><span class="brand-name">noren</span><span class="brand-sub">個人店のホームページ制作</span></span>
     </a>
-    <a class="back" href="./index.html">← トップに戻る</a>
+    <a class="back" href="./">トップに戻る</a>
   </div>
 </header>
-
-<main>
+<main id="main">
   <div class="wrap">
     <h1>特定商取引法に基づく表記</h1>
     <p class="lede">本ページは、当方が提供する個人店向けホームページ制作サービス「noren（ノレン）」に関する、特定商取引法に基づく表示です。</p>
-
     <table>
       <tr><th>販売事業者</th><td>小田裕貴</td></tr>
       <tr><th>運営責任者</th><td>小田裕貴</td></tr>
@@ -121,8 +67,11 @@
     </table>
   </div>
 </main>
-
-<footer>© 小田裕貴 — noren（個人店向けホームページ制作サービス）</footer>
-
+<footer class="site-foot">
+  <div class="wrap">
+    <span>© 小田裕貴 / noren 個人店のホームページ制作</span>
+    <a href="./">トップに戻る</a>
+  </div>
+</footer>
 </body>
 </html>
