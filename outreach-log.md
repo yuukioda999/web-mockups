@@ -39,6 +39,42 @@
 
 | YAGURA（ヤグラ） | 一般ティア（抹茶・ほうじ茶ラテ専門ティースタンド／長野県松本市丸の内2-11。開業2026-05-20のため新規開店ティア基準外） | https://yuukioda999.github.io/web-mockups/mockups/yagura-matsumoto.html | Instagram: https://www.instagram.com/yagura_matsumoto/ | 下書き作成済・未送信 | 2026-10-05 |
 
+| アジャリカフェ | 一般ティア（カフェ／長野県松本市。公式サイト不在、個人ブログ（cocolog-nifty）のみ） | - | - | Instagram: https://www.instagram.com/ajari_cafe | 初回営業・送信待ち | 2026-10-05 |
+| チャマメ カフェ | 一般ティア（カフェ／岐阜県高山市。公式サイト不在、季節野菜ランチが特徴） | - | - | Instagram: https://www.instagram.com/chamamecafe | 初回営業・送信待ち | 2026-10-05 |
+| ツジカフェ | 一般ティア（紅茶専門カフェ／岐阜県高山市。公式サイト不在、アフタヌーンティー提供） | - | - | Instagram: https://www.instagram.com/tsugcafe | 初回営業・送信待ち | 2026-10-05 |
+
+| 松阪肉　めし勇精肉店 | DIYサイト保有ティア（精肉店／三重県伊勢市。STORES.jp運営、昭和22年創業の老舗） | - | - | フォーム: https://meshiyu2983.stores.jp/inquiry | 見送り（既存サイトあり・方針変更で対象外） | 2026-10-05 |
+| aki.hana | DIYサイト保有ティア（雑貨・アクセサリー（真珠）／三重県伊勢市。BASEショップ運営） | - | - | フォーム: https://thebase.com/inquiry/akihana-theshop-jp | 見送り（既存サイトあり・方針変更で対象外） | 2026-10-05 |
+| PIZZA Ktarou | DIYサイト保有ティア（飲食（冷凍ピザ）／山形県米沢市。BASEショップ運営、グルメグランプリ受賞） | - | - | フォーム: https://thebase.com/inquiry/ktaroushop | 見送り（既存サイトあり・方針変更で対象外） | 2026-10-05 |
+
+| 白布温泉 中屋別館不動閣 | DIYサイト保有ティア（旅館・ゲストハウス／山形県米沢市。Wixサイト運営、家族経営） | - | - | フォーム: https://www.fudokaku.com/contact | 見送り（既存サイトあり・方針変更で対象外） | 2026-10-05 |
+| 革工房アバッリ ABALLI | DIYサイト保有ティア（工芸（革製品）／新潟県村上市。Wixサイト運営、草加皮革大賞受賞） | - | - | フォーム: https://www.aballi.jp （CONTACTページ内フォーム） | 見送り（既存サイトあり・方針変更で対象外） | 2026-10-05 |
+| KUON（空穏） | DIYサイト保有ティア（伝統工芸・雑貨（鋳物）／富山県高岡市。Wixサイト運営） | - | - | フォーム: https://www.kuon-life.com/contact | 見送り（既存サイトあり・方針変更で対象外） | 2026-10-05 |
+
+| Handnitting ORIZURU | DIYサイト保有ティア（手編み・手芸／富山県高岡市。Wixサイト運営） | - | - | フォーム: https://www.orizuruknit.com/contact | 見送り（既存サイトあり・方針変更で対象外） | 2026-10-05 |
+| dotto・CANDLE | DIYサイト保有ティア（手作りキャンドル・アロマ／北海道小樽市。BASEショップ運営） | - | - | フォーム: https://thebase.com/inquiry/dottocandle | 見送り（既存サイトあり・方針変更で対象外） | 2026-10-05 |
+| 宅配クリーニング ONE MORE | DIYサイト保有ティア（宅配クリーニング／青森県弘前市。BASEショップ運営、Makuake実績あり） | - | - | フォーム: https://thebase.com/inquiry/onemoreclean-official-ec | 見送り（既存サイトあり・方針変更で対象外） | 2026-10-05 |
+
+| みうら生花店 花蔵 | DIYサイト保有ティア（生花店／山形県鶴岡市。BASEショップ運営、内閣総理大臣賞受賞） | - | - | フォーム: https://thebase.com/inquiry/hanazo87-thebase-in | 見送り（既存サイトあり・方針変更で対象外） | 2026-10-05 |
+| woodenpoly | DIYサイト保有ティア（木工工芸（多面体モデル）／山口県萩市。BASEショップ運営） | - | - | フォーム: https://thebase.com/inquiry/woodenpoly | 見送り（既存サイトあり・方針変更で対象外） | 2026-10-05 |
+| NEW TOKYO BARBER | DIYサイト保有ティア（理容室／愛媛県大洲市。BASEショップ運営） | - | - | フォーム: https://thebase.com/inquiry/ntstyle | 見送り（既存サイトあり・方針変更で対象外） | 2026-10-05 |
+
+| 麺屋 淳一（めんやじゅんいち） | 新規開店ティア（ラーメン店／山口県山陽小野田市。2026-08-03オープン） | - | - | Instagram: https://www.instagram.com/menyajun1/ | 初回営業・送信待ち | 2026-10-06 |
+| Gelateria Giorno（ジェラテリア ジョルノ） | 新規開店ティア（ジェラート店／栃木県宇都宮市。2026-09-18オープン） | - | - | Instagram: https://www.instagram.com/gelateria_giorno/ | 初回営業・送信待ち | 2026-10-06 |
+| Dad&Mom（ダッドアンドマム） | 新規開店ティア（カフェキッチン／愛媛県四国中央市。2026-09-26オープン） | - | - | Instagram: https://www.instagram.com/dadmom0926/ | 初回営業・送信待ち | 2026-10-06 |
+
+| 吉金（よしきん） | 新規開店ティア（パエリア・生ラム店／青森県八戸市。2026-10-04オープン） | - | - | Instagram: https://www.instagram.com/yoshikin2026_paella/ | 送信済み | 2026-10-07 |
+| Lunch＆Cafe トリトン（夜は「鶏と豚とちょっと牛 とりとん」） | 新規開店ティア（カフェ・夜は焼き鳥／青森県三沢市。2026-09-11オープン） | - | - | Instagram: https://www.instagram.com/toriton_lunchandcafe/ | 送信済み | 2026-10-07 |
+| 小麦作ベーカリー（こむぎさくベーカリー） | 新規開店ティア（ベーカリー／東京都八王子市。2026-10-01グランドオープン） | - | - | Instagram: https://www.instagram.com/komugisaku_bakery/ | 送信済み | 2026-10-07 |
+| 炭焼とり根 | 新規開店ティア（焼き鳥・炭焼き料理店／佐賀県佐賀市大財。2026-09-10オープン） | - | - | Instagram: https://www.instagram.com/torine_saga/ | 初回営業・送信待ち | 2026-10-08 |
+| 骨付鳥専門店こころ | 新規開店ティア（骨付鳥専門店／香川県高松市瓦町。2026-09-04オープン） | - | - | Instagram: https://www.instagram.com/honetukidori556 | 初回営業・送信待ち | 2026-10-08 |
+| わいわい食堂 | 新規開店ティア（食堂・海鮮定食／島根県松江市美保関町片江。2026-07-25オープン） | - | - | Instagram: https://www.instagram.com/katae.shimane/ | 初回営業・送信待ち | 2026-10-08 |
+
+
+| BOUQUET BAGEL LAB（ブーケベーグルラボ） | 新規開店ティア（ベーグル専門店／埼玉県狭山市笹井。2026-10-05グランドオープン） | - | - | Instagram: https://www.instagram.com/bouquet_bagel/ | 初回営業・送信待ち | 2026-10-09 |
+| 日常茶飯（にちじょうさはん） | 新規開店ティア（和菓子・テイクアウト甘味処／石川県金沢市東山。2026-10-01オープン。1926年創業「天野茶店」の新ブランド） | - | - | Instagram: https://www.instagram.com/nichijyousahan_kanazawa/ | 初回営業・送信待ち | 2026-10-09 |
+| むぎわらや マルシェ＆カフェ | 新規開店ティア（青果店＋カフェ／佐賀県佐賀市北川副町。2026-09-01オープン） | - | - | Instagram: https://www.instagram.com/mugiwaraya.tange/ | 初回営業・送信待ち | 2026-10-09 |
+
 ## 備考
 - 候補リサーチの全詳細（除外店舗リスト・検証済み出典URLなど）は自動タスクの実行ログを参照。
 - 各モックアップはPlaywrightによるセルフレビュー（375px/768px/1440pxでのレンダリング確認、コンソールエラー確認、パスワードゲートの解錠確認、アクセントカラーのコントラスト比確認）を実施済み。

@@ -285,3 +285,17 @@ Agent(general-purpose)サブエージェント3体を長岡市（新潟県）・
 - KUON・ORIZURU（いずれも有限会社）、PIZZA Ktarou・革工房アバッリ（既存、いずれも株式会社）など、法人格ありだが単独1拠点の個人営業色が強い候補が複数蓄積している。「個人経営」の定義（チェーンでなければ法人格があっても候補化可）は今回も前例踏襲で採用したが、モックアップ制作前にユーザー判断を仰ぐべきタイミングかもしれない。
 - fragments d-style（日南市）は住所・運営者が確認できず見送ったが、フォーム自体は完全動作確認済みの良質な候補。将来再調査の価値あり。
 - Tier Aが本日大幅に目標超過したため、次回firing以降は一旦Tier Aの新規ソーシングを控え、蓄積した12件の中からモックアップ制作フェーズへの引き渡し（pending-candidates.mdからの消化）を優先することも検討材料。
+
+---
+## 2026-10-05 20:09 JST firing（自動実行・軽量確認のみ）
+
+**firing開始時点の本日分カウント（pending-candidates.md + outreach-log.md、日付2026-10-05で集計）:**
+- Tier A: 12件（pending-candidates.md 0件 + outreach-log.md 12件: 松阪肉 めし勇精肉店・aki.hana・PIZZA Ktarou・白布温泉 中屋別館不動閣・革工房アバッリ ABALLI・KUON（空穏）・Handnitting ORIZURU・dotto・CANDLE・宅配クリーニング ONE MORE・みうら生花店 花蔵・woodenpoly・NEW TOKYO BARBER）→ 目標7件を大幅に超過済み。
+- Tier B: 4件（pending-candidates.md 0件 + outreach-log.md 4件: YAGURA・アジャリカフェ・チャマメ カフェ・ツジカフェ）→ 上限3件を超過済み。
+
+**両ティアとも本日の目標・上限に既に到達しているため、本firingは新規ソーシングを行わず終了した（スキル手順3項「両方到達していれば今回のfiringは軽い通知のみで終了してよい」に従った）。** 直前の19:50 JST firing（storeleads.app手法によるサブエージェント3体投入）でTier Aが一気に12件まで積み上がったため、本firingでの追加探索は不要と判断。pending-candidates.mdは現在0件（本日分の候補はすべてoutreach-log.mdに直接記録済み）。
+
+**次回への引き継ぎ（前回firingからの継続事項、変更なし）:**
+- 小浜市（Obama）・伊那市（Ina）はstoreleads.app手法で未着手のまま残っている。
+- Tier Aが本日大幅に目標超過したため、次回firing以降は新規ソーシングを一旦控え、蓄積した12件の中からモックアップ制作フェーズへの引き渡しを優先することも検討材料（ユーザー判断推奨）。
+- BASE系フォームURL（thebase.com/inquiry/*）はこの環境から直接アクセス不可（robots.txt＋プロキシ側CONNECT 403の二重ブロック）と判明済み。モックアップ制作・営業送信前に該当5件（dotto・CANDLE、ONE MORE、花蔵、woodenpoly、NEW TOKYO BARBER）のフォーム動作を手動確認することを推奨。
